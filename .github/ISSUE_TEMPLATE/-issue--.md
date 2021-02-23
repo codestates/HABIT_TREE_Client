@@ -2,7 +2,7 @@
 name: "[Issue Card] "
 about: Suggest an idea for this project
 title: "[Issue] "
-labels: ''
+labels: 'Issue'
 assignees: ''
 
 ---
