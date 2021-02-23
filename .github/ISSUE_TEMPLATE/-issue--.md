@@ -1,7 +1,7 @@
 ---
 name: "[Issue Card] "
 about: Suggest an idea for this project
-title: "[Issue] 작업 중 발생한 이슈에 대해 기록해주세요"
+title: "[Issue] "
 labels: ''
 assignees: ''
 
