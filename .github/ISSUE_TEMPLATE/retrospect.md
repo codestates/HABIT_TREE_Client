@@ -1,7 +1,7 @@
 ---
-name: Restrospect
+name: Retrospect
 about: 프로젝트를 진행하면서 느낀점 등을 회고하는 란입니다.
-title: "[Restrospect] 작업에 대한 회고를 써주세요"
+title: "[Retrospect] 작업에 대한 회고를 써주세요"
 
 ---
 
