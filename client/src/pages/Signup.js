@@ -1,17 +1,17 @@
-import React from "react";
-import { withRouter, Link } from "react-router-dom";
-import axios from "axios";
+import React from 'react';
+import { withRouter, Link } from 'react-router-dom';
+import axios from 'axios';
 
 axios.defaults.withCredentials = true;
 class Signup extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      email: "",
-      password: "",
-      username: "",
-      mobile: "",
-      errorMessage: ""
+      email: '',
+      password: '',
+      username: '',
+      mobile: '',
+      errorMessage: '',
     };
     this.handleInputValue = this.handleInputValue.bind(this);
   }
@@ -29,28 +29,27 @@ class Signup extends React.Component {
     const { email, password, mobile, username } = this.state;
     if (!email || !password || !mobile || !username) {
       this.setState({
-        errorMessage: "모든 항목은 필수입니다"
+        errorMessage: '모든 항목은 필수입니다',
       });
       return;
-    }
-    else {
+    } else {
       this.setState({
-        errorMessage: ""
+        errorMessage: '',
       });
     }
 
     axios
-      .post("https://localhost:4000/signup", {
+      .post('https://localhost:4000/signup', {
         email: email,
         password: password,
         username: username,
         mobile: mobile,
       })
       .then((res) => {
-        this.props.history.push("/");
+        this.props.history.push('/');
       })
       .catch((err) => console.log(err));
-  }
+  };
 
   render() {
     return (
@@ -63,44 +62,45 @@ class Signup extends React.Component {
               <span>이메일</span>
               <input
                 type="email"
-                onChange={this.handleInputValue("email")}
+                onChange={this.handleInputValue('email')}
               ></input>
             </div>
             <div>
               <span>비밀번호</span>
               <input
                 type="password"
-                onChange={this.handleInputValue("password")}
+                onChange={this.handleInputValue('password')}
               ></input>
             </div>
             <div>
               <span>이름</span>
               <input
-                type='text'
-                onChange={this.handleInputValue("username")}
+                type="text"
+                onChange={this.handleInputValue('username')}
               ></input>
             </div>
             <div>
               <span>전화번호</span>
               <input
-                type='tel'
-                onChange={this.handleInputValue("mobile")}
+                type="tel"
+                onChange={this.handleInputValue('mobile')}
               ></input>
             </div>
             <div>
-              <Link to='/login'>이미 아이디가 있으신가요?</Link>
+              <Link to="/login">이미 아이디가 있으신가요?</Link>
             </div>
             <button
               className="btn btn-signup"
-              type='submit'
+              type="submit"
               onClick={this.handleSignup}
             >
               회원가입
             </button>
-            {this.state.errorMessage ?
-              <div className="alert-box">
-                {this.state.errorMessage}
-              </div> : ''}
+            {this.state.errorMessage ? (
+              <div className="alert-box">{this.state.errorMessage}</div>
+            ) : (
+              ''
+            )}
           </form>
         </center>
       </div>
