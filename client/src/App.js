@@ -53,11 +53,11 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route exact path="/">
-            <Main></Main>
-          </Route>
+            <Main> </Main>{' '}
+          </Route>{' '}
           <Route path="/home">
-            <Home></Home>
-          </Route>
+            <Home> </Home>{' '}
+          </Route>{' '}
           <Route
             path="/login"
             render={() => (
@@ -66,7 +66,7 @@ class App extends React.Component {
                 handleResponseSuccess={this.handleResponseSuccess.bind(this)}
               />
             )}
-          />
+          />{' '}
           <Route
             exact
             path="/signup"
@@ -81,7 +81,7 @@ class App extends React.Component {
                 handleLogout={this.handleLogout.bind(this)}
               />
             )}
-          />
+          />{' '}
           <Route
             path="/"
             render={() => {
@@ -90,8 +90,8 @@ class App extends React.Component {
               }
               return <Redirect to="/login" />;
             }}
-          />
-        </Switch>
+          />{' '}
+        </Switch>{' '}
       </div>
     );
   }
