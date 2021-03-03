@@ -1,8 +1,9 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 axios.defaults.withCredentials = true;
 
-export const uploadHabit = (title: string, token: string | null) => {
+export const uploadHabit = (title: string) => {
+  const token = localStorage.getItem('access_token');
   return axios
     .post(
       'https://habittree.gq/habits/upload',
@@ -19,7 +20,9 @@ export const uploadHabit = (title: string, token: string | null) => {
     .catch((err) => console.log(err));
 };
 
-export const getAllHabits = (token: string | null) => {
+export const getAllHabits = () => {
+  const token = localStorage.getItem('access_token');
+
   return axios
     .post('https://habittree.gq/habits/findAll', {
       headers: {
@@ -30,7 +33,9 @@ export const getAllHabits = (token: string | null) => {
     .catch((err) => console.log(err));
 };
 
-export const getHabit = (token: string | null) => {
+export const getHabit = () => {
+  const token = localStorage.getItem('access_token');
+
   return axios
     .post('https://habittree.gq/habits/findOne', {
       headers: {
@@ -41,26 +46,31 @@ export const getHabit = (token: string | null) => {
     .catch((err) => console.log(err));
 };
 
-export const removeHabit = (
-  token: string | null
-): Promise<void | AxiosResponse<any>> => {
-  return axios
-    .delete('https://habittree.gq/habits/remove', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((result) => result)
-    .catch((err) => console.log(err));
+export const removeHabit = (id: number) => {
+  const token = localStorage.getItem('access_token');
+  if (!token) {
+    throw new Error('not Authorized');
+  } else {
+    return axios
+      .delete('https://habittree.gq/habits/remove', { data: { id } })
+      .then((result) => result)
+      .catch((err) => console.log(err));
+  }
 };
 
-export const updateHabit = (token: string | null) => {
+export const updateHabit = (id: number) => {
+  const token = localStorage.getItem('access_token');
+
   return axios
-    .post('https://habittree.gq/habits/update', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    .post(
+      'https://habittree.gq/habits/update',
+      { id },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
     .then((result) => result)
     .catch((err) => console.log(err));
 };

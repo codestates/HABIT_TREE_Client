@@ -1,4 +1,4 @@
-const Forest = () => {
-  return <div>숲이다</div>;
+const Forest = (props: any) => {
+  return <div>{props.data}</div>;
 };
 export default Forest;

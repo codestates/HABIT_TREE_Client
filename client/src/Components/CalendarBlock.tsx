@@ -1,11 +1,14 @@
+import { useState } from 'react';
 import ReactCalendar from './Calendar';
 import UploadHabit from './UploadHabit';
 
-const CalendarBlock = () => {
+const CalendarBlock = ({ habits, setHabits }: any) => {
+  const [events, setEvents] = useState(habits);
+
   return (
     <div>
-      <UploadHabit />
-      <ReactCalendar />
+      <UploadHabit events={events} setEvents={setEvents} />
+      <ReactCalendar events={events} setEvents={setEvents} />
     </div>
   );
 };

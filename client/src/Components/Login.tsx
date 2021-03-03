@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-// import "../App.css";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { login } from '../API/users';
+import { getHabits, login } from '../API/users';
 import { BsFillPersonFill } from 'react-icons/bs';
 axios.defaults.withCredentials = true;
 
-function Login() {
+function Login(props: any) {
+  const { habits, setHabits } = props;
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -18,11 +18,13 @@ function Login() {
     setPassword(event.target.value);
   };
 
-  const userLogin = () => {
-    const result = login(username, password);
+  const userLogin = async () => {
+    const result = await login(username, password);
     if (result) {
       localStorage.setItem('isLogin', JSON.stringify(true));
       localStorage.setItem('access_token', String(result));
+      const habit = getHabits();
+      setHabits(habit);
     }
   };
 
@@ -36,7 +38,6 @@ function Login() {
     >
       <h1>
         <div>
-          {' '}
           <BsFillPersonFill size="150" />
         </div>
       </h1>
@@ -50,19 +51,22 @@ function Login() {
           <span>비밀번호</span>
           <input
             type="password"
+            style={{ fontFamily: 'sans-serif' }}
             onChange={(e) => handleInputPassword(e)}
           ></input>
         </div>
-        <div>
-          <Link to="/signup">아직 아이디가 없으신가요?</Link>
-        </div>
-        <button
-          className="btn btn-login"
-          type="submit"
-          onClick={() => userLogin()}
-        >
+        <button className="btn btn-login" onClick={() => userLogin()}>
           로그인
         </button>
+        카카오로그인
+        <a href="https://habittree.gq/users/kakaoLogin">
+          <button className="btn btn-kakao"></button>
+        </a>
+        <div>
+          <Link to="/signup">
+            <button>회원가입</button>
+          </Link>
+        </div>
       </form>
     </div>
   );
