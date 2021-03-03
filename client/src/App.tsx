@@ -10,6 +10,8 @@ import Main from './Components/Main';
 
 function App() {
   const [isMain, setIsMain] = useState<boolean>(true);
+  const [habits, setHabits] = useState([]);
+
   return (
     <>
       {isMain ? (
@@ -23,10 +25,18 @@ function App() {
           <Nav />
           <Switch>
             <Route exact={true} path="/home">
-              <Home />
+              <Home habits={habits} setHabits={setHabits} />
             </Route>
-            <Route exact={true} path="/login" render={() => <Login />} />
-            <Route exact={true} path="/mypage" render={() => <Mypage />} />
+            <Route
+              exact={true}
+              path="/login"
+              render={() => <Login habits={habits} setHabits={setHabits} />}
+            />
+            <Route
+              exact={true}
+              path="/mypage"
+              render={() => <Mypage habits={habits} setHabits={setHabits} />}
+            />
             <Route exact={true} path="/signup" render={() => <Signup />} />
           </Switch>
         </div>

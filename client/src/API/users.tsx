@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 axios.defaults.withCredentials = true;
 
@@ -18,48 +18,68 @@ export const login = (username: string, password: string) => {
     .catch((err) => console.log(err));
 };
 
-export const getUsers = (token: string | null) => {
-  return axios
-    .get('https://habittree.gq/users/findAll', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((result) => result)
-    .catch((err) => console.log(err));
+export const getUsers = () => {
+  let token = localStorage.getItem('access_token');
+  if (!token) {
+    throw new Error('not Authorized');
+  } else {
+    return axios
+      .get('https://habittree.gq/users/findAll', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((result) => result)
+      .catch((err) => console.log(err));
+  }
 };
 
-export const getUser = (token: string | null) => {
-  return axios
-    .post('https://habittree.gq/users/findOne', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((result) => result)
-    .catch((err) => console.log(err));
+export const getUser = () => {
+  let token = localStorage.getItem('access_token');
+  if (!token) {
+    throw new Error('not Authorized');
+  } else {
+    return axios
+      .post('https://habittree.gq/users/findOne', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((result) => result)
+      .catch((err) => console.log(err));
+  }
 };
 
-export const removeUser = (token: string | null) => {
-  return axios
-    .delete('https://habittree.gq/users/remove', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((res) => res)
-    .catch((err) => console.log(err));
+export const removeUser = () => {
+  let token = localStorage.getItem('access_token');
+  if (!token) {
+    throw new Error('not Authorized');
+  } else {
+    return axios
+      .delete('https://habittree.gq/users/remove', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((res) => res)
+      .catch((err) => console.log(err));
+  }
 };
 
-export const getHabits = (token: string | null) => {
-  return axios
-    .post('https://habittree.gq/users/getHabits', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
-    .then((result) => result)
-    .catch((err) => console.log(err));
+export const getHabits = () => {
+  let token = localStorage.getItem('access_token');
+  if (!token) {
+    throw new Error('not Authorized');
+  } else {
+    return axios
+      .post('https://habittree.gq/users/getHabits', {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then((result) => result)
+      .catch((err) => console.log(err));
+  }
 };
 
 export const signUp = (
@@ -80,4 +100,16 @@ export const signUp = (
     })
     .then((result) => result)
     .catch((err) => err);
+};
+
+export const updateUser = (password: string) => {
+  if (!password) {
+    throw new Error('빈 칸이 있습니다');
+  }
+  return axios
+    .post('https://habittree.gq/users/update', {
+      password,
+    })
+    .then((result) => result)
+    .catch((err) => console.log(err));
 };
