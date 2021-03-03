@@ -1,0 +1,41 @@
+.messageModal {
+  position: absolute;
+  right: 3%;
+  top: 10%;
+  border: 1px solid black;
+}
+
+.styledButton {
+  display: inline-flex;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  padding-top: 0.3rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  background: #339af0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.styledButton:hover {
+  background: #339af0;
+}
+
+.styledButton:active {
+  background: #1c7ed6;
+}
+
+.messageModal_content {
+  color: black;
+  font-family: "DX하늘구름 Std";
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
