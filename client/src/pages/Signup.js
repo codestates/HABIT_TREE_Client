@@ -1,6 +1,7 @@
 import React from "react";
 import { withRouter, Link } from "react-router-dom";
 import axios from "axios";
+import { BsFillPersonPlusFill } from 'react-icons/bs';
 
 axios.defaults.withCredentials = true;
 class Signup extends React.Component {
@@ -21,11 +22,6 @@ class Signup extends React.Component {
   };
 
   handleSignup = () => {
-    // TODO : 서버에 회원가입 요청 후 로그인 페이지로 이동 하세요.
-    //        로그인 페이지로 이동시, 다음 코드를 이용하세요.
-    //        this.props.history.push("/");
-    //
-    // TODO : 모든 항목을 입력하지 않았을 경우 에러를 표시해야 합니다.
     const { email, password, mobile, username } = this.state;
     if (!email || !password || !mobile || !username) {
       this.setState({
@@ -56,7 +52,7 @@ class Signup extends React.Component {
     return (
       <div>
         <center>
-          <h1>회원가입</h1>
+          <h1><div><BsFillPersonPlusFill size='150' /></div><br />회원가입</h1>
           <form onSubmit={(e) => e.preventDefault()}>
             <div>모든 항목은 필수입니다</div>
             <div>

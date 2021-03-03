@@ -1,6 +1,7 @@
 import React from "react";
 // import "../App.css";
 import { Link, withRouter } from "react-router-dom";
+import { BsFillPersonFill } from 'react-icons/bs';
 import axios from "axios";
 
 axios.defaults.withCredentials = true;
@@ -20,8 +21,6 @@ class Login extends React.Component {
     this.setState({ [key]: e.target.value });
   };
   handleLogin = () => {
-    // TODO : 서버에 로그인 요청 후 처리하세요.
-    // TODO : 이메일 및 비밀번호를 입력하지 않았을 경우 에러를 표시해야 합니다.
     const { handleResponseSuccess } = this.props;
     const { email, password } = this.state;
 
@@ -52,7 +51,7 @@ class Login extends React.Component {
     return (
       <div>
         <center>
-          <h1>로그인</h1>
+          <h1><div><BsFillPersonFill size='150' /></div><br />로그인</h1>
           <form onSubmit={(e) => e.preventDefault()}>
             <div>
               <span>이메일</span>
