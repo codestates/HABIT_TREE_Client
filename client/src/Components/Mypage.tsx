@@ -1,15 +1,20 @@
 import React, { useEffect, useState } from 'react';
-import { getUser } from '../API/users';
+import { getHabits } from '../API/users';
 import Forest from './Forest';
-import UserInfo from './UserInfo';
 import { CgTree } from 'react-icons/cg';
+import UserInfoBlock from './UserInfoBlock';
+import { getForest } from '../API/forest';
 
-const Mypage = () => {
+const Mypage = ({ habits, setHabits }: any) => {
   const [userInfo, setUserInfo] = useState<any>([]);
+  const [forest, setForest] = useState<any>([]);
 
   const getUserInfo = () => {
-    const token = localStorage.getItem('access_token');
-    return getUser(token);
+    return getHabits();
+  };
+
+  const getForests = () => {
+    return getForest();
   };
 
   useEffect(() => {
@@ -23,6 +28,17 @@ const Mypage = () => {
       }
     };
     fetchUsers();
+
+    const fetchForest = async () => {
+      try {
+        setForest([]);
+        const result = getForests();
+        setForest(result);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchForest();
   }, []);
 
   return (
@@ -32,8 +48,8 @@ const Mypage = () => {
         <br />
         마이페이지 <div> </div>
       </h1>
-      <Forest></Forest>
-      <UserInfo userInfo={userInfo}> </UserInfo>
+      <Forest forest={forest}></Forest>
+      <UserInfoBlock userInfo={userInfo} forest={forest}></UserInfoBlock>
     </div>
   );
 };

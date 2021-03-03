@@ -1,7 +1,7 @@
 import CalendarBlock from './CalendarBlock';
 import TreeBlock from './TreeBlock';
 
-function Home() {
+function Home({ habits, setHabits }: any) {
   return (
     <div
       style={{
@@ -15,17 +15,16 @@ function Home() {
           display: 'flex',
           width: '50%',
           height: '100vh',
-          border: '1px solid black',
           justifyContent: 'center',
         }}
       >
-        <CalendarBlock></CalendarBlock>
+        <CalendarBlock habits={habits} setHabits={setHabits}></CalendarBlock>
       </div>
       <div
         style={{
           height: '100vh',
           width: '50%',
-          border: '2px solid black',
+          justifyContent: 'center',
         }}
       >
         <TreeBlock></TreeBlock>
