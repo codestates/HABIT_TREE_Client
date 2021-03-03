@@ -1,17 +1,15 @@
 * {
-
-    font-family: '닉스곤체 2.0';
-    font-size: 40px;
-    /*color: darkgray;*/
+  font-family: "닉스곤체 2.0";
+  font-size: 40px;
+  /*color: darkgray;*/
 }
 
 .btn {
-    border: none;
-    outline: none;
-    background-color: transparent;
+  border: none;
+  outline: none;
+  background-color: transparent;
 }
 
-.main
-    color: white;
+.main {
+  color: white;
 }
-
