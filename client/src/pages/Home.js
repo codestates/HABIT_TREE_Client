@@ -5,6 +5,7 @@ import 'react-calendar/dist/Calendar.css';
 import Modal from 'react-modal';
 import { Checkbox } from '@material-ui/core';
 
+
 const customStyles = {
     content: {
         top: '30%', left: '27%', right: '50%', bottom: 'auto'
@@ -58,9 +59,9 @@ function Home() {
     return (
         <div>
             <h1>홈</h1>
-            <Link to='/login'><button>로그인</button></Link>
-            <Link to='/signup'><button>회원가입</button></Link>
-            <Link to='/mypage'><button>마이페이지</button></Link>
+            <Link to='/login'><button className='btn'>로그인</button></Link>
+            <Link to='/signup'><button className='btn'>회원가입</button></Link>
+            <Link to='/mypage'><button className='btn'>마이페이지</button></Link>
             <br></br><br></br>
             <Calendar onClickDay={() => setModalIsOpen(true)} maxDate={new Date(new Date().setDate(new Date().getDate() + 27))} />
             <Modal isOpen={modalIsOpen} onRequestClose={() => setModalIsOpen(false)} style={customStyles}>
