@@ -13,6 +13,7 @@
         "@types/react": "^16.6.1",
         "@types/react-dom": "^16.6.1",
         "axios": "^0.21.1",
+        "moment": "^2.29.1",
         "react": "^16.6.1",
         "react-big-calendar": "^0.32.0",
         "react-calendar": "^3.3.1",
