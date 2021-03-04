@@ -86,7 +86,9 @@ const Signup = () => {
         {handleCheckPassword() ? (
           <div></div>
         ) : (
-          <div className="checkPw">비밀번호가 맞지 않습니다.</div>
+          <div className="checkPw" style={{ color: 'red' }}>
+            비밀번호가 맞지 않습니다.
+          </div>
         )}
         <div>
           <span>이름</span>
