@@ -25,6 +25,8 @@ function Login(props: any) {
       localStorage.setItem('access_token', String(result));
       const habit = getHabits();
       setHabits(habit);
+    } else {
+      throw new Error('Not Authorized!');
     }
   };
 
