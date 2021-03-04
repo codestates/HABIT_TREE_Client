@@ -1,6 +1,10 @@
 import { ChangeEvent, useState } from 'react';
 import { uploadHabit } from '../API/habits';
+import styled from 'styled-components';
 
+const UploadHabitBlock = styled.div`
+  text-align: center;
+`;
 const UploadHabit = (props: any) => {
   const { events, setEvents } = props;
   const [title, setTitle] = useState('');
@@ -47,7 +51,7 @@ const UploadHabit = (props: any) => {
   };
 
   return (
-    <div>
+    <UploadHabitBlock>
       <input
         type="text"
         placeholder="기르고 싶은 습관을 등록해주세요!"
@@ -58,7 +62,7 @@ const UploadHabit = (props: any) => {
         등록
       </button>
       {errorMessage ? <div>{errorMessage}</div> : <></>}
-    </div>
+    </UploadHabitBlock>
   );
 };
 

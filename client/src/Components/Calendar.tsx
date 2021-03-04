@@ -8,7 +8,12 @@ import SentimentDissatisfiedOutlinedIcon from '@material-ui/icons/SentimentDissa
 import { useState } from 'react';
 import '../../node_modules/react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import { updateHabit } from '../API/habits';
+import styled from 'styled-components';
 
+const CalendarBlock = styled.div`
+  margin-top: 4%;
+  margin-left: 3%;
+`;
 const localizer = momentLocalizer(moment);
 
 const ReactCalendar = ({ events, setEvent }: any) => {
@@ -43,20 +48,25 @@ const ReactCalendar = ({ events, setEvent }: any) => {
   };
 
   return (
-    <div>
-      <div className="calendar">
+    <>
+      <CalendarBlock>
         <Calendar
           selectable
           events={events}
           defaultDate={moment().toDate()}
           localizer={localizer}
-          style={{ height: '90vh', marginBottom: '5%' }}
+          style={{
+            width: '90%',
+            height: '60vh',
+            marginBottom: '5%',
+            paddingLeft: '5%',
+          }}
           onSelectSlot={(slotInfo) => {
             setModalIsOpen(true);
             setClickDate(new Date(slotInfo.start));
           }}
         />
-      </div>
+      </CalendarBlock>
       <div className="modal_div">
         <Modal
           className="speech-bubble"
@@ -92,7 +102,7 @@ const ReactCalendar = ({ events, setEvent }: any) => {
           </ul>
         </Modal>
       </div>
-    </div>
+    </>
   );
 };
 
