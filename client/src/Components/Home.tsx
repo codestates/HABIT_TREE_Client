@@ -1,13 +1,27 @@
 import CalendarBlock from './CalendarBlock';
 import TreeBlock from './TreeBlock';
 
-function Home({ habits, setHabits }: any) {
+type Habits = {
+  id: number;
+  title: string;
+  pass: number;
+  clicked: number;
+  achieve: number;
+  treeType: string;
+  userId: number;
+  createdAt: Date;
+};
+
+type HabitsProps = {
+  habits: Habits[];
+  setHabits: (value: Habits[]) => void;
+};
+
+function Home({ habits, setHabits }: HabitsProps) {
   return (
     <div
       style={{
         display: 'flex',
-        // justifyContent: 'flex-end',
-        // alignContent: 'flex-end',
       }}
     >
       <div

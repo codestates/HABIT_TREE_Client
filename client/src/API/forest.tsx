@@ -1,19 +1,21 @@
-import axios, { AxiosResponse } from 'axios';
+import axios from 'axios';
 
 axios.defaults.withCredentials = true;
 
-export const getForest = () => {
+export const getForest = async () => {
   let token = localStorage.getItem('access_token');
   if (!token) {
     throw new Error('not Authorized');
   } else {
-    return axios
-      .post('https://habittree.gq/forest/findAll', {
+    try {
+      const result = await axios.post('https://habittree.gq/forest/findAll', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      })
-      .then((result) => result)
-      .catch((err) => console.log(err));
+      });
+      return result;
+    } catch (err) {
+      return console.log(err);
+    }
   }
 };
