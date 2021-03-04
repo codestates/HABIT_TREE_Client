@@ -2,10 +2,10 @@ import axios from 'axios';
 
 axios.defaults.withCredentials = true;
 
-export const uploadHabit = (title: string) => {
+export const uploadHabit = async (title: string) => {
   const token = localStorage.getItem('access_token');
-  return axios
-    .post(
+  try {
+    const result = await axios.post(
       'https://habittree.gq/habits/upload',
       {
         title,
@@ -15,54 +15,64 @@ export const uploadHabit = (title: string) => {
           Authorization: `Bearer ${token}`,
         },
       }
-    )
-    .then((result) => result)
-    .catch((err) => console.log(err));
+    );
+    return result;
+  } catch (err) {
+    return console.log(err);
+  }
 };
 
-export const getAllHabits = () => {
+export const getAllHabits = async () => {
   const token = localStorage.getItem('access_token');
 
-  return axios
-    .post('https://habittree.gq/habits/findAll', {
+  try {
+    const result = await axios.post('https://habittree.gq/habits/findAll', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    })
-    .then((result) => result)
-    .catch((err) => console.log(err));
+    });
+    return result;
+  } catch (err) {
+    return console.log(err);
+  }
 };
 
-export const getHabit = () => {
+export const getHabit = async () => {
   const token = localStorage.getItem('access_token');
 
-  return axios
-    .post('https://habittree.gq/habits/findOne', {
+  try {
+    const result = await axios.post('https://habittree.gq/habits/findOne', {
       headers: {
         Authorization: `Bearer ${token}`,
       },
-    })
-    .then((result) => result)
-    .catch((err) => console.log(err));
+    });
+    return result;
+  } catch (err) {
+    return console.log(err);
+  }
 };
 
-export const removeHabit = (id: number) => {
+export const removeHabit = async (id: number) => {
   const token = localStorage.getItem('access_token');
   if (!token) {
     throw new Error('not Authorized');
   } else {
-    return axios
-      .delete('https://habittree.gq/habits/remove', { data: { id } })
-      .then((result) => result)
-      .catch((err) => console.log(err));
+    try {
+      const result = await axios.delete('https://habittree.gq/habits/remove', {
+        data: { id },
+      });
+      return result;
+    } catch (err) {
+      return console.log(err);
+    }
   }
 };
 
-export const updateHabit = (id: number) => {
+export const updateHabit = async (id: number) => {
   const token = localStorage.getItem('access_token');
 
-  return axios
-    .post(
+  try {
+    const result = await axios.post(
       'https://habittree.gq/habits/update',
       { id },
       {
@@ -70,7 +80,9 @@ export const updateHabit = (id: number) => {
           Authorization: `Bearer ${token}`,
         },
       }
-    )
-    .then((result) => result)
-    .catch((err) => console.log(err));
+    );
+    return result;
+  } catch (err) {
+    return console.log(err);
+  }
 };

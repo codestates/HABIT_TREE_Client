@@ -5,7 +5,23 @@ import { CgTree } from 'react-icons/cg';
 import UserInfoBlock from './UserInfoBlock';
 import { getForest } from '../API/forest';
 
-const Mypage = ({ habits, setHabits }: any) => {
+type Habits = {
+  id: number;
+  title: string;
+  pass: number;
+  clicked: number;
+  achieve: number;
+  treeType: string;
+  userId: number;
+  createdAt: Date;
+};
+
+type HabitsProps = {
+  habits: Habits[];
+  setHabits: (value: any) => void;
+};
+
+const Mypage = ({ habits, setHabits }: HabitsProps) => {
   const [userInfo, setUserInfo] = useState<any>([]);
   const [forest, setForest] = useState<any>([]);
 
