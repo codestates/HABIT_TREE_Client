@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom';
 import { signUp } from '../API/users';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
 type InfoType = {
-  email?: string | null | undefined;
-  password?: string | null | undefined;
-  username?: string | null | undefined;
-  nickname?: string | null | undefined;
+  email: string;
+  password: string;
+  username: string;
+  nickname: string;
 };
 
 const Signup = () => {
@@ -40,6 +40,31 @@ const Signup = () => {
     }
   };
 
+  const handleCheckEmail = () => {
+    let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    if (re.test(info.email)) {
+      return true;
+    } else {
+      return false;
+    }
+  };
+
+  // 아이디 길이 체크
+  const handleCheckId = () => {
+    if (info.username.length < 5 || info.username.length > 15) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+  // 닉네임 길이 체크
+  const handleCheckNickName = () => {
+    if (info.nickname.length > 3 && info.nickname.length < 10) {
+      return true;
+    } else {
+      return false;
+    }
+  };
   const handleSignup = () => {
     const { username, password, email, nickname } = info;
     const result = signUp(username, password, email, nickname);
@@ -64,6 +89,11 @@ const Signup = () => {
             placeholder="이메일을 적어주세요"
             onChange={handleInputValue('email')}
           ></input>
+          {handleCheckEmail() ? (
+            <></>
+          ) : (
+            <div>이메일 형식이 잘못되었습니다.</div>
+          )}
         </div>
         <div>
           <span>비밀번호</span>
@@ -91,12 +121,17 @@ const Signup = () => {
           </div>
         )}
         <div>
-          <span>이름</span>
+          <span>ID</span>
           <input
             type="text"
             placeholder="ID를 적어주세요"
             onChange={handleInputValue('username')}
           ></input>
+          {handleCheckId() ? (
+            <div></div>
+          ) : (
+            <div>5자 이상 15자 이하로 작성해주세요</div>
+          )}
         </div>
         <div>
           <span>닉네임</span>
@@ -105,6 +140,11 @@ const Signup = () => {
             placeholder="닉네임을 적어주세요"
             onChange={handleInputValue('nickname')}
           ></input>
+          {handleCheckNickName() ? (
+            <div></div>
+          ) : (
+            <div>3자 이상 10자 이하로 작성해주세요</div>
+          )}
         </div>
         <div>
           <Link to="/login">이미 아이디가 있으신가요?</Link>
