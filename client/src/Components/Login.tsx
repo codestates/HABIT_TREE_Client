@@ -41,7 +41,6 @@ function Login(props: any) {
           <BsFillPersonFill size="150" />
         </div>
       </h1>
-      <h1>로그인</h1>
       <form onSubmit={(e) => e.preventDefault()}>
         <div>
           <span>아이디</span>
@@ -55,16 +54,25 @@ function Login(props: any) {
             onChange={(e) => handleInputPassword(e)}
           ></input>
         </div>
-        <button className="btn btn-login" onClick={() => userLogin()}>
-          로그인
-        </button>
-        카카오로그인
-        <a href="https://habittree.gq/users/kakaoLogin">
-          <button className="btn btn-kakao"></button>
-        </a>
+        <div>
+          <button
+            type="submit"
+            className="btn btn-login"
+            onClick={() => userLogin()}
+          >
+            로그인
+          </button>
+        </div>
+        <div>
+          <a href="https://habittree.gq/users/kakaoLogin">
+            <button type="button" className="btn btn-kakao">
+              카카오로그인
+            </button>
+          </a>
+        </div>
         <div>
           <Link to="/signup">
-            <button>회원가입</button>
+            <button type="button">회원가입</button>
           </Link>
         </div>
       </form>

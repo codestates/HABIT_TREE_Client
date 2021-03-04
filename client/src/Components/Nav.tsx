@@ -1,24 +1,24 @@
-import { IconButton } from "@material-ui/core";
-import React from "react";
-import FingerprintOutlinedIcon from "@material-ui/icons/FingerprintOutlined";
-import AssignmentIndOutlinedIcon from "@material-ui/icons/AssignmentIndOutlined";
-import ExitToAppOutlinedIcon from "@material-ui/icons/ExitToAppOutlined";
-import { Link } from "react-router-dom";
-import Modal from "react-modal";
-import img from "../img/logo.png";
-import MessageModal from "./MessageModal";
-Modal.setAppElement("#root");
+import { IconButton } from '@material-ui/core';
+import React from 'react';
+import FingerprintOutlinedIcon from '@material-ui/icons/FingerprintOutlined';
+import AssignmentIndOutlinedIcon from '@material-ui/icons/AssignmentIndOutlined';
+import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
+import { Link } from 'react-router-dom';
+import Modal from 'react-modal';
+import img from '../img/logo.png';
+import MessageModal from './MessageModal';
+Modal.setAppElement('#root');
 
 function Nav() {
-  const isLogin = localStorage.getItem("isLogin");
+  const isLogin = localStorage.getItem('isLogin');
 
   return (
     <div>
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         <Link to="/home">
@@ -32,9 +32,9 @@ function Nav() {
           <div
             className="Nav-right"
             style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "flex-end",
+              display: 'flex',
+              justifyContent: 'flex-end',
+              alignItems: 'flex-end',
             }}
           >
             <Link to="/mypage">
@@ -55,9 +55,9 @@ function Nav() {
         <div
           className="Nav-right"
           style={{
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "flex-end",
+            display: 'flex',
+            justifyContent: 'flex-end',
+            alignItems: 'flex-end',
           }}
         >
           <Link to="/mypage">

@@ -69,6 +69,7 @@ const Signup = () => {
           <span>비밀번호</span>
           <input
             type="password"
+            style={{ fontFamily: 'sans-serif' }}
             placeholder="비밀번호를 적어주세요"
             onChange={handleInputValue('password')}
           ></input>
@@ -77,6 +78,7 @@ const Signup = () => {
           <span>비밀번호 확인</span>
           <input
             type="password"
+            style={{ fontFamily: 'sans-serif' }}
             placeholder="비밀번호를 다시한번 적어주세요"
             onChange={(e) => handleInputValueRePassword(e)}
           ></input>
