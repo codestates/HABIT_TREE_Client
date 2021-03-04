@@ -25,7 +25,7 @@ const UserInfo = (props: any) => {
   };
 
   const handleCheckPassword = () => {
-    if (password !== repassword) {
+    if (password !== repassword || password.length < 5) {
       return false;
     } else {
       return true;
@@ -64,11 +64,16 @@ const UserInfo = (props: any) => {
             onChange={(e) => handleInputRePassword(e)}
           ></input>
           {handleCheckPassword() ? (
-            <div></div>
+            <div>
+              <button onClick={() => handleClickUpdate(password)}>
+                비밀번호 수정
+              </button>
+            </div>
           ) : (
-            <div className="checkPw">비밀번호가 맞지 않습니다.</div>
+            <div className="checkPw">
+              길이가 5자 미만이거나 비밀번호가 맞지 않습니다.
+            </div>
           )}
-          <button onClick={() => handleClickUpdate(password)}></button>
         </div>
       )}
       {!habits ? (
@@ -89,5 +94,12 @@ const UserInfo = (props: any) => {
       <button onClick={() => handleWithdrawal()}> 회원 탈퇴 </button>
     </div>
   );
+};
+
+UserInfo.defaultProps = {
+  userInfo: {
+    habits: [],
+  },
+  forest: {},
 };
 export default UserInfo;
