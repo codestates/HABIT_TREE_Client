@@ -66,7 +66,8 @@ const InputForm = styled.form`
   margin: 20px 30px;
   input {
     border: none;
-    border-bottom: 2px solid #ced4da;
+    border-bottom: 4px solid #ced4da;
+    border-radius: 3px;
     background-color: transparent;
     margin-bottom: 1rem;
     text-align: center;
