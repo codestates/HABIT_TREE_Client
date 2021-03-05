@@ -1,9 +1,9 @@
 import UserInfo from './UserInfo';
 
-const UserInfoBlock = (props: any) => {
+const UserInfoBlock = ({ userInfo, forest }: any) => {
   return (
     <div>
-      <UserInfo props={props} />
+      <UserInfo userInfo={userInfo} forest={forest} />
     </div>
   );
 };

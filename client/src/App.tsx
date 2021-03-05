@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home';
@@ -23,7 +23,7 @@ function App() {
   const [isMain, setIsMain] = useState<boolean>(true);
   const [habits, setHabits] = useState<Habits[]>([]);
 
-  const handleHabits = (value: any) => {
+  const handleHabits = (value: Habits[]) => {
     setHabits(value);
   };
 
@@ -47,12 +47,8 @@ function App() {
               path="/login"
               render={() => <Login habits={habits} setHabits={handleHabits} />}
             />
-            <Route
-              exact={true}
-              path="/mypage"
-              render={() => <Mypage habits={habits} setHabits={handleHabits} />}
-            />
-            <Route exact={true} path="/signup" render={() => <Signup />} />
+            <Route exact={true} path="/mypage" render={() => <Mypage />} />
+            <Route exact={true} path="/signup" component={Signup} />
           </Switch>
         </div>
       )}

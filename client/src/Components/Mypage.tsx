@@ -5,39 +5,23 @@ import { CgTree } from 'react-icons/cg';
 import UserInfoBlock from './UserInfoBlock';
 import { getForest } from '../API/forest';
 
-type Habits = {
-  id: number;
-  title: string;
-  pass: number;
-  clicked: number;
-  achieve: number;
-  treeType: string;
-  userId: number;
-  createdAt: Date;
-};
-
-type HabitsProps = {
-  habits: Habits[];
-  setHabits: (value: any) => void;
-};
-
-const Mypage = ({ habits, setHabits }: HabitsProps) => {
+const Mypage = () => {
   const [userInfo, setUserInfo] = useState<any>([]);
   const [forest, setForest] = useState<any>([]);
 
-  const getUserInfo = () => {
-    return getHabits();
+  const getUserInfo = async () => {
+    return await getHabits();
   };
 
-  const getForests = () => {
-    return getForest();
+  const getForests = async () => {
+    return await getForest();
   };
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         setUserInfo([]);
-        const result = getUserInfo();
+        const result = await getUserInfo();
         setUserInfo(result);
       } catch (e) {
         console.log(e);
@@ -48,7 +32,7 @@ const Mypage = ({ habits, setHabits }: HabitsProps) => {
     const fetchForest = async () => {
       try {
         setForest([]);
-        const result = getForests();
+        const result = await getForests();
         setForest(result);
       } catch (e) {
         console.log(e);

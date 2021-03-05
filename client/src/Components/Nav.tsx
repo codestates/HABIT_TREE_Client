@@ -7,11 +7,17 @@ import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import img from '../img/logo.png';
 import MessageModal from './MessageModal';
+import { useHistory } from 'react-router';
 Modal.setAppElement('#root');
 
 function Nav() {
   const isLogin = localStorage.getItem('isLogin');
-
+  const history = useHistory();
+  const handleIsLogin = () => {
+    localStorage.setItem('isLogin', String(false));
+    localStorage.removeItem('access_token');
+    history.push('/home');
+  };
   return (
     <div>
       <div
@@ -25,7 +31,7 @@ function Nav() {
           <img src={img} alt="logo" sizes="100" />
         </Link>
       </div>
-      {!isLogin ? (
+      {isLogin === 'false' ? (
         <>
           <MessageModal />
 
@@ -64,10 +70,9 @@ function Nav() {
             <IconButton arai-label="myPage" color="default" size="medium" />
             <AssignmentIndOutlinedIcon />
           </Link>
-          <Link to="/">
-            <IconButton arai-label="logout" color="default" size="medium" />
-            <ExitToAppOutlinedIcon />
-          </Link>
+          <button type="button" onClick={() => handleIsLogin()}>
+            로그아웃
+          </button>
         </div>
       )}
     </div>

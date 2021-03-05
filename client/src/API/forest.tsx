@@ -8,12 +8,16 @@ export const getForest = async () => {
     throw new Error('not Authorized');
   } else {
     try {
-      const result = await axios.post('https://habittree.gq/forest/findAll', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
-      return result;
+      const result = await axios.post(
+        'https://habittree.gq/forest/findAll',
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return result.data;
     } catch (err) {
       return console.log(err);
     }
