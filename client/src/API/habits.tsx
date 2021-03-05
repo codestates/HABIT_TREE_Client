@@ -26,11 +26,15 @@ export const getAllHabits = async () => {
   const token = localStorage.getItem('access_token');
 
   try {
-    const result = await axios.post('https://habittree.gq/habits/findAll', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const result = await axios.post(
+      'https://habittree.gq/habits/findAll',
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     return result;
   } catch (err) {
     return console.log(err);
@@ -41,11 +45,15 @@ export const getHabit = async () => {
   const token = localStorage.getItem('access_token');
 
   try {
-    const result = await axios.post('https://habittree.gq/habits/findOne', {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
+    const result = await axios.post(
+      'https://habittree.gq/habits/findOne',
+      {},
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
     return result;
   } catch (err) {
     return console.log(err);

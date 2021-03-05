@@ -7,11 +7,11 @@ export const login = async (username: string, password: string) => {
     throw new Error('빈 칸이 있어요');
   }
   try {
-    const res = await axios.post<string>('https://habittree.gq/users/login', {
+    const res = await axios.post('https://habittree.gq/users/login', {
       username,
       password,
     });
-    return res.data;
+    return res.data.access_token;
   } catch (err) {
     return console.log(err);
   }
@@ -41,11 +41,15 @@ export const getUser = async () => {
     throw new Error('not Authorized');
   } else {
     try {
-      const result = await axios.post('https://habittree.gq/users/findOne', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const result = await axios.post(
+        'https://habittree.gq/users/findOne',
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       return result;
     } catch (err) {
       return console.log(err);
@@ -72,17 +76,22 @@ export const removeUser = async () => {
 };
 
 export const getHabits = async () => {
-  let token = localStorage.getItem('access_token');
+  let token = String(localStorage.getItem('access_token'));
+  console.log(token);
   if (!token) {
     throw new Error('not Authorized');
   } else {
     return await axios
-      .post('https://habittree.gq/users/getHabits', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((res) => res)
+      .post(
+        'https://habittree.gq/users/getHabits',
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => res.data)
       .catch((err) => console.log(err));
   }
 };
@@ -97,7 +106,7 @@ export const signUp = async (
     throw new Error('빈 칸이 있습니다');
   }
   try {
-    const result = await axios.post('https://habittree.gq/users/getHabits', {
+    const result = await axios.post('https://habittree.gq/users/create', {
       username,
       password,
       email,

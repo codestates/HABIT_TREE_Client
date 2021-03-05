@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { getHabits, login } from '../API/users';
 import { BsFillPersonFill } from 'react-icons/bs';
+import { useHistory } from 'react-router';
 
 axios.defaults.withCredentials = true;
 
@@ -33,14 +34,16 @@ function Login({ habits, setHabits }: HabitsProps) {
   const handleInputPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
   };
+  const history = useHistory();
 
   const userLogin = async () => {
     const result = await login(username, password);
     if (result) {
       localStorage.setItem('isLogin', JSON.stringify(true));
-      localStorage.setItem('access_token', String(result));
-      const habit = getHabits();
-      setHabits(habit);
+      localStorage.setItem('access_token', result);
+      const habit = await getHabits();
+      setHabits(habit.habits);
+      history.push('/home');
     } else {
       throw new Error('Not Authorized!');
     }
