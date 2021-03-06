@@ -1,7 +1,16 @@
 import axios from 'axios';
 
 axios.defaults.withCredentials = true;
-
+type Habits = {
+  id: number;
+  title: string;
+  pass: number;
+  clicked: number;
+  achieve: number;
+  treeType: string;
+  userId: number;
+  createdAt: Date;
+};
 export const uploadHabit = async (title: string) => {
   const token = localStorage.getItem('access_token');
   try {
@@ -26,7 +35,7 @@ export const getAllHabits = async () => {
   const token = localStorage.getItem('access_token');
 
   try {
-    const result = await axios.post(
+    const result = await axios.post<Habits[]>(
       'https://habittree.gq/habits/findAll',
       {},
       {
@@ -35,7 +44,7 @@ export const getAllHabits = async () => {
         },
       }
     );
-    return result;
+    return result.data;
   } catch (err) {
     return console.log(err);
   }

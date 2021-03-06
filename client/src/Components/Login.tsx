@@ -21,9 +21,10 @@ type Habits = {
 type HabitsProps = {
   habits: Habits[];
   setHabits: (value: any) => void;
+  handleToggle: () => void;
 };
 
-function Login({ habits, setHabits }: HabitsProps) {
+function Login({ habits, setHabits, handleToggle }: HabitsProps) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 
@@ -41,6 +42,7 @@ function Login({ habits, setHabits }: HabitsProps) {
     if (result) {
       localStorage.setItem('isLogin', JSON.stringify(true));
       localStorage.setItem('access_token', result);
+      handleToggle();
       const habit = await getHabits();
       setHabits(habit.habits);
       history.push('/home');

@@ -1,3 +1,5 @@
+import React from 'react';
+import { Link } from 'react-router-dom';
 import CalendarBlock from './CalendarBlock';
 import TreeBlock from './TreeBlock';
 
@@ -14,10 +16,14 @@ type Habits = {
 
 type HabitsProps = {
   habits: Habits[];
-  setHabits: (value: Habits[]) => void;
+  isMainToggle: () => void;
 };
 
-function Home({ habits, setHabits }: HabitsProps) {
+function Home({ habits, isMainToggle }: HabitsProps) {
+  const url = new URL(window.location.href);
+  const token = url.search.substr(14);
+
+  console.log(habits);
   return (
     <div
       style={{
@@ -32,7 +38,7 @@ function Home({ habits, setHabits }: HabitsProps) {
           justifyContent: 'center',
         }}
       >
-        <CalendarBlock habits={habits} setHabits={setHabits}></CalendarBlock>
+        <CalendarBlock habits={habits}></CalendarBlock>
       </div>
       <div
         style={{
