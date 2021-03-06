@@ -2,87 +2,101 @@ import axios from 'axios';
 
 axios.defaults.withCredentials = true;
 
-export const login = (username: string, password: string) => {
+export const login = async (username: string, password: string) => {
   if (!username || !password) {
-    return;
+    throw new Error('빈 칸이 있어요');
   }
-  return axios
-    .post('https://habittree.gq/users/login', {
+  try {
+    const res = await axios.post('https://habittree.gq/users/login', {
       username,
       password,
-    })
-    .then((res) => {
-      const { data } = res;
-      return data.access_token;
-    })
-    .catch((err) => console.log(err));
+    });
+    return res.data.access_token;
+  } catch (err) {
+    return console.log(err);
+  }
 };
 
-export const getUsers = () => {
+export const getUsers = async () => {
   let token = localStorage.getItem('access_token');
   if (!token) {
     throw new Error('not Authorized');
   } else {
-    return axios
-      .get('https://habittree.gq/users/findAll', {
+    try {
+      const result = await axios.get('https://habittree.gq/users/findAll', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      })
-      .then((result) => result)
-      .catch((err) => console.log(err));
+      });
+      return result;
+    } catch (err) {
+      return console.log(err);
+    }
   }
 };
 
-export const getUser = () => {
+export const getUser = async () => {
   let token = localStorage.getItem('access_token');
   if (!token) {
     throw new Error('not Authorized');
   } else {
-    return axios
-      .post('https://habittree.gq/users/findOne', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((result) => result)
-      .catch((err) => console.log(err));
+    try {
+      const result = await axios.post(
+        'https://habittree.gq/users/findOne',
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      return result;
+    } catch (err) {
+      return console.log(err);
+    }
   }
 };
 
-export const removeUser = () => {
+export const removeUser = async () => {
   let token = localStorage.getItem('access_token');
   if (!token) {
     throw new Error('not Authorized');
   } else {
-    return axios
-      .delete('https://habittree.gq/users/remove', {
+    try {
+      const res = await axios.delete('https://habittree.gq/users/remove', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
-      })
-      .then((res) => res)
-      .catch((err) => console.log(err));
+      });
+      return res;
+    } catch (err) {
+      return console.log(err);
+    }
   }
 };
 
-export const getHabits = () => {
-  let token = localStorage.getItem('access_token');
+export const getHabits = async () => {
+  let token = String(localStorage.getItem('access_token'));
+  console.log(token);
   if (!token) {
     throw new Error('not Authorized');
   } else {
-    return axios
-      .post('https://habittree.gq/users/getHabits', {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((result) => result)
+    return await axios
+      .post(
+        'https://habittree.gq/users/getHabits',
+        {},
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      )
+      .then((res) => res.data)
       .catch((err) => console.log(err));
   }
 };
 
-export const signUp = (
+export const signUp = async (
   username: string | null | undefined,
   password: string | null | undefined,
   email: string | null | undefined,
@@ -91,25 +105,29 @@ export const signUp = (
   if (!email || !password || !nickname || !username) {
     throw new Error('빈 칸이 있습니다');
   }
-  return axios
-    .post('https://habittree.gq/users/getHabits', {
+  try {
+    const result = await axios.post('https://habittree.gq/users/create', {
       username,
       password,
       email,
       nickname,
-    })
-    .then((result) => result)
-    .catch((err) => err);
+    });
+    return result;
+  } catch (err) {
+    return err;
+  }
 };
 
-export const updateUser = (password: string) => {
+export const updateUser = async (password: string) => {
   if (!password) {
     throw new Error('빈 칸이 있습니다');
   }
-  return axios
-    .post('https://habittree.gq/users/update', {
+  try {
+    const result = await axios.post('https://habittree.gq/users/update', {
       password,
-    })
-    .then((result) => result)
-    .catch((err) => console.log(err));
+    });
+    return result;
+  } catch (err) {
+    return console.log(err);
+  }
 };

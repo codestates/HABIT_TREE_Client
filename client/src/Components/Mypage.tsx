@@ -23,23 +23,23 @@ const ForestBlock = styled.div`
   z-index: 0;
 `;
 
-const Mypage = ({ habits, setHabits }: any) => {
+const Mypage = () => {
   const [userInfo, setUserInfo] = useState<any>([]);
   const [forest, setForest] = useState<any>([]);
-
-  const getUserInfo = () => {
-    return getHabits();
+  console.log('mypage');
+  const getUserInfo = async () => {
+    return await getHabits();
   };
 
-  const getForests = () => {
-    return getForest();
+  const getForests = async () => {
+    return await getForest();
   };
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         setUserInfo([]);
-        const result = getUserInfo();
+        const result = await getUserInfo();
         setUserInfo(result);
       } catch (e) {
         console.log(e);
@@ -50,7 +50,7 @@ const Mypage = ({ habits, setHabits }: any) => {
     const fetchForest = async () => {
       try {
         setForest([]);
-        const result = getForests();
+        const result = await getForests();
         setForest(result);
       } catch (e) {
         console.log(e);
