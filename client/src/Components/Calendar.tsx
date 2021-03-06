@@ -5,17 +5,72 @@ import Modal from 'react-modal';
 import { IconButton } from '@material-ui/core';
 import SentimentSatisfiedIcon from '@material-ui/icons/EmojiEmotionsOutlined';
 import SentimentDissatisfiedOutlinedIcon from '@material-ui/icons/SentimentDissatisfiedOutlined';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../../node_modules/react-big-calendar/lib/addons/dragAndDrop/styles.css';
 import { updateHabit } from '../API/habits';
+import styled from 'styled-components';
 
+type Habits = {
+  id: number;
+  title: string;
+  pass: number;
+  clicked: number;
+  achieve: number;
+  treeType: string;
+  userId: number;
+  createdAt: Date;
+};
+
+type HabitsProps = {
+  habits: Habits[];
+};
+
+type Events = {
+  id: number | null;
+  title: string | null;
+  allday: boolean | null;
+  start: Date | null;
+  end: number | null;
+};
+const CalendarBlock = styled.div`
+  margin-top: 4%;
+  margin-left: 3%;
+`;
 const localizer = momentLocalizer(moment);
 
+<<<<<<< HEAD
 const ReactCalendar = ({ events, setEvent }: any) => {
+=======
+const ReactCalendar = ({ habits }: HabitsProps) => {
+>>>>>>> fba8ce15b39e76188aef4b89e43cc6d32bbe432a
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-  const [date, setClickDate] = useState(new Date());
+  const [date, setClickDate] = useState(new Date('2021-03-05'));
   const [persent, setPersent] = useState<any>({});
+  const [event, setEvents] = useState<Events[]>([]);
+  useEffect(() => {
+    if (habits.length === 0) {
+      setEvents([]);
+    } else {
+      console.log(6);
+      const result: Events[] = habits.map((habit) => {
+        return {
+          id: habit.id,
+          title: habit.title,
+          allday: true,
+          start: habit.createdAt,
+          end: new Date(habit.createdAt).setDate(
+            new Date(habit.createdAt).getDate() + 27
+          ),
+        };
 
+        // 처음으로 리렌더링을 시작
+      });
+      setEvents(result);
+    }
+  }, [habits]);
+  console.log(3);
+  console.log(habits);
+  console.log(event);
   const sumChecked = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     id: number
@@ -34,7 +89,7 @@ const ReactCalendar = ({ events, setEvent }: any) => {
     console.log(Math.round(persent.id) + '%');
   };
 
-  const realEvent = events.filter((event: any) => {
+  const realEvent = habits.filter((event: any) => {
     return new Date(event.end) > date;
   });
 
@@ -43,20 +98,25 @@ const ReactCalendar = ({ events, setEvent }: any) => {
   };
 
   return (
-    <div>
-      <div className="calendar">
+    <>
+      <CalendarBlock>
         <Calendar
           selectable
-          events={events}
+          events={event}
           defaultDate={moment().toDate()}
           localizer={localizer}
-          style={{ height: '90vh', marginBottom: '5%' }}
+          style={{
+            width: '90%',
+            height: '60vh',
+            marginBottom: '5%',
+            paddingLeft: '5%',
+          }}
           onSelectSlot={(slotInfo) => {
             setModalIsOpen(true);
             setClickDate(new Date(slotInfo.start));
           }}
         />
-      </div>
+      </CalendarBlock>
       <div className="modal_div">
         <Modal
           className="speech-bubble"
@@ -92,7 +152,7 @@ const ReactCalendar = ({ events, setEvent }: any) => {
           </ul>
         </Modal>
       </div>
-    </div>
+    </>
   );
 };
 

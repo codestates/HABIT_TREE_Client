@@ -1,5 +1,5 @@
 import { IconButton } from '@material-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import FingerprintOutlinedIcon from '@material-ui/icons/FingerprintOutlined';
 import AssignmentIndOutlinedIcon from '@material-ui/icons/AssignmentIndOutlined';
 import { Link } from 'react-router-dom';
@@ -7,14 +7,31 @@ import Modal from 'react-modal';
 import img from '../img/logo.png';
 import MessageModal from './MessageModal';
 import { useHistory } from 'react-router';
-Modal.setAppElement('#root');
 
-function Nav() {
+Modal.setAppElement('#root');
+type Habits = {
+  id: number;
+  title: string;
+  pass: number;
+  clicked: number;
+  achieve: number;
+  treeType: string;
+  userId: number;
+  createdAt: Date;
+};
+
+type Props = {
+  handleToggle: () => void;
+  handleHabits: (value: Habits[]) => void;
+};
+function Nav({ handleToggle, handleHabits }: Props) {
   const isLogin = localStorage.getItem('isLogin');
   const history = useHistory();
   const handleIsLogin = () => {
     localStorage.setItem('isLogin', String(false));
     localStorage.removeItem('access_token');
+    handleToggle();
+    handleHabits([]);
     history.push('/home');
   };
   return (

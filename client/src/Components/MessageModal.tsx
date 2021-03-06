@@ -11,18 +11,21 @@ function MessageModal() {
     setShowMenu(true);
     document.addEventListener('click', closeMenu);
   }, []);
+
   return (
-    <div className="messageModal">
+    <>
       {showMenu ? (
-        <div className="messageModal_content">
-          비 로그인 시 <br />
-          저장되지 않습니다.
-          <Link to="/signup">
-            <button className="styledButton">SIGN UP</button>
-          </Link>
+        <div className="messageModal">
+          <div className="messageModal_content">
+            비 로그인 시 <br />
+            저장되지 않습니다.
+            <Link to="/signup">
+              <button className="styledButton">SIGN UP</button>
+            </Link>
+          </div>
         </div>
       ) : null}
-    </div>
+    </>
   );
 }
 

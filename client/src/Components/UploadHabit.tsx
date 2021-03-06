@@ -14,14 +14,38 @@ type EventsProps = {
   setEvents: (value: Events[]) => void;
 };
 
-const UploadHabit = ({ events, setEvents }: EventsProps) => {
+type Habits = {
+  id: number;
+  title: string;
+  pass: number;
+  clicked: number;
+  achieve: number;
+  treeType: string;
+  userId: number;
+  createdAt: Date;
+};
+
+type HabitsProps = {
+  habits: Habits[];
+};
+
+const UploadHabit = ({ habits }: HabitsProps) => {
   const [title, setTitle] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
+  // const [events, setEvents] = useState<Events[]>();
+
+  //!
+  // console.log('habits');
+  // console.log(events);
+  // if (habits.length === 0) {
+  //   console.log(1);
+  // }
   const handleInputBox = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
   };
 
+<<<<<<< HEAD
   const handleButtonClick = async () => {
     if (title.length === 0) {
       setErrorMessage('습관 이름을 정해주세요!');
@@ -46,8 +70,52 @@ const UploadHabit = ({ events, setEvents }: EventsProps) => {
     const result = await uploadHabit(title);
     if (result) {
     }
+=======
+  const handleButtonClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(e.target);
+    await uploadHabit(title);
+    // db 저장 + 렌더링 시키기
+    setTitle('');
+>>>>>>> fba8ce15b39e76188aef4b89e43cc6d32bbe432a
   };
 
+  //!!
+  // const handleButtonClick = () => {
+  //   if (title.length === 0) {
+  //     setErrorMessage('습관 이름을 정해주세요!');
+  //     return;
+  //   }
+  //   const isLogin = localStorage.getItem('isLogin');
+
+  //   if (!isLogin) {
+  //     setEvents([
+  //       ...events,
+  //       {
+  //         id: events.length,
+  //         title: title,
+  //         allday: true,
+  //         start: new Date(),
+  //         end: new Date().setDate(new Date().getDate() + 27),
+  //       },
+  //     ]);
+  //     return;
+  //   } else {
+  //     const result = uploadHabit(title);
+  //     if (result) {
+  //       setEvents([
+  //         ...events,
+  //         {
+  //           id: events.length,
+  //           title: title,
+  //           allday: true,
+  //           start: new Date(),
+  //           end: new Date().setDate(new Date().getDate() + 27),
+  //         },
+  //       ]);
+  //     }
+  //   }
+  // };
+  //!!
   return (
     <div>
       <input
@@ -56,12 +124,9 @@ const UploadHabit = ({ events, setEvents }: EventsProps) => {
         onChange={(e) => handleInputBox(e)}
         style={{ margin: '3%', width: '15em' }}
       ></input>
-      <button className="btn btn-upload" onClick={() => handleButtonClick()}>
-        등록
-      </button>
+      <button onClick={handleButtonClick}>등록</button>
       {errorMessage ? <div>{errorMessage}</div> : <></>}
     </div>
   );
 };
-
 export default UploadHabit;
