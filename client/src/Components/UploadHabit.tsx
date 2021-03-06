@@ -1,4 +1,4 @@
-import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { uploadHabit } from '../API/habits';
 
 type Events = {
@@ -22,7 +22,7 @@ const UploadHabit = ({ events, setEvents }: EventsProps) => {
     setTitle(e.target.value);
   };
 
-  const handleButtonClick = () => {
+  const handleButtonClick = async () => {
     if (title.length === 0) {
       setErrorMessage('습관 이름을 정해주세요!');
       return;
@@ -43,20 +43,8 @@ const UploadHabit = ({ events, setEvents }: EventsProps) => {
       return;
     }
 
-    const result = uploadHabit(title);
+    const result = await uploadHabit(title);
     if (result) {
-      setEvents([
-        ...events,
-        {
-          id: events.length,
-          title: title,
-          allday: true,
-          start: new Date(),
-          end: new Date().setDate(new Date().getDate() + 27),
-        },
-      ]);
-    } else {
-      throw new Error('안됐습니다');
     }
   };
 

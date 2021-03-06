@@ -32,7 +32,7 @@ function Home({ habits, setHabits }: HabitsProps) {
           justifyContent: 'center',
         }}
       >
-        <CalendarBlock habits={habits} setHabits={setHabits}></CalendarBlock>
+        <CalendarBlock habits={habits} setHabits={setHabits} />
       </div>
       <div
         style={{

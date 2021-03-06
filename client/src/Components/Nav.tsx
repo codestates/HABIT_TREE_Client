@@ -2,7 +2,6 @@ import { IconButton } from '@material-ui/core';
 import React from 'react';
 import FingerprintOutlinedIcon from '@material-ui/icons/FingerprintOutlined';
 import AssignmentIndOutlinedIcon from '@material-ui/icons/AssignmentIndOutlined';
-import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import img from '../img/logo.png';

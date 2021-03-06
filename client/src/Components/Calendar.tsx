@@ -12,7 +12,6 @@ import { updateHabit } from '../API/habits';
 const localizer = momentLocalizer(moment);
 
 const ReactCalendar = ({ events, setEvent }: any) => {
-  console.log(events);
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [date, setClickDate] = useState(new Date());
   const [persent, setPersent] = useState<any>({});
@@ -71,7 +70,6 @@ const ReactCalendar = ({ events, setEvent }: any) => {
               <li key={element.id}>
                 {element.title}
                 <span>
-                  {console.log(element)}
                   <IconButton
                     arai-label="satisfied"
                     value={Number(3.5714285714285716)}

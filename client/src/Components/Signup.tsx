@@ -1,8 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { Link, Redirect, RouteComponentProps } from 'react-router-dom';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import { signUp } from '../API/users';
 import { BsFillPersonPlusFill } from 'react-icons/bs';
-import { Reddit } from '@material-ui/icons';
 type InfoType = {
   email: string;
   password: string;
@@ -44,7 +43,7 @@ const Signup = (props: Props) => {
   };
 
   const handleCheckEmail = () => {
-    let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (re.test(info.email)) {
       return true;
     } else {

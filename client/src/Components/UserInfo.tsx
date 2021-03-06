@@ -79,7 +79,7 @@ const UserInfo = ({ userInfo, forest }: any) => {
         <div>아직 등록한 습관이 없으시군요!</div>
       ) : (
         habits.map((habit: any) => (
-          <div>
+          <div key={habit.title}>
             {`${habit.title} 습관의 달성률은 ${habit.achieve} % 입니다`}
             <span>
               <button onClick={() => handleClickDelete(habit.id)}>

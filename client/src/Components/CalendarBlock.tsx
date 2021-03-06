@@ -1,5 +1,4 @@
-import { HdSharp } from '@material-ui/icons';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import ReactCalendar from './Calendar';
 import UploadHabit from './UploadHabit';
 
@@ -29,18 +28,12 @@ type Events = {
 
 const CalendarBlock = ({ habits, setHabits }: HabitsProps) => {
   const [events, setEvents] = useState<Events[]>([]);
-  const handleEvent = (value: Events[]) => {
-    setEvents(value);
-  };
-
-  useEffect(() => {
-    handleEvent(events);
-  }, []);
+  const handleEvents = useCallback((value: Events[]) => setEvents(value), []);
 
   if (habits.length === 0) {
-    setEvents([]);
+    handleEvents([]);
   } else {
-    const result: Events[] = habits.map((habit) => {
+    const result = habits.map((habit) => {
       return {
         id: habit.id,
         title: habit.title,
@@ -51,13 +44,13 @@ const CalendarBlock = ({ habits, setHabits }: HabitsProps) => {
         ),
       };
     });
-    setEvents(result);
+    handleEvents(result);
   }
 
   return (
     <div>
-      <UploadHabit events={events} setEvents={handleEvent} />
-      <ReactCalendar events={events} setEvents={handleEvent} />
+      <UploadHabit events={events} setEvents={handleEvents} />
+      <ReactCalendar events={events} setEvents={handleEvents} />
     </div>
   );
 };

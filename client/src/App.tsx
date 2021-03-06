@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home';
@@ -23,16 +23,14 @@ function App() {
   const [isMain, setIsMain] = useState<boolean>(true);
   const [habits, setHabits] = useState<Habits[]>([]);
 
-  const handleHabits = (value: Habits[]) => {
-    setHabits(value);
-  };
-
+  const handleHabits = useCallback((value: Habits[]) => setHabits(value), []);
+  const handleMain = useCallback(() => setIsMain(!isMain), [isMain]);
   return (
     <>
       {isMain ? (
         <div>
           <Route exact path="/">
-            <Main setIsMain={setIsMain}></Main>
+            <Main setIsMain={handleMain}></Main>
           </Route>
         </div>
       ) : (
