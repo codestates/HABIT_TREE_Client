@@ -1,9 +1,16 @@
 import ViewTree from './ViewTree';
 
-const TreeBlock = () => {
+type Obj = {
+  [k: number]: number;
+};
+
+type Props = {
+  percent: Obj;
+};
+const TreeBlock = ({ percent }: Props) => {
   return (
     <div>
-      <ViewTree />
+      <ViewTree percent={percent} />
     </div>
   );
 };

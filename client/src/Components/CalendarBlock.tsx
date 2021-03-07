@@ -23,9 +23,15 @@ type Habits = {
   createdAt: Date;
 };
 
+type Obj = {
+  [k: number]: number;
+};
+
 type HabitsProps = {
   habits: Habits[];
   handleHabits: (value: Habits[]) => void;
+  percent: Obj;
+  handlePercent: (value: Obj) => void;
 };
 
 type Events = {
@@ -36,7 +42,12 @@ type Events = {
   end: number | null;
 };
 
-const CalendarBlock = ({ habits, handleHabits }: HabitsProps) => {
+const CalendarBlock = ({
+  habits,
+  handleHabits,
+  percent,
+  handlePercent,
+}: HabitsProps) => {
   const [event, setEvents] = useState<Events[]>([]);
 
   const handleEvents = (value: Events[]) => {
@@ -51,7 +62,13 @@ const CalendarBlock = ({ habits, handleHabits }: HabitsProps) => {
         setEvents={handleEvents}
         handleHabits={handleHabits}
       />
-      <ReactCalendar habits={habits} event={event} setEvents={handleEvents} />
+      <ReactCalendar
+        habits={habits}
+        event={event}
+        setEvents={handleEvents}
+        percent={percent}
+        handlePercent={handlePercent}
+      />
     </div>
   );
 };

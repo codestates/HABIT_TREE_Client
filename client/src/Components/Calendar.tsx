@@ -25,6 +25,8 @@ type HabitsProps = {
   habits: Habits[];
   event: Events[];
   setEvents: (value: Events[]) => void;
+  percent: Obj;
+  handlePercent: (value: Obj) => void;
 };
 
 type Events = {
@@ -43,10 +45,15 @@ const CalendarBlock = styled.div`
 `;
 const localizer = momentLocalizer(moment);
 
-const ReactCalendar = ({ habits, event, setEvents }: HabitsProps) => {
+const ReactCalendar = ({
+  habits,
+  event,
+  setEvents,
+  percent,
+  handlePercent,
+}: HabitsProps) => {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [date, setClickDate] = useState(new Date());
-  const [percent, setPercent] = useState<any>({});
 
   useEffect(() => {
     if (habits.length === 0) {
@@ -69,7 +76,7 @@ const ReactCalendar = ({ habits, event, setEvents }: HabitsProps) => {
         };
       });
       setEvents(result);
-      setPercent(obj);
+      handlePercent(obj);
     }
   }, [habits]);
 
@@ -80,13 +87,13 @@ const ReactCalendar = ({ habits, event, setEvents }: HabitsProps) => {
   ) => {
     let value = Number(e.currentTarget.value);
     if (!percent[id]) {
-      setPercent({ ...percent, [id]: value });
+      handlePercent({ ...percent, [id]: value });
     } else {
       let lastValue = percent[id];
-      if (percent[id] >= '100') {
+      if (percent[id] >= 100) {
         return;
       } else {
-        setPercent({ ...percent, [id]: lastValue + value });
+        handlePercent({ ...percent, [id]: lastValue + value });
       }
     }
   };
@@ -110,7 +117,7 @@ const ReactCalendar = ({ habits, event, setEvents }: HabitsProps) => {
       if (habit.name === 'EntityNotFound') {
         console.log('업데이트 할 수 없습니다.');
       } else {
-        setPercent({ ...percent, [id]: habit.achieve });
+        handlePercent({ ...percent, [id]: habit.achieve });
       }
     }
   };
