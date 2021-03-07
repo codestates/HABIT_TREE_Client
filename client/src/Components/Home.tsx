@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CalendarBlock from './CalendarBlock';
 import TreeBlock from './TreeBlock';
@@ -19,7 +19,16 @@ type HabitsProps = {
   handleHabits: (value: Habits[]) => void;
 };
 
+type Obj = {
+  [k: number]: number;
+};
+
 function Home({ habits, handleHabits }: HabitsProps) {
+  const [percent, setPercent] = useState<any>({});
+
+  const handlePercent = (value: Obj) => {
+    setPercent(value);
+  };
   return (
     <div
       style={{
@@ -37,6 +46,8 @@ function Home({ habits, handleHabits }: HabitsProps) {
         <CalendarBlock
           habits={habits}
           handleHabits={handleHabits}
+          percent={percent}
+          handlePercent={handlePercent}
         ></CalendarBlock>
       </div>
       <div
@@ -46,7 +57,7 @@ function Home({ habits, handleHabits }: HabitsProps) {
           justifyContent: 'center',
         }}
       >
-        <TreeBlock></TreeBlock>
+        <TreeBlock percent={percent}></TreeBlock>
       </div>
     </div>
   );
