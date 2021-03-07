@@ -45,38 +45,11 @@ const UploadHabit = ({ habits }: HabitsProps) => {
     setTitle(e.target.value);
   };
 
-<<<<<<< HEAD
-  const handleButtonClick = async () => {
-    if (title.length === 0) {
-      setErrorMessage('습관 이름을 정해주세요!');
-      return;
-    }
-    const isLogin = localStorage.getItem('isLogin');
-
-    if (!isLogin) {
-      setEvents([
-        ...events,
-        {
-          id: events.length,
-          title: title,
-          allday: true,
-          start: new Date(),
-          end: new Date().setDate(new Date().getDate() + 27),
-        },
-      ]);
-      return;
-    }
-
-    const result = await uploadHabit(title);
-    if (result) {
-    }
-=======
   const handleButtonClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
     console.log(e.target);
     await uploadHabit(title);
     // db 저장 + 렌더링 시키기
     setTitle('');
->>>>>>> fba8ce15b39e76188aef4b89e43cc6d32bbe432a
   };
 
   //!!

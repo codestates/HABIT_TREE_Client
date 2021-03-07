@@ -38,11 +38,7 @@ const CalendarBlock = styled.div`
 `;
 const localizer = momentLocalizer(moment);
 
-<<<<<<< HEAD
-const ReactCalendar = ({ events, setEvent }: any) => {
-=======
 const ReactCalendar = ({ habits }: HabitsProps) => {
->>>>>>> fba8ce15b39e76188aef4b89e43cc6d32bbe432a
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [date, setClickDate] = useState(new Date('2021-03-05'));
   const [persent, setPersent] = useState<any>({});

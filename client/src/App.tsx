@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import { useCallback, useEffect, useState } from 'react';
-=======
 import React, { useEffect, useRef, useState } from 'react';
->>>>>>> fba8ce15b39e76188aef4b89e43cc6d32bbe432a
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home';
@@ -56,10 +52,6 @@ function App() {
     setToggle(!Toggle);
   };
 
-<<<<<<< HEAD
-  const handleHabits = useCallback((value: Habits[]) => setHabits(value), []);
-  const handleMain = useCallback(() => setIsMain(!isMain), [isMain]);
-=======
   const handleHabits = (value: Habits[]) => {
     initialValue.current = value;
     setHabits(value);
@@ -69,7 +61,6 @@ function App() {
     setIsMain(!isMain);
   };
 
->>>>>>> fba8ce15b39e76188aef4b89e43cc6d32bbe432a
   return (
     <>
       {console.log(habits)}
@@ -77,15 +68,11 @@ function App() {
         <div>
           안녕하세요
           <Route exact path="/">
-<<<<<<< HEAD
-            <Main setIsMain={handleMain}></Main>
-=======
             <Main
               setIsMain={setIsMain}
               handleToggle={handleToggle}
               handleHabits={handleHabits}
             ></Main>
->>>>>>> fba8ce15b39e76188aef4b89e43cc6d32bbe432a
           </Route>
           {/* <Route path="/home">
             <Home habits={habits} isMainToggle={isMainToggle} />

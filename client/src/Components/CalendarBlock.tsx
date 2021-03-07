@@ -48,33 +48,6 @@ const CalendarBlock = ({ habits }: HabitsProps) => {
   //   setEvents(value);
   // };
 
-<<<<<<< HEAD
-const CalendarBlock = ({ habits, setHabits }: HabitsProps) => {
-  const [events, setEvents] = useState<Events[]>([]);
-  const handleEvents = useCallback((value: Events[]) => setEvents(value), []);
-
-  if (habits.length === 0) {
-    handleEvents([]);
-  } else {
-    const result = habits.map((habit) => {
-      return {
-        id: habit.id,
-        title: habit.title,
-        allday: true,
-        start: habit.createdAt,
-        end: new Date(habit.createdAt).setDate(
-          new Date(habit.createdAt).getDate() + 27
-        ),
-      };
-    });
-    handleEvents(result);
-  }
-
-  return (
-    <div>
-      <UploadHabit events={events} setEvents={handleEvents} />
-      <ReactCalendar events={events} setEvents={handleEvents} />
-=======
   // useEffect(() => {
   //   handleEvent(events);
   // }, []);
@@ -102,7 +75,6 @@ const CalendarBlock = ({ habits, setHabits }: HabitsProps) => {
     <div>
       <UploadHabit habits={habits} />
       <ReactCalendar habits={habits} />
->>>>>>> fba8ce15b39e76188aef4b89e43cc6d32bbe432a
     </div>
   );
 };
