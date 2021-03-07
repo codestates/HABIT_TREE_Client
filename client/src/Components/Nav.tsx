@@ -8,7 +8,7 @@ import Modal from 'react-modal';
 import img from '../img/logo.png';
 import MessageModal from './MessageModal';
 import { useHistory } from 'react-router';
-
+import { useSampleState, useSampleDispatch } from './TodoContext';
 Modal.setAppElement('#root');
 type Habits = {
   id: number;
@@ -22,16 +22,16 @@ type Habits = {
 };
 
 type Props = {
-  handleToggle: () => void;
   handleHabits: (value: Habits[]) => void;
 };
-function Nav({ handleToggle, handleHabits }: Props) {
-  const isLogin = localStorage.getItem('isLogin');
+function Nav({ handleHabits }: Props) {
   const history = useHistory();
+  const toggle = useSampleState();
+  const dispatch = useSampleDispatch();
+
   const handleIsLogin = () => {
-    localStorage.setItem('isLogin', String(false));
     localStorage.removeItem('access_token');
-    handleToggle();
+    dispatch({ type: 'SET_TOGGLE', toggle: false });
     handleHabits([]);
     history.push('/home');
   };
@@ -48,7 +48,7 @@ function Nav({ handleToggle, handleHabits }: Props) {
           <img src={img} alt="logo" sizes="100" />
         </Link>
       </div>
-      {isLogin === 'false' ? (
+      {!toggle.toggle ? (
         <>
           <MessageModal />
 
@@ -60,7 +60,7 @@ function Nav({ handleToggle, handleHabits }: Props) {
               alignItems: 'flex-end',
             }}
           >
-            <Link to="/mypage">
+            <Link to="/login">
               <IconButton arai-label="myPage" color="default" size="medium" />
               <AssignmentIndOutlinedIcon />
             </Link>

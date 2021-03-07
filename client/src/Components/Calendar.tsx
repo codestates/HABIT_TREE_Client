@@ -7,7 +7,7 @@ import SentimentSatisfiedIcon from '@material-ui/icons/EmojiEmotionsOutlined';
 import SentimentDissatisfiedOutlinedIcon from '@material-ui/icons/SentimentDissatisfiedOutlined';
 import { useEffect, useState } from 'react';
 import '../../node_modules/react-big-calendar/lib/addons/dragAndDrop/styles.css';
-import { updateHabit } from '../API/habits';
+import { updateHabit, removeHabit } from '../API/habits';
 import styled from 'styled-components';
 
 type Habits = {
@@ -23,6 +23,8 @@ type Habits = {
 
 type HabitsProps = {
   habits: Habits[];
+  event: Events[];
+  setEvents: (value: Events[]) => void;
 };
 
 type Events = {
@@ -32,22 +34,29 @@ type Events = {
   start: Date | null;
   end: number | null;
 };
+type Obj = {
+  [k: number]: number;
+};
 const CalendarBlock = styled.div`
   margin-top: 4%;
   margin-left: 3%;
 `;
 const localizer = momentLocalizer(moment);
 
-const ReactCalendar = ({ habits }: HabitsProps) => {
+const ReactCalendar = ({ habits, event, setEvents }: HabitsProps) => {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
-  const [date, setClickDate] = useState(new Date('2021-03-05'));
-  const [persent, setPersent] = useState<any>({});
-  const [event, setEvents] = useState<Events[]>([]);
+  const [date, setClickDate] = useState(new Date());
+  const [percent, setPercent] = useState<any>({});
+
   useEffect(() => {
     if (habits.length === 0) {
       setEvents([]);
     } else {
-      console.log(6);
+      let obj: Obj = {};
+      habits.forEach((habit) => {
+        obj[habit.id] = habit.achieve;
+      });
+
       const result: Events[] = habits.map((habit) => {
         return {
           id: habit.id,
@@ -58,39 +67,57 @@ const ReactCalendar = ({ habits }: HabitsProps) => {
             new Date(habit.createdAt).getDate() + 27
           ),
         };
-
-        // 처음으로 리렌더링을 시작
       });
       setEvents(result);
+      setPercent(obj);
     }
   }, [habits]);
-  console.log(3);
-  console.log(habits);
-  console.log(event);
+
+  // 습관별 퍼센트 체크
   const sumChecked = (
     e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
     id: number
   ) => {
     let value = Number(e.currentTarget.value);
-    if (!persent.id) {
-      setPersent({ id: value });
+    if (!percent[id]) {
+      setPercent({ ...percent, [id]: value });
     } else {
-      let lastValue = persent.id;
-      if (persent.id >= '100') {
+      let lastValue = percent[id];
+      if (percent[id] >= '100') {
         return;
       } else {
-        setPersent({ ...persent, id: lastValue + value });
+        setPercent({ ...percent, [id]: lastValue + value });
       }
     }
-    console.log(Math.round(persent.id) + '%');
   };
 
-  const realEvent = habits.filter((event: any) => {
-    return new Date(event.end) > date;
+  const realEvent = event.filter((eve: any) => {
+    return new Date(eve.end) > date;
   });
 
-  const handleButtonClick = (id: number) => {
-    updateHabit(id);
+  // 습관 목록에서 '성공' 버튼 클릭 시
+  const handleButtonClick = async (
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>,
+    id: number
+  ) => {
+    // 로그인이 안 된 경우 => 한번만 클릭하게
+    const token = localStorage.getItem('access_token');
+    if (!token) {
+      sumChecked(e, id);
+    } else {
+      // 로그인이 된 경우
+      const habit = await updateHabit(id);
+      if (habit.name === 'EntityNotFound') {
+        console.log('업데이트 할 수 없습니다.');
+      } else {
+        setPercent({ ...percent, [id]: habit.achieve });
+      }
+    }
+  };
+
+  // 서버에 habit 삭제 요청 메소드
+  const deleteEvent = async (id: number) => {
+    const result = await removeHabit(id);
   };
 
   return (
@@ -126,21 +153,26 @@ const ReactCalendar = ({ habits }: HabitsProps) => {
               <li key={element.id}>
                 {element.title}
                 <span>
-                  {console.log(element)}
                   <IconButton
                     arai-label="satisfied"
                     value={Number(3.5714285714285716)}
                     color="secondary"
                     onClick={(e) => {
-                      sumChecked(e, element.id);
-                      handleButtonClick(element.id);
+                      handleButtonClick(e, element.id);
                     }}
                   >
                     <SentimentSatisfiedIcon />
                   </IconButton>
                 </span>
                 <span>
-                  <IconButton arai-label="dissatisfied" color="secondary">
+                  <IconButton
+                    arai-label="dissatisfied"
+                    color="secondary"
+                    onClick={() => {
+                      deleteEvent(element.id);
+                      setEvents(event.filter((ele) => ele.id !== element.id));
+                    }}
+                  >
                     <SentimentDissatisfiedOutlinedIcon />
                   </IconButton>
                 </span>

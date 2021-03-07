@@ -4,26 +4,27 @@ import { CgTrees } from 'react-icons/cg';
 import Forest from './video/Forest.mp4';
 import { useHistory } from 'react-router';
 import { getAllHabits } from '../API/habits';
+import { useSampleState, useSampleDispatch } from './TodoContext';
 function Main(props) {
   const history = useHistory();
   const url = new URL(window.location.href);
   const token = url.search.substr(14);
+  const toggle = useSampleState();
+  const dispatch = useSampleDispatch();
 
   useEffect(() => {
     if (token) {
       localStorage.setItem('access_token', String(token));
-      localStorage.setItem('isLogin', String(true));
-      props.setIsMain(false);
-      props.handleToggle();
-      async function please() {
+      dispatch({ type: 'SET_TOGGLE', toggle: true });
+      async function getHabits() {
         const result = await getAllHabits();
         props.handleHabits(result);
       }
-      please();
+      getHabits();
       history.push('/home');
     }
   }, []);
-  // render -> useEffect
+
   return (
     <center>
       {token ? (
@@ -64,13 +65,11 @@ function Main(props) {
           <br />
           <br />
           <br />
-          <Link to="/home">
-            <button
-              className="btn mainText"
-              onClick={() => props.setIsMain(false)}
-            >
-              시작하기
-            </button>
+          <Link
+            style={{ textDecoration: 'none', color: 'black', fontSize: '2rem' }}
+            to="/home"
+          >
+            시작하기
           </Link>
         </div>
       )}

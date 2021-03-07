@@ -25,6 +25,7 @@ type Habits = {
 
 type HabitsProps = {
   habits: Habits[];
+  handleHabits: (value: Habits[]) => void;
 };
 
 type Events = {
@@ -33,49 +34,24 @@ type Events = {
   allday: boolean | null;
   start: Date | null;
   end: number | null;
-}[];
+};
 
-const CalendarBlock = ({ habits }: HabitsProps) => {
-  console.log(habits);
+const CalendarBlock = ({ habits, handleHabits }: HabitsProps) => {
+  const [event, setEvents] = useState<Events[]>([]);
 
-  // const [events, setEvents] = useState([{
-  //   id: 0,
-  //   title: '',
-  //   allday: true,
-  //   start: new Date(),
-  //   end: new Date(),
-  // }]);
-  // const handleEvent = (value: Events[]) => {
-  //   setEvents(value);
-  // };
-
-  // useEffect(() => {
-  //   handleEvent(events);
-  // }, []);
-  // console.log('habits');
-  // console.log(habits);
-  // if (habits.length === 0) {
-  //   setEvents(events.concat(habits));
-
-  // } else {
-  //   const result: Events[] = habits.map((habit) => {
-  //     return {
-  //       id: habit.id,
-  //       title: habit.title,
-  //       allday: true,
-  //       start: habit.createdAt,
-  //       end: new Date(habit.createdAt).setDate(
-  //         new Date(habit.createdAt).getDate() + 27
-  //       ),
-  //     };
-  //   });
-
-  //! setEvents(result);
+  const handleEvents = (value: Events[]) => {
+    setEvents(value);
+  };
 
   return (
     <div>
-      <UploadHabit habits={habits} />
-      <ReactCalendar habits={habits} />
+      <UploadHabit
+        habits={habits}
+        event={event}
+        setEvents={handleEvents}
+        handleHabits={handleHabits}
+      />
+      <ReactCalendar habits={habits} event={event} setEvents={handleEvents} />
     </div>
   );
 };

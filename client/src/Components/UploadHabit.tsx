@@ -1,17 +1,12 @@
 import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
-import { uploadHabit } from '../API/habits';
-
+import { getAllHabits, uploadHabit } from '../API/habits';
+import { useSampleState, useSampleDispatch } from './TodoContext';
 type Events = {
-  id: number;
-  title: string;
-  allday: boolean;
-  start: Date;
-  end: number;
-};
-
-type EventsProps = {
-  events: Events[];
-  setEvents: (value: Events[]) => void;
+  id: number | null;
+  title: string | null;
+  allday: boolean | null;
+  start: Date | null;
+  end: number | null;
 };
 
 type Habits = {
@@ -27,74 +22,61 @@ type Habits = {
 
 type HabitsProps = {
   habits: Habits[];
+  event: Events[];
+  setEvents: (value: Events[]) => void;
+  handleHabits: (value: Habits[]) => void;
 };
 
-const UploadHabit = ({ habits }: HabitsProps) => {
+const UploadHabit = ({
+  habits,
+  event,
+  setEvents,
+  handleHabits,
+}: HabitsProps) => {
   const [title, setTitle] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const toggle = useSampleState();
+  const dispatch = useSampleDispatch();
 
-  // const [events, setEvents] = useState<Events[]>();
-
-  //!
-  // console.log('habits');
-  // console.log(events);
-  // if (habits.length === 0) {
-  //   console.log(1);
-  // }
   const handleInputBox = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
   };
 
   const handleButtonClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(e.target);
-    await uploadHabit(title);
-    // db 저장 + 렌더링 시키기
-    setTitle('');
+    if (title.length === 0) {
+      setErrorMessage('습관 이름을 정해주세요!');
+      return;
+    }
+
+    if (!toggle.toggle) {
+      // 로그인이 안 된 경우
+      setEvents([
+        ...event,
+        {
+          id: event.length,
+          title: title,
+          allday: true,
+          start: new Date(),
+          end: new Date().setDate(new Date().getDate() + 27),
+        },
+      ]);
+
+      setTitle('');
+    } else {
+      const afterUpload = await uploadHabit(title);
+      const habits = await getAllHabits();
+      handleHabits(habits as Habits[]);
+      setTitle('');
+    }
   };
 
-  //!!
-  // const handleButtonClick = () => {
-  //   if (title.length === 0) {
-  //     setErrorMessage('습관 이름을 정해주세요!');
-  //     return;
-  //   }
-  //   const isLogin = localStorage.getItem('isLogin');
-
-  //   if (!isLogin) {
-  //     setEvents([
-  //       ...events,
-  //       {
-  //         id: events.length,
-  //         title: title,
-  //         allday: true,
-  //         start: new Date(),
-  //         end: new Date().setDate(new Date().getDate() + 27),
-  //       },
-  //     ]);
-  //     return;
-  //   } else {
-  //     const result = uploadHabit(title);
-  //     if (result) {
-  //       setEvents([
-  //         ...events,
-  //         {
-  //           id: events.length,
-  //           title: title,
-  //           allday: true,
-  //           start: new Date(),
-  //           end: new Date().setDate(new Date().getDate() + 27),
-  //         },
-  //       ]);
-  //     }
-  //   }
-  // };
-  //!!
   return (
     <div>
       <input
         type="text"
         placeholder="기르고 싶은 습관을 등록해주세요!"
         onChange={(e) => handleInputBox(e)}
+        value={title}
         style={{ margin: '3%', width: '15em' }}
       ></input>
       <button onClick={handleButtonClick}>등록</button>
