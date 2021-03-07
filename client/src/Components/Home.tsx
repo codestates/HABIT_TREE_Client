@@ -16,14 +16,10 @@ type Habits = {
 
 type HabitsProps = {
   habits: Habits[];
-  isMainToggle: () => void;
+  handleHabits: (value: Habits[]) => void;
 };
 
-function Home({ habits, isMainToggle }: HabitsProps) {
-  const url = new URL(window.location.href);
-  const token = url.search.substr(14);
-
-  console.log(habits);
+function Home({ habits, handleHabits }: HabitsProps) {
   return (
     <div
       style={{
@@ -38,7 +34,10 @@ function Home({ habits, isMainToggle }: HabitsProps) {
           justifyContent: 'center',
         }}
       >
-        <CalendarBlock habits={habits}></CalendarBlock>
+        <CalendarBlock
+          habits={habits}
+          handleHabits={handleHabits}
+        ></CalendarBlock>
       </div>
       <div
         style={{
