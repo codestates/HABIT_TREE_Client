@@ -5,11 +5,11 @@ import UploadHabit from './UploadHabit';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  margin-top: 10%;
-  border: 1px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+  z-index: 0;
 `;
 
 type Habits = {
@@ -55,7 +55,7 @@ const CalendarBlock = ({
   };
 
   return (
-    <div>
+    <Container>
       <UploadHabit
         habits={habits}
         event={event}
@@ -69,7 +69,7 @@ const CalendarBlock = ({
         percent={percent}
         handlePercent={handlePercent}
       />
-    </div>
+    </Container>
   );
 };
 

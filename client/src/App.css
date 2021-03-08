@@ -1,13 +1,65 @@
 * {
   font-family: '닉스곤체 2.0';
-  font-size: 40px;
   /*color: darkgray;*/
-  box-sizing: content-box;
 }
 
 body {
   margin: 0px;
   height: 100vh;
+}
+.canvas_container {
+  width: 100%;
+  height: 100%;
+  margin-top: 77px;
+}
+.myCanvas {
+  /* background: linear-gradient(to left, #ee9ca7, #ffdde1); */
+  background: linear-gradient(to bottom, #2980b9, #6dd5fa, #decba4);
+  /* background: url(https://images.unsplash.com/photo-1522518961115-07c922089dd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80); */
+  border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px;
+  /* width: 100%;
+  height: 100%; */
+}
+
+.speech-bubble {
+  margin: 0px 25%;
+  height: 40vh;
+  text-align: center;
+  margin-top: 200px;
+  background: #bac8ff;
+  outline: none;
+  animation: mymove 1s linear;
+  border-radius: 10px;
+  z-index: 15;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.speech-bubble h2 {
+  padding: 20px 0;
+  font-size: 2rem;
+  color: white;
+}
+
+.speech-bubble > ul > li {
+  padding: 20px 0;
+  color: white;
+}
+
+@keyframes mymove {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.main {
+  color: white;
+  font-size: 35px;
 }
 
 .btn {
@@ -16,6 +68,193 @@ body {
   background-color: transparent;
 }
 
-.main {
-  color: white;
+.main:hover {
+  color: green;
+}
+
+.inputForm {
+  border-bottom: solid 2px gray;
+  width: 100%;
+  margin: 30px;
+  padding: 10px 10px;
+  text-align: left;
+  font-size: 20px;
+  margin-left: 34.5%;
+}
+
+.inputForm2 {
+  border-bottom: solid 2px gray;
+  width: 35%;
+  margin: 30px;
+  padding: 10px 10px;
+  text-align: left;
+  font-size: 20px;
+  margin-left: 33%;
+}
+
+.inputForm3 {
+  border-bottom: solid 3px black;
+  width: 35%;
+  padding: 10px 10px;
+  text-align: left;
+  font-size: 20px;
+  margin-left: 33%;
+  border: none;
+  background: none;
+}
+
+.input {
+  border: none;
+  outline: none;
+  background: none;
+  margin-left: 5%;
+  font-size: 20px;
+  width: 300px;
+  color: lightgray;
+}
+
+.out {
+  width: 100%;
+  text-align: center;
+}
+
+.in {
+  display: inline-block;
+  width: 80%;
+  height: 120px;
+  margin-left: 45%;
+  font-size: 20px;
+  color: lightgray;
+}
+
+.in2 {
+  display: inline-block;
+  width: 85%;
+  height: 115px;
+  margin-left: 8%;
+}
+
+.in3 {
+  display: inline-block;
+  width: 100%;
+  height: 150px;
+}
+
+.in4 {
+  display: inline-block;
+  width: 100%;
+  margin-left: 41%;
+}
+
+.in5 {
+  display: inline-block;
+  width: 100%;
+  height: 150px;
+  margin-left: 35%;
+  font-size: 20px;
+  color: lightgray;
+}
+
+.logBtn {
+  margin: 2%;
+  margin-left: 37%;
+}
+.logBtn2 {
+  margin-left: 35.5%;
+}
+
+.logBtn-hover {
+  width: 95%;
+  height: 30px;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 5px;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.logBtn-hover2 {
+  width: 30%;
+  height: 30px;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 5px;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.logBtn-hover:hover {
+  background-position: 100% 0;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.logBtn-hover2:hover {
+  background-position: 100% 0;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
+.logBtn-hover:focus {
+  outline: none;
+}
+
+.logBtn-hover2:focus {
+  outline: none;
+}
+
+.logBtn-hover.logColor-5 {
+  background-image: linear-gradient(
+    to right,
+    #0ba360,
+    #3cba92,
+    #30dd8a,
+    #2bb673
+  );
+  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+
+.logBtn-hover2.logColor-52 {
+  background-image: linear-gradient(
+    to right,
+    #0ba360,
+    #3cba92,
+    #30dd8a,
+    #2bb673
+  );
+  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+
+.signMsg {
+  color: black;
+}
+
+.errMsg {
+  color: lightgray;
+}
+
+input::placeholder {
+  color: lightgray;
+}
+
+.linkTo {
+  text-decoration-line: none;
+  color: gray;
+  font-size: 20px;
+  display: inline-block;
+  margin-left: 43.5%;
+}
+
+.linkTo:hover {
+  color: green;
 }

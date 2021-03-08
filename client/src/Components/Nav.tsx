@@ -9,6 +9,65 @@ import img from '../img/logo.png';
 import MessageModal from './MessageModal';
 import { useHistory } from 'react-router';
 import { useSampleState, useSampleDispatch } from './TodoContext';
+import '../css/Nav.css';
+import styled from 'styled-components';
+import { CgTrees } from 'react-icons/cg';
+
+const NavBlock = styled.div`
+  background: white;
+  width: 100%;
+  height: 7%;
+  border: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #343a40;
+  box-shadow: 3px 3px 20px 3px #000000;
+  position: fixed;
+  top: 0px;
+  z-index: 1;
+`;
+const NavLogo = styled.div`
+  margin-left: 3%;
+
+  .NavLogo_Link {
+    text-decoration: none;
+    // color: #e9ecef;
+    // color: black;
+    padding: 5% 0%;
+    color: #343a40;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    div {
+      font-size: 1.8rem;
+    }
+
+    &:hover {
+      color: green;
+    }
+  }
+`;
+
+const NavIconBlock = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  .NavIconBlock_Link {
+    font-size: 1.3rem;
+    margin-left: 5%;
+    margin-right: 3%;
+    text-decoration: none;
+    color: #343a40;
+    text-shadow: 2px 5px 8px #343a40;
+    font-weight: bold;
+    padding: 10px 10px;
+    &:hover {
+      color: green;
+    }
+  }
+`;
 Modal.setAppElement('#root');
 type Habits = {
   id: number;
@@ -36,63 +95,37 @@ function Nav({ handleHabits }: Props) {
     history.push('/home');
   };
   return (
-    <div>
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-      >
-        <Link to="/home">
-          <img src={img} alt="logo" sizes="100" />
+    <NavBlock>
+      <NavLogo>
+        <Link className="NavLogo_Link" to="/home">
+          <CgTrees size="2.5rem" />
+          <div>습관나무</div>
         </Link>
-      </div>
+      </NavLogo>
       {!toggle.toggle ? (
-        <>
-          <MessageModal />
-
-          <div
-            className="Nav-right"
-            style={{
-              display: 'flex',
-              justifyContent: 'flex-end',
-              alignItems: 'flex-end',
-            }}
-          >
-            <Link to="/login">
-              <IconButton arai-label="myPage" color="default" size="medium" />
-              <AssignmentIndOutlinedIcon />
-            </Link>
-            <Link to="/login">
-              <IconButton
-                arai-label="fingerPrint"
-                color="default"
-                size="medium"
-              />
-              <FingerprintOutlinedIcon />
-            </Link>
-          </div>
-        </>
-      ) : (
-        <div
-          className="Nav-right"
-          style={{
-            display: 'flex',
-            justifyContent: 'flex-end',
-            alignItems: 'flex-end',
-          }}
-        >
-          <Link to="/mypage">
-            <IconButton arai-label="myPage" color="default" size="medium" />
-            <AssignmentIndOutlinedIcon />
+        <NavIconBlock>
+          <Link className="NavIconBlock_Link" to="/mypage">
+            MYPAGE
           </Link>
-          <button type="button" onClick={() => handleIsLogin()}>
-            로그아웃
-          </button>
-        </div>
+          <Link className="NavIconBlock_Link" to="/login">
+            LOGIN
+          </Link>
+        </NavIconBlock>
+      ) : (
+        <NavIconBlock>
+          <Link className="NavIconBlock_Link" to="/mypage">
+            MYPAGE
+          </Link>
+          <Link
+            className="NavIconBlock_Link"
+            to="/"
+            onClick={() => handleIsLogin()}
+          >
+            LOGOUT
+          </Link>
+        </NavIconBlock>
       )}
-    </div>
+    </NavBlock>
   );
 }
 
