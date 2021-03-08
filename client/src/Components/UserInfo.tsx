@@ -41,36 +41,38 @@ const UserInfo = ({ userInfo, forest }: any) => {
       <div>{userInfo.email}</div>
       {!isUpdate ? (
         <div>
-          <div>******</div>
+          <br />
+          <div className='in4'>******</div>
+          <br />
           <span>
-            <button onClick={() => setIsUpdate(true)}> 비밀번호 변경 </button>
+            <br />
+            <button className="logBtn2 logBtn-hover2 logColor-52" onClick={() => setIsUpdate(true)}> 비밀번호 변경 </button>
+            <br />
           </span>
         </div>
       ) : (
-        <div>
-          <input
-            type="password"
-            placeholder="변경할 비밀번호"
-            onChange={(e) => handleInputPassword(e)}
-          ></input>
-          <input
-            type="password"
-            placeholder="변경할 비밀번호 확인"
-            onChange={(e) => handleInputRePassword(e)}
-          ></input>
-          {handleCheckPassword() ? (
-            <div>
-              <button onClick={() => handleClickUpdate(password)}>
-                비밀번호 수정
+          <div>
+            <input className='inputForm3'
+              type="password"
+              placeholder="변경할 비밀번호"
+              onChange={(e) => handleInputPassword(e)}
+            ></input>
+            <input className='inputForm3'
+              type="password"
+              placeholder="변경할 비밀번호 확인"
+              onChange={(e) => handleInputRePassword(e)}
+            ></input>
+            {handleCheckPassword() ? (
+              <div>
+                <button className="logBtn2 logBtn-hover2 logColor-52" onClick={() => handleClickUpdate(password)}>
+                  비밀번호 수정
               </button>
-            </div>
-          ) : (
-            <div className="checkPw">
-              길이가 5자 미만이거나 비밀번호가 맞지 않습니다.
-            </div>
-          )}
-        </div>
-      )}
+              </div>
+            ) : (
+                <div className="in5">길이가 5자 미만이거나 비밀번호가 맞지 않습니다.</div>
+              )}
+          </div>
+        )}
       {!habits ? (
         <div>아직 등록한 습관이 없으시군요!</div>
       ) : (

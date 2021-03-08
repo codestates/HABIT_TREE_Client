@@ -108,20 +108,16 @@ function Login({ habits, setHabits }: HabitsProps) {
           >
             로그인
           </button>
-        </div>
-        <div>
-          <a href="https://habittree.gq/users/kakaoLogin">
-            <button type="button" className="btn btn-kakao">
-              카카오로그인
+            <a href="https://habittree.gq/users/kakaoLogin">
+              <button type="button" className="logBtn logBtn-hover logColor-5">
+                카 카 오 로 그 인
             </button>
-          </a>
-        </div>
-        <div>
-          <Link to="/signup">
-            <button type="button">회원가입</button>
-          </Link>
-        </div>
-      </form>
+            </a>
+            <Link to="/signup">
+              <button type="button" className="logBtn logBtn-hover logColor-5">회 원 가 입</button>
+            </Link>
+            </div>
+          </form>
     </div>
   );
 }

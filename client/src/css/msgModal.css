@@ -1,4 +1,4 @@
-.messageModal {
+ .messageModal {
   position: absolute;
   right: 0%;
   top: 14%;
@@ -61,5 +61,11 @@
     #30dd8a,
     #2bb673
   );
+  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+
+
+.btn-hover.color-5 {
+  background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
   box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
 }
