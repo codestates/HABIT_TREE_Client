@@ -4,40 +4,42 @@ import Forest from './Forest';
 import { CgTree } from 'react-icons/cg';
 import UserInfoBlock from './UserInfoBlock';
 import { getForest } from '../API/forest';
+import styled from 'styled-components';
+import nature from '../img/nature.jpg';
+const MyPageBlock = styled.div`
+  margin-top: 4%;
 
-type Habits = {
-  id: number;
-  title: string;
-  pass: number;
-  clicked: number;
-  achieve: number;
-  treeType: string;
-  userId: number;
-  createdAt: Date;
-};
+  height: 80vh;
+`;
 
-type HabitsProps = {
-  habits: Habits[];
-  setHabits: (value: any) => void;
-};
+const ForestBlock = styled.div`
+  padding: 0;
+  padding: 5%;
+  height: 60vh;
+  background-image: url(${nature});
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 0.9;
+  z-index: 0;
+`;
 
-const Mypage = ({ habits, setHabits }: HabitsProps) => {
+const Mypage = () => {
   const [userInfo, setUserInfo] = useState<any>([]);
   const [forest, setForest] = useState<any>([]);
-
-  const getUserInfo = () => {
-    return getHabits();
+  console.log('mypage');
+  const getUserInfo = async () => {
+    return await getHabits();
   };
 
-  const getForests = () => {
-    return getForest();
+  const getForests = async () => {
+    return await getForest();
   };
 
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         setUserInfo([]);
-        const result = getUserInfo();
+        const result = await getUserInfo();
         setUserInfo(result);
       } catch (e) {
         console.log(e);
@@ -48,7 +50,7 @@ const Mypage = ({ habits, setHabits }: HabitsProps) => {
     const fetchForest = async () => {
       try {
         setForest([]);
-        const result = getForests();
+        const result = await getForests();
         setForest(result);
       } catch (e) {
         console.log(e);
@@ -58,15 +60,14 @@ const Mypage = ({ habits, setHabits }: HabitsProps) => {
   }, []);
 
   return (
-    <div>
-      <h1>
-        <CgTree size="150" />
-        <br />
-        마이페이지 <div> </div>
-      </h1>
-      <Forest forest={forest}></Forest>
+    <MyPageBlock>
+      <ForestBlock>
+        <CgTree className="cgTree" size="150" />
+        <Forest forest={forest}></Forest>
+      </ForestBlock>
+
       <UserInfoBlock userInfo={userInfo} forest={forest}></UserInfoBlock>
-    </div>
+    </MyPageBlock>
   );
 };
 
