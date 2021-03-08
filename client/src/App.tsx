@@ -8,13 +8,7 @@ import Nav from './Components/Nav';
 import Signup from './Components/Signup';
 import Main from './Components/Main';
 import { getAllHabits } from './API/habits';
-import { LoupeTwoTone } from '@material-ui/icons';
-import useReactRouter from 'use-react-router';
-import {
-  SampleProvider,
-  useSampleState,
-  useSampleDispatch,
-} from './Components/TodoContext';
+import { useSampleState, useSampleDispatch } from './Components/TodoContext';
 
 type Habits = {
   id: number;
