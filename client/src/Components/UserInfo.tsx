@@ -42,37 +42,50 @@ const UserInfo = ({ userInfo, forest }: any) => {
       {!isUpdate ? (
         <div>
           <br />
-          <div className='in4'>******</div>
+          <div className="in4">******</div>
           <br />
           <span>
             <br />
-            <button className="logBtn2 logBtn-hover2 logColor-52" onClick={() => setIsUpdate(true)}> 비밀번호 변경 </button>
+            <button
+              className="logBtn2 logBtn-hover2 logColor-52"
+              onClick={() => setIsUpdate(true)}
+            >
+              {' '}
+              비밀번호 변경{' '}
+            </button>
             <br />
           </span>
         </div>
       ) : (
-          <div>
-            <input className='inputForm3'
-              type="password"
-              placeholder="변경할 비밀번호"
-              onChange={(e) => handleInputPassword(e)}
-            ></input>
-            <input className='inputForm3'
-              type="password"
-              placeholder="변경할 비밀번호 확인"
-              onChange={(e) => handleInputRePassword(e)}
-            ></input>
-            {handleCheckPassword() ? (
-              <div>
-                <button className="logBtn2 logBtn-hover2 logColor-52" onClick={() => handleClickUpdate(password)}>
-                  비밀번호 수정
+        <div>
+          <input
+            className="inputForm3"
+            type="password"
+            placeholder="변경할 비밀번호"
+            onChange={(e) => handleInputPassword(e)}
+          ></input>
+          <input
+            className="inputForm3"
+            type="password"
+            placeholder="변경할 비밀번호 확인"
+            onChange={(e) => handleInputRePassword(e)}
+          ></input>
+          {handleCheckPassword() ? (
+            <div>
+              <button
+                className="logBtn2 logBtn-hover2 logColor-52"
+                onClick={() => handleClickUpdate(password)}
+              >
+                비밀번호 수정
               </button>
-              </div>
-            ) : (
-                <div className="in5">길이가 5자 미만이거나 비밀번호가 맞지 않습니다.</div>
-              )}
-          </div>
-        )}
+            </div>
+          ) : (
+            <div className="in5">
+              길이가 5자 미만이거나 비밀번호가 맞지 않습니다.
+            </div>
+          )}
+        </div>
+      )}
       {!habits ? (
         <div>아직 등록한 습관이 없으시군요!</div>
       ) : (
@@ -83,7 +96,13 @@ const UserInfo = ({ userInfo, forest }: any) => {
         ))
       )}
       <div>{`지금까지 체득한 습관의 개수: ${forest.length}`}</div>
-      <button onClick={() => handleWithdrawal()}> 회원 탈퇴 </button>
+      <button
+        className="logBtn2 logBtn-hover2 logColor-52"
+        onClick={() => handleWithdrawal()}
+      >
+        {' '}
+        회원 탈퇴{' '}
+      </button>
     </div>
   );
 };
