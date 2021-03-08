@@ -1,5 +1,5 @@
 const ViewTree = () => {
-  return <div> 나무 </div>;
+  return <div></div>;
 };
 
 export default ViewTree;

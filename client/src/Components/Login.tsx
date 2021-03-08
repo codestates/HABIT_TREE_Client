@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { getHabits, login } from '../API/users';
-import { BsFillPersonFill } from 'react-icons/bs';
+
+import { FaUserCheck } from 'react-icons/fa';
+//import { Height } from '@material-ui/icons';
 
 axios.defaults.withCredentials = true;
 
@@ -55,45 +57,50 @@ function Login({ habits, setHabits }: HabitsProps) {
       }}
     >
       <h1>
-        <div>
-          <BsFillPersonFill size="150" />
+        <div className='out'>
+          <br /><br /><br />
+          <FaUserCheck className='in' color='grey' />
+          <form onSubmit={(e) => e.preventDefault()}>
+            {/* <img src={Trees} style={{
+              position: 'absolute',
+              width: '120%',
+              left: '50%,',
+              top: '50%',
+              height: '100%',
+              objectFit: 'cover',
+              transform: 'translate(-50%, -50%)',
+              zIndex: -1,
+            }} /> */}
+            <div className='inputForm'>
+              <span>아이디</span>
+              <input className='input' type="text" onChange={(e) => handleInputUsername(e)}></input>
+            </div>
+            <div className='inputForm'>
+              <span>비밀번호</span>
+              <input className='input'
+                type="password"
+                onChange={(e) => handleInputPassword(e)}
+              ></input>
+            </div>
+
+            <button
+              type="submit"
+              className="logBtn logBtn-hover logColor-5"
+              onClick={() => userLogin()}
+            >
+              로 그 인
+          </button>
+            <a href="https://habittree.gq/users/kakaoLogin">
+              <button type="button" className="logBtn logBtn-hover logColor-5">
+                카 카 오 로 그 인
+            </button>
+            </a>
+            <Link to="/signup">
+              <button type="button" className="logBtn logBtn-hover logColor-5">회 원 가 입</button>
+            </Link>
+          </form>
         </div>
       </h1>
-      <form onSubmit={(e) => e.preventDefault()}>
-        <div>
-          <span>아이디</span>
-          <input type="text" onChange={(e) => handleInputUsername(e)}></input>
-        </div>
-        <div>
-          <span>비밀번호</span>
-          <input
-            type="password"
-            style={{ fontFamily: 'sans-serif' }}
-            onChange={(e) => handleInputPassword(e)}
-          ></input>
-        </div>
-        <div>
-          <button
-            type="submit"
-            className="btn btn-login"
-            onClick={() => userLogin()}
-          >
-            로그인
-          </button>
-        </div>
-        <div>
-          <a href="https://habittree.gq/users/kakaoLogin">
-            <button type="button" className="btn btn-kakao">
-              카카오로그인
-            </button>
-          </a>
-        </div>
-        <div>
-          <Link to="/signup">
-            <button type="button">회원가입</button>
-          </Link>
-        </div>
-      </form>
     </div>
   );
 }

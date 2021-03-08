@@ -58,15 +58,14 @@ const Mypage = ({ habits, setHabits }: HabitsProps) => {
   }, []);
 
   return (
-    <div>
+    <div style={{ color: 'gray' }
+    }>
       <h1>
-        <CgTree size="150" />
-        <br />
-        마이페이지 <div> </div>
+        <CgTree className='in3' />
       </h1>
       <Forest forest={forest}></Forest>
       <UserInfoBlock userInfo={userInfo} forest={forest}></UserInfoBlock>
-    </div>
+    </div >
   );
 };
 
