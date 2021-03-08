@@ -43,6 +43,12 @@ const CalendarBlock = styled.div`
   margin-top: 4%;
   margin-left: 3%;
 `;
+
+const ModalBlock = styled.div`
+  Modal {
+    margin-top: 30px;
+  }
+`;
 const localizer = momentLocalizer(moment);
 
 const ReactCalendar = ({
@@ -147,7 +153,7 @@ const ReactCalendar = ({
           }}
         />
       </CalendarBlock>
-      <div className="modal_div">
+      <ModalBlock>
         <Modal
           className="speech-bubble"
           isOpen={modalIsOpen}
@@ -187,7 +193,7 @@ const ReactCalendar = ({
             ))}
           </ul>
         </Modal>
-      </div>
+      </ModalBlock>
     </>
   );
 };
