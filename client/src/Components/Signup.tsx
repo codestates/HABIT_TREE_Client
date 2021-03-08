@@ -1,7 +1,7 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { signUp } from '../API/users';
-import { BsFillPersonPlusFill } from 'react-icons/bs';
+import { FaUserEdit } from 'react-icons/fa';
 type InfoType = {
   email: string;
   password: string;
@@ -74,17 +74,14 @@ const Signup = () => {
 
   return (
     <div>
-      <h1>
-        <div>
-          <BsFillPersonPlusFill size="150" />
-        </div>
-        회원가입
-      </h1>
+      <div>
+        <FaUserEdit color='gray' className='in2' />
+      </div>
       <form onSubmit={(e) => e.preventDefault()}>
-        <div>모든 항목은 필수입니다</div>
-        <div>
-          <span>이메일</span>
-          <input
+        <div className='linkTo'>모든 항목은 필수입니다</div>
+        <div className='inputForm2'>
+          <span className='signMsg'>이메일</span>
+          <input className='input'
             type="email"
             placeholder="이메일을 적어주세요"
             onChange={handleInputValue('email')}
@@ -92,23 +89,21 @@ const Signup = () => {
           {handleCheckEmail() ? (
             <></>
           ) : (
-            <div>이메일 형식이 잘못되었습니다.</div>
-          )}
+              <div className='errMsg'>이메일 형식이 잘못되었습니다.</div>
+            )}
         </div>
-        <div>
-          <span>비밀번호</span>
-          <input
+        <div className='inputForm2'>
+          <span className='signMsg'>비밀번호</span>
+          <input className='input'
             type="password"
-            style={{ fontFamily: 'sans-serif' }}
             placeholder="비밀번호를 적어주세요"
             onChange={handleInputValue('password')}
           ></input>
         </div>
-        <div>
-          <span>비밀번호 확인</span>
-          <input
+        <div className='inputForm2'>
+          <span className='signMsg'>비밀번호 확인</span>
+          <input className='input'
             type="password"
-            style={{ fontFamily: 'sans-serif' }}
             placeholder="비밀번호를 다시한번 적어주세요"
             onChange={(e) => handleInputValueRePassword(e)}
           ></input>
@@ -116,13 +111,13 @@ const Signup = () => {
         {handleCheckPassword() ? (
           <div></div>
         ) : (
-          <div className="checkPw" style={{ color: 'red' }}>
-            비밀번호가 맞지 않습니다.
-          </div>
-        )}
-        <div>
-          <span>ID</span>
-          <input
+            <div className="checkPw inputForm2" style={{ color: 'red' }}>
+              비밀번호가 맞지 않습니다.
+            </div>
+          )}
+        <div className='inputForm2'>
+          <span className='signMsg'>ID</span>
+          <input className='input'
             type="text"
             placeholder="ID를 적어주세요"
             onChange={handleInputValue('username')}
@@ -130,12 +125,12 @@ const Signup = () => {
           {handleCheckId() ? (
             <div></div>
           ) : (
-            <div>5자 이상 15자 이하로 작성해주세요</div>
-          )}
+              <div className='errMsg'>5자 이상 15자 이하로 작성해주세요</div>
+            )}
         </div>
-        <div>
-          <span>닉네임</span>
-          <input
+        <div className='inputForm2'>
+          <span className='signMsg'>닉네임</span>
+          <input className='input'
             type="text"
             placeholder="닉네임을 적어주세요"
             onChange={handleInputValue('nickname')}
@@ -143,15 +138,17 @@ const Signup = () => {
           {handleCheckNickName() ? (
             <div></div>
           ) : (
-            <div>3자 이상 10자 이하로 작성해주세요</div>
-          )}
+              <div className='errMsg'>3자 이상 10자 이하로 작성해주세요</div>
+            )}
         </div>
         <div>
-          <Link to="/login">이미 아이디가 있으신가요?</Link>
+          <Link to="/login" className='linkTo'>이미 아이디가 있으신가요?</Link>
         </div>
-        <button className="btn btn-signup" type="submit" onClick={handleSignup}>
-          회원가입
+        <br />
+        <button className="logBtn2 logBtn-hover2 logColor-52" type="submit" onClick={handleSignup}>
+          회 원 가 입
         </button>
+        <br /><br /><br />
       </form>
     </div>
   );

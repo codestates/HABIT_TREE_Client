@@ -1,41 +1,61 @@
-.messageModal {
+ .messageModal {
   position: absolute;
-  right: 3%;
-  top: 10%;
-  border: 1px solid black;
-}
-
-.styledButton {
-  display: inline-flex;
-  outline: none;
+  right: 0%;
+  top: 14%;
   border: none;
-  border-radius: 5px;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  padding-top: 0.3rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-
-  background: #339af0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 10px;
 }
 
-.styledButton:hover {
-  background: #339af0;
-}
-
-.styledButton:active {
-  background: #1c7ed6;
-}
 
 .messageModal_content {
   color: black;
-  font-family: "DX하늘구름 Std";
+  font-family: '닉스곤체 2.0';
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 18px;
+} 
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+ .buttons {
+  margin: 10%;
+  text-align: center;
+}
+
+.btn-hover { 
+  width: 110px;
+  height: 30px;
+  font-size: 18px;
+  color: #fff;
+  text-align:center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 5px;
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-hover:hover {
+  background-position: 100% 0;
+  
+  -o-transition: all .4s ease-in-out;
+  -webkit-transition: all .4s ease-in-out;
+  transition: all .4s ease-in-out;
+}
+
+.btn-hover:focus {
+  outline: none;
+}
+
+
+.btn-hover.color-5 {
+  background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
 }

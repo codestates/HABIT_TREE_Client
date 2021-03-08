@@ -29,13 +29,28 @@ function Main(props) {
         <br />
         <br />
         <br />
-        <div>
-          <h1 className="mainText">
-            <CgTrees size="150" />
-            <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <div className="main">
+          <CgTrees size="140" />
+          <br />
             습관나무
-          </h1>
         </div>
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <br />
         <br />
         <br />
@@ -43,7 +58,7 @@ function Main(props) {
         <br />
         <Link to="/home">
           <button
-            className="btn mainText"
+            className="btn main"
             onClick={() => props.setIsMain(false)}
           >
             시작하기

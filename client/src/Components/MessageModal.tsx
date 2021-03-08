@@ -15,10 +15,11 @@ function MessageModal() {
     <div className="messageModal">
       {showMenu ? (
         <div className="messageModal_content">
-          비 로그인 시 <br />
+          로그인을 하지 않을 경우
+          <br /><br />
           저장되지 않습니다.
           <Link to="/signup">
-            <button className="styledButton">SIGN UP</button>
+            <button className="buttons btn-hover color-5">회원가입</button>
           </Link>
         </div>
       ) : null}
