@@ -5,6 +5,7 @@ import { BsFillPersonFill } from 'react-icons/bs';
 import { useHistory } from 'react-router';
 import { useSampleState, useSampleDispatch } from './TodoContext';
 import styled from 'styled-components';
+import { FaUserCheck } from 'react-icons/fa';
 
 const ErrorMessage = styled.div`
   width: auto;
@@ -78,8 +79,11 @@ function Login({ habits, setHabits }: HabitsProps) {
       }}
     >
       <h1>
-        <div>
-          <BsFillPersonFill size="150" />
+        <div className="out">
+          <br />
+          <br />
+          <br />
+          <FaUserCheck className="in" color="grey" />
         </div>
       </h1>
       <form onSubmit={(e) => e.preventDefault()}>
@@ -88,13 +92,18 @@ function Login({ habits, setHabits }: HabitsProps) {
             Habit Tree ID 또는 암호를 올바르게 입력하지 않았습니다.
           </ErrorMessage>
         )}
-        <div>
+        <div className="inputForm">
           <span>아이디</span>
-          <input type="text" onChange={(e) => handleInputUsername(e)}></input>
+          <input
+            className="input"
+            type="text"
+            onChange={(e) => handleInputUsername(e)}
+          ></input>
         </div>
-        <div>
+        <div className="inputForm">
           <span>비밀번호</span>
           <input
+            className="input"
             type="password"
             style={{ fontFamily: 'sans-serif' }}
             onChange={(e) => handleInputPassword(e)}
@@ -103,21 +112,23 @@ function Login({ habits, setHabits }: HabitsProps) {
         <div>
           <button
             type="submit"
-            className="btn btn-login"
+            className=" logBtn logBtn-hover logColor-5"
             onClick={() => userLogin()}
           >
-            로그인
+            로 그 인
           </button>
-            <a href="https://habittree.gq/users/kakaoLogin">
-              <button type="button" className="logBtn logBtn-hover logColor-5">
-                카 카 오 로 그 인
+          <a href="https://habittree.gq/users/kakaoLogin">
+            <button type="button" className="logBtn logBtn-hover logColor-5">
+              카 카 오 로 그 인
             </button>
-            </a>
-            <Link to="/signup">
-              <button type="button" className="logBtn logBtn-hover logColor-5">회 원 가 입</button>
-            </Link>
-            </div>
-          </form>
+          </a>
+          <Link to="/signup">
+            <button type="button" className="logBtn logBtn-hover logColor-5">
+              회 원 가 입
+            </button>
+          </Link>
+        </div>
+      </form>
     </div>
   );
 }
