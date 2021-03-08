@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { removeHabit } from '../API/habits';
 import { removeUser, updateUser } from '../API/users';
 
-const UserInfo = (props: any) => {
-  const { userInfo, forest } = props;
+const UserInfo = ({ userInfo, forest }: any) => {
   const [isUpdate, setIsUpdate] = useState(false);
   const [password, setPassword] = useState('');
   const [repassword, setRepassword] = useState('');

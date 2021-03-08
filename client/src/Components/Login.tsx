@@ -2,12 +2,29 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { getHabits, login } from '../API/users';
+
 import { FaUserCheck } from 'react-icons/fa';
 //import { Height } from '@material-ui/icons';
+
 axios.defaults.withCredentials = true;
 
-function Login(props: any) {
-  const { habits, setHabits } = props;
+type Habits = {
+  id: number;
+  title: string;
+  pass: number;
+  clicked: number;
+  achieve: number;
+  treeType: string;
+  userId: number;
+  createdAt: Date;
+};
+
+type HabitsProps = {
+  habits: Habits[];
+  setHabits: (value: any) => void;
+};
+
+function Login({ habits, setHabits }: HabitsProps) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
 

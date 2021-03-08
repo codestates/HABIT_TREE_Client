@@ -1,8 +1,20 @@
-import { ChangeEvent, useState } from 'react';
+import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
 import { uploadHabit } from '../API/habits';
 
-const UploadHabit = (props: any) => {
-  const { events, setEvents } = props;
+type Events = {
+  id: number;
+  title: string;
+  allday: boolean;
+  start: Date;
+  end: number;
+};
+
+type EventsProps = {
+  events: Events[];
+  setEvents: (value: Events[]) => void;
+};
+
+const UploadHabit = ({ events, setEvents }: EventsProps) => {
   const [title, setTitle] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -16,6 +28,7 @@ const UploadHabit = (props: any) => {
       return;
     }
     const isLogin = localStorage.getItem('isLogin');
+
     if (!isLogin) {
       setEvents([
         ...events,
@@ -29,7 +42,8 @@ const UploadHabit = (props: any) => {
       ]);
       return;
     }
-    const result = uploadHabit(events.title);
+
+    const result = uploadHabit(title);
     if (result) {
       setEvents([
         ...events,
