@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Redirect, RouteComponentProps } from 'react-router-dom';
 import { signUp } from '../API/users';
 import { FaUserEdit } from 'react-icons/fa';
 type InfoType = {
@@ -9,7 +9,9 @@ type InfoType = {
   nickname: string;
 };
 
-const Signup = () => {
+interface Props extends RouteComponentProps {}
+
+const Signup = (props: Props) => {
   const [info, setInfo] = useState<InfoType>({
     email: '',
     password: '',
@@ -65,10 +67,12 @@ const Signup = () => {
       return false;
     }
   };
+
   const handleSignup = () => {
     const { username, password, email, nickname } = info;
     const result = signUp(username, password, email, nickname);
     if (result) {
+      props.history.push('/login');
     }
   };
 

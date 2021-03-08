@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import React, { useEffect, useRef, useState } from 'react';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home';
 import Login from './Components/Login';
@@ -7,6 +7,14 @@ import Mypage from './Components/Mypage';
 import Nav from './Components/Nav';
 import Signup from './Components/Signup';
 import Main from './Components/Main';
+import { getAllHabits } from './API/habits';
+import { LoupeTwoTone } from '@material-ui/icons';
+import useReactRouter from 'use-react-router';
+import {
+  SampleProvider,
+  useSampleState,
+  useSampleDispatch,
+} from './Components/TodoContext';
 
 type Habits = {
   id: number;
@@ -18,46 +26,54 @@ type Habits = {
   userId: number;
   createdAt: Date;
 };
-
-function App() {
-  const [isMain, setIsMain] = useState<boolean>(true);
+const App = withRouter(({ location }: any) => {
   const [habits, setHabits] = useState<Habits[]>([]);
+  const toggle = useSampleState();
+  const dispatch = useSampleDispatch();
 
-  const handleHabits = (value: any) => {
+  const initialValue = useRef(habits);
+  useEffect(() => {
+    if (initialValue.current === habits) {
+    } else {
+      if (toggle.toggle) {
+        async function getHabits() {
+          const result = await getAllHabits();
+          handleHabits(result as Habits[]);
+        }
+        getHabits();
+      } else {
+        handleHabits([]);
+        return;
+      }
+    }
+  });
+
+  // 습관 가져오기 메소드
+  const handleHabits = (value: Habits[]) => {
+    initialValue.current = value;
     setHabits(value);
   };
 
   return (
     <>
-      {isMain ? (
-        <div>
-          <Route exact path="/">
-            <Main setIsMain={setIsMain}></Main>
-          </Route>
-        </div>
-      ) : (
-        <div>
-          <Nav />
-          <Switch>
-            <Route exact={true} path="/home">
-              <Home habits={habits} setHabits={handleHabits} />
-            </Route>
-            <Route
-              exact={true}
-              path="/login"
-              render={() => <Login habits={habits} setHabits={handleHabits} />}
-            />
-            <Route
-              exact={true}
-              path="/mypage"
-              render={() => <Mypage habits={habits} setHabits={handleHabits} />}
-            />
-            <Route exact={true} path="/signup" render={() => <Signup />} />
-          </Switch>
-        </div>
-      )}
+      {location.pathname !== '/' && <Nav handleHabits={handleHabits} />}
+      <Route exact path="/">
+        <Main handleHabits={handleHabits}></Main>
+      </Route>
+      <Switch>
+        <Route exact path="/home">
+          <Home habits={habits} handleHabits={handleHabits} />
+        </Route>
+        <Route
+          exact={true}
+          path="/login"
+          render={() => <Login habits={habits} setHabits={handleHabits} />}
+        ></Route>
+        <Route exact={true} path="/mypage" render={() => <Mypage />} />
+        <Route exact={true} path="/signup" component={Signup} />
+      </Switch>
     </>
   );
-}
+});
 
 export default App;

@@ -11,8 +11,9 @@ function MessageModal() {
     setShowMenu(true);
     document.addEventListener('click', closeMenu);
   }, []);
+
   return (
-    <div className="messageModal">
+    <>
       {showMenu ? (
         <div className="messageModal_content">
           로그인을 하지 않을 경우
@@ -23,7 +24,7 @@ function MessageModal() {
           </Link>
         </div>
       ) : null}
-    </div>
+    </>
   );
 }
 

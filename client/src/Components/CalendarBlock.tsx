@@ -1,7 +1,16 @@
 import { HdSharp } from '@material-ui/icons';
-import { Dispatch, SetStateAction, useState } from 'react';
+import { Dispatch, SetStateAction, useEffect, useState } from 'react';
 import ReactCalendar from './Calendar';
 import UploadHabit from './UploadHabit';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 0;
+`;
 
 type Habits = {
   id: number;
@@ -14,38 +23,53 @@ type Habits = {
   createdAt: Date;
 };
 
+type Obj = {
+  [k: number]: number;
+};
+
 type HabitsProps = {
   habits: Habits[];
-  setHabits: (value: Habits[]) => void;
+  handleHabits: (value: Habits[]) => void;
+  percent: Obj;
+  handlePercent: (value: Obj) => void;
 };
 
 type Events = {
-  id: number;
-  title: string;
-  allday: boolean;
-  start: Date;
-  end: number;
+  id: number | null;
+  title: string | null;
+  allday: boolean | null;
+  start: Date | null;
+  end: number | null;
 };
 
-const CalendarBlock = ({ habits, setHabits }: HabitsProps) => {
-  const result = habits.map((habit) => {
-    return {
-      id: habit.id,
-      title: habit.title,
-      allday: true,
-      start: habit.createdAt,
-      end: habit.createdAt.setDate(habit.createdAt.getDate() + 27),
-    };
-  });
-  const [events, setEvents] = useState(result);
-  const handleEvent = (value: Events[]) => {
+const CalendarBlock = ({
+  habits,
+  handleHabits,
+  percent,
+  handlePercent,
+}: HabitsProps) => {
+  const [event, setEvents] = useState<Events[]>([]);
+
+  const handleEvents = (value: Events[]) => {
     setEvents(value);
   };
+
   return (
-    <div>
-      <UploadHabit events={events} setEvents={handleEvent} />
-      <ReactCalendar events={events} setEvents={handleEvent} />
-    </div>
+    <Container>
+      <UploadHabit
+        habits={habits}
+        event={event}
+        setEvents={handleEvents}
+        handleHabits={handleHabits}
+      />
+      <ReactCalendar
+        habits={habits}
+        event={event}
+        setEvents={handleEvents}
+        percent={percent}
+        handlePercent={handlePercent}
+      />
+    </Container>
   );
 };
 

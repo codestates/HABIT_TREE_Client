@@ -31,10 +31,6 @@ const UserInfo = ({ userInfo, forest }: any) => {
     }
   };
 
-  const handleClickDelete = (id: number) => {
-    return removeHabit(id);
-  };
-
   const handleWithdrawal = () => {
     return removeUser();
   };
@@ -80,21 +76,14 @@ const UserInfo = ({ userInfo, forest }: any) => {
       {!habits ? (
         <div>아직 등록한 습관이 없으시군요!</div>
       ) : (
-          habits.map((habit: any) => (
-            <div>
-              {`${habit.title} 습관의 달성률은 ${habit.achieve} % 입니다`}
-              <span>
-                <button onClick={() => handleClickDelete(habit.id)}>
-                  습관 삭제
-              </button>
-              </span>
-            </div>
-          ))
-        )}
-      <br />
-      <div className='in4'>{`지금까지 체득한 습관의 개수: ${forest.length}`}</div>
-      <br /><br />
-      <button className="logBtn2 logBtn-hover2 logColor-52" onClick={() => handleWithdrawal()}> 회원 탈퇴 </button>
+        habits.map((habit: any) => (
+          <div>
+            {`${habit.title} 습관의 달성률은 ${habit.achieve} % 입니다`}
+          </div>
+        ))
+      )}
+      <div>{`지금까지 체득한 습관의 개수: ${forest.length}`}</div>
+      <button onClick={() => handleWithdrawal()}> 회원 탈퇴 </button>
     </div>
   );
 };
