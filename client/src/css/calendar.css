@@ -1,0 +1,16 @@
+.rbc-header {
+  color: #7b0b56;
+  height: 45px;
+  padding: 10px;
+  font-size: 1rem;
+  font-weight: 900;
+  background: #f1e4d5;
+  color: #d39063;
+}
+.rbc-today {
+  background: #e6fee2;
+}
+.rbc-header:first-child {
+  color: #7b0b56;
+  background: #ebc2bb;
+}

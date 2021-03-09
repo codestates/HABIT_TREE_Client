@@ -1,12 +1,11 @@
-import { create } from 'domain';
 import React, { useRef, useEffect } from 'react';
 import '../App.css';
+import MessageModal from './MessageModal';
 const ViewTree = ({ percent }) => {
   const canvasRef = useRef(null);
   let canvas;
   let ctx;
 
-  console.log(percent);
   // canvas = canvasRef.current;
   useEffect(() => {
     canvas = document.querySelector('.myCanvas');
@@ -179,6 +178,7 @@ const ViewTree = ({ percent }) => {
         width="1000px"
         height="1000px"
       />
+      <MessageModal />
     </div>
   );
 };

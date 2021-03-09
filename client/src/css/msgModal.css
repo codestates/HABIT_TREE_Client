@@ -1,13 +1,13 @@
- .messageModal {
+.messageModal {
   position: absolute;
-  right: 0%;
-  top: 14%;
+  right: 1%;
+  top: 7%;
   border: none;
-  padding: 10px;
+  padding: 25px;
 }
 
 .messageModal_content {
-  color: black;
+  color: white;
   font-family: '닉스곤체 2.0';
   text-align: center;
   display: flex;
@@ -64,8 +64,27 @@
   box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
 }
 
-
 .btn-hover.color-5 {
-  background-image: linear-gradient(to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+  background-image: linear-gradient(
+    to right,
+    #0ba360,
+    #3cba92,
+    #30dd8a,
+    #2bb673
+  );
   box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+
+@media only screen and (max-width: 768px) {
+  .messageModal {
+    top: 5%;
+  }
+  .messageModal_content {
+    color: black;
+    background: rgb(242, 241, 241);
+    font-size: 1rem;
+    border-radius: 20px;
+    padding: 7px;
+    padding-top: 15px;
+  }
 }

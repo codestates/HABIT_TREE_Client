@@ -6,7 +6,7 @@ import styled from 'styled-components';
 const Div = styled.div`
   border-bottom: solid 2px gray;
   display: flex;
-
+  justify-content: space-between;
   width: 68%;
   input {
     outline: none;
@@ -84,7 +84,7 @@ const UploadHabit = ({
     setTitle(e.target.value);
   };
 
-  const handleButtonClick = async (e: React.MouseEvent<HTMLButtonElement>) => {
+  const handleButtonClick = async () => {
     if (title.length === 0) {
       setErrorMessage('습관 이름을 정해주세요');
       return;
@@ -114,6 +114,12 @@ const UploadHabit = ({
     }
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
+    if (e.key === 'Enter') {
+      handleButtonClick();
+    }
+  };
+
   return (
     <>
       <Div>
@@ -121,9 +127,18 @@ const UploadHabit = ({
           type="text"
           placeholder="기르고 싶은 습관을 등록해주세요"
           onChange={(e) => handleInputBox(e)}
+          onKeyPress={(e) => {
+            handleKeyPress(e);
+          }}
           value={title}
         ></input>
-        <button onClick={handleButtonClick}>등록</button>
+        <button
+          onClick={(e) => {
+            handleButtonClick();
+          }}
+        >
+          등록
+        </button>
       </Div>
       {errorMessage ? <ErrorMessage>{errorMessage}</ErrorMessage> : <></>}
     </>

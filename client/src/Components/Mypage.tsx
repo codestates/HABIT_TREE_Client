@@ -21,6 +21,7 @@ const ForestBlock = styled.div`
   background-size: cover;
   opacity: 0.9;
   z-index: 0;
+  margin-bottom: 30px;
 `;
 
 const Mypage = () => {
@@ -65,7 +66,6 @@ const Mypage = () => {
         <CgTree className="cgTree" size="150" />
         <Forest forest={forest}></Forest>
       </ForestBlock>
-
       <UserInfoBlock userInfo={userInfo} forest={forest}></UserInfoBlock>
     </MyPageBlock>
   );

@@ -2,7 +2,27 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import CalendarBlock from './CalendarBlock';
 import TreeBlock from './TreeBlock';
+import styled from 'styled-components';
 
+const Container = styled.div`
+  display: flex;
+
+  @media only screen and (max-width: 768px) {
+    display: initial;
+  }
+`;
+
+const Components = styled.div`
+  display: flex;
+  height: 100vh;
+  width: 50%;
+  justifycontent: center;
+  @media only screen and (max-width: 768px) {
+    margin-top: 55px;
+    height: 50%;
+    width: 100%;
+  }
+`;
 type Habits = {
   id: number;
   title: string;
@@ -30,36 +50,19 @@ function Home({ habits, handleHabits }: HabitsProps) {
     setPercent(value);
   };
   return (
-    <div
-      style={{
-        display: 'flex',
-      }}
-    >
-      <div
-        style={{
-          display: 'flex',
-          width: '50%',
-          height: '100vh',
-          justifyContent: 'center',
-        }}
-      >
+    <Container>
+      <Components>
         <CalendarBlock
           habits={habits}
           handleHabits={handleHabits}
           percent={percent}
           handlePercent={handlePercent}
         ></CalendarBlock>
-      </div>
-      <div
-        style={{
-          height: '100vh',
-          width: '50%',
-          justifyContent: 'center',
-        }}
-      >
+      </Components>
+      <Components>
         <TreeBlock percent={percent}></TreeBlock>
-      </div>
-    </div>
+      </Components>
+    </Container>
   );
 }
 

@@ -3,13 +3,13 @@ import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Modal from 'react-modal';
 import { IconButton } from '@material-ui/core';
-import SentimentSatisfiedIcon from '@material-ui/icons/EmojiEmotionsOutlined';
-import SentimentDissatisfiedOutlinedIcon from '@material-ui/icons/SentimentDissatisfiedOutlined';
+import { FaTree } from 'react-icons/fa';
+import { GiBurningTree } from 'react-icons/gi';
 import { useEffect, useState } from 'react';
-import '../../node_modules/react-big-calendar/lib/addons/dragAndDrop/styles.css';
+import '../css/calendar.css';
 import { updateHabit, removeHabit } from '../API/habits';
 import styled from 'styled-components';
-
+import 'moment/locale/ko';
 type Habits = {
   id: number;
   title: string;
@@ -40,8 +40,8 @@ type Obj = {
   [k: number]: number;
 };
 const CalendarBlock = styled.div`
-  margin-top: 4%;
-  margin-left: 3%;
+  margin-top: 20px;
+  width: 80%;
 `;
 
 const ModalBlock = styled.div`
@@ -140,12 +140,24 @@ const ReactCalendar = ({
           selectable
           events={event}
           defaultDate={moment().toDate()}
+          eventPropGetter={() => ({ style: { backgroundColor: '#66d9e8' } })}
           localizer={localizer}
           style={{
-            width: '90%',
-            height: '60vh',
-            marginBottom: '5%',
-            paddingLeft: '5%',
+            width: '100%',
+            height: '75vh',
+          }}
+          views={{
+            month: true,
+            week: true,
+          }}
+          messages={{
+            next: '다음',
+            today: '오늘',
+            month: '월',
+            previous: '이전 달',
+            week: '주',
+            day: '일',
+            agenda: ' 누르지마세요',
           }}
           onSelectSlot={(slotInfo) => {
             setModalIsOpen(true);
@@ -160,35 +172,32 @@ const ReactCalendar = ({
           shouldCloseOnEsc={true}
           onRequestClose={() => setModalIsOpen(false)}
         >
-          <h2>습관 목록</h2>
+          <div className="speech-bubble_title">습관 목록</div>
           <ul style={{ listStyle: 'none' }}>
             {realEvent.map((element: any) => (
               <li key={element.id}>
-                {element.title}
-                <span>
-                  <IconButton
+                <div>{element.title}</div>
+                <div>
+                  <button
                     arai-label="satisfied"
                     value={Number(3.5714285714285716)}
-                    color="secondary"
                     onClick={(e) => {
                       handleButtonClick(e, element.id);
                     }}
                   >
-                    <SentimentSatisfiedIcon />
-                  </IconButton>
-                </span>
-                <span>
-                  <IconButton
+                    <FaTree color="green" className="faTree" />
+                  </button>
+
+                  <button
                     arai-label="dissatisfied"
-                    color="secondary"
                     onClick={() => {
                       deleteEvent(element.id);
                       setEvents(event.filter((ele) => ele.id !== element.id));
                     }}
                   >
-                    <SentimentDissatisfiedOutlinedIcon />
-                  </IconButton>
-                </span>
+                    <GiBurningTree color="red" className="buringTree" />
+                  </button>
+                </div>
               </li>
             ))}
           </ul>
