@@ -9,6 +9,7 @@ import { useEffect, useState } from 'react';
 import '../css/calendar.css';
 import { updateHabit, removeHabit } from '../API/habits';
 import styled from 'styled-components';
+import { useSampleState, useSampleDispatch } from './TodoContext';
 import 'moment/locale/ko';
 type Habits = {
   id: number;
@@ -27,6 +28,7 @@ type HabitsProps = {
   setEvents: (value: Events[]) => void;
   percent: Obj;
   handlePercent: (value: Obj) => void;
+  handleHabits: (value: Habits[]) => void;
 };
 
 type Events = {
@@ -57,10 +59,11 @@ const ReactCalendar = ({
   setEvents,
   percent,
   handlePercent,
+  handleHabits,
 }: HabitsProps) => {
   const [modalIsOpen, setModalIsOpen] = useState<boolean>(false);
   const [date, setClickDate] = useState(new Date());
-
+  const toggle = useSampleState();
   useEffect(() => {
     if (habits.length === 0) {
       setEvents([]);
@@ -130,7 +133,20 @@ const ReactCalendar = ({
 
   // 서버에 habit 삭제 요청 메소드
   const deleteEvent = async (id: number) => {
-    const result = await removeHabit(id);
+    // event habit => id 동일
+    if (toggle.toggle) {
+      handleHabits(habits.filter((habit) => habit.id !== id));
+      const result = await removeHabit(id);
+    } else {
+      console.log(id);
+
+      setEvents(event.filter((ele) => ele.id !== id));
+      delete percent[id];
+      // console.log(percent);
+
+      handlePercent({ ...percent });
+      console.log(percent);
+    }
   };
 
   return (
@@ -192,7 +208,6 @@ const ReactCalendar = ({
                     arai-label="dissatisfied"
                     onClick={() => {
                       deleteEvent(element.id);
-                      setEvents(event.filter((ele) => ele.id !== element.id));
                     }}
                   >
                     <GiBurningTree color="red" className="buringTree" />

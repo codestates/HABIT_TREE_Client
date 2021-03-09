@@ -157,7 +157,7 @@ function Nav({ handleHabits }: Props) {
       {!toggle.toggle ? (
         <>
           <NavIconBlock>
-            <Link className="NavIconBlock_Link MyPage" to="/mypage"></Link>
+            <Link className="NavIconBlock_Link MyPage" to="/login"></Link>
             <Link className="NavIconBlock_Link LoginToggle" to="/login"></Link>
           </NavIconBlock>
         </>
