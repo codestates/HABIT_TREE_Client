@@ -10,6 +10,8 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 0;
+  width: 100%;
+  margin-top: 30px;
 `;
 
 type Habits = {

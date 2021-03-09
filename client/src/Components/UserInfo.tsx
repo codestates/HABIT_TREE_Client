@@ -36,26 +36,19 @@ const UserInfo = ({ userInfo, forest }: any) => {
   };
 
   return (
-    <div>
-      <div>{userInfo.nickname}</div>
-      <div>{userInfo.email}</div>
+    <>
+      <div>닉네임: {userInfo.nickname}</div>
+      <div>이메일: {userInfo.email}</div>
+      <div className="in4">비밀번호: ******</div>
       {!isUpdate ? (
-        <div>
-          <br />
-          <div className="in4">******</div>
-          <br />
-          <span>
-            <br />
-            <button
-              className="logBtn2 logBtn-hover2 logColor-52"
-              onClick={() => setIsUpdate(true)}
-            >
-              {' '}
-              비밀번호 변경{' '}
-            </button>
-            <br />
-          </span>
-        </div>
+        <>
+          <button
+            className="logBtn2 logBtn-hover2 logColor-52"
+            onClick={() => setIsUpdate(true)}
+          >
+            비밀번호 변경
+          </button>
+        </>
       ) : (
         <div>
           <input
@@ -103,7 +96,7 @@ const UserInfo = ({ userInfo, forest }: any) => {
         {' '}
         회원 탈퇴{' '}
       </button>
-    </div>
+    </>
   );
 };
 

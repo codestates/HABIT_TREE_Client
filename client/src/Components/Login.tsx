@@ -25,6 +25,17 @@ const ErrorMessage = styled.div`
   border: 1px solid rgba(227, 0, 0, 0.4);
 `;
 
+const Container = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+  }
+`;
+
 type Habits = {
   id: number;
   title: string;
@@ -53,6 +64,7 @@ function Login({ habits, setHabits }: HabitsProps) {
 
   const handleInputPassword = (event: React.ChangeEvent<HTMLInputElement>) => {
     setPassword(event.target.value);
+    setLoginFail(true);
   };
   const history = useHistory();
 
@@ -66,34 +78,30 @@ function Login({ habits, setHabits }: HabitsProps) {
       setHabits(habit.habits);
       history.push('/home');
     } else {
+      setPassword('');
       setLoginFail(false);
     }
   };
 
+  const handleKeyPress = (e: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (e.key === 'Enter') {
+      userLogin();
+    }
+  };
+
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-      }}
-    >
-      <h1>
-        <div className="out">
-          <br />
-          <br />
-          <br />
-          <FaUserCheck className="in" color="grey" />
-        </div>
-      </h1>
-      <form onSubmit={(e) => e.preventDefault()}>
+    <Container>
+      <div className="in">
+        <FaUserCheck className="in_logo" />
+      </div>
+      <form className="inputFormConatiner" onSubmit={(e) => e.preventDefault()}>
         {!loginFail && (
           <ErrorMessage>
             Habit Tree ID 또는 암호를 올바르게 입력하지 않았습니다.
           </ErrorMessage>
         )}
         <div className="inputForm">
-          <span>아이디</span>
+          <div>아이디</div>
           <input
             className="input"
             type="text"
@@ -101,19 +109,21 @@ function Login({ habits, setHabits }: HabitsProps) {
           ></input>
         </div>
         <div className="inputForm">
-          <span>비밀번호</span>
+          <div>비밀번호</div>
           <input
             className="input"
             type="password"
+            value={password}
             style={{ fontFamily: 'sans-serif' }}
             onChange={(e) => handleInputPassword(e)}
           ></input>
         </div>
-        <div>
+        <div className="btnContainer">
           <button
             type="submit"
             className=" logBtn logBtn-hover logColor-5"
             onClick={() => userLogin()}
+            onKeyPress={(e) => handleKeyPress(e)}
           >
             로 그 인
           </button>
@@ -129,7 +139,7 @@ function Login({ habits, setHabits }: HabitsProps) {
           </Link>
         </div>
       </form>
-    </div>
+    </Container>
   );
 }
 

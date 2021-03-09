@@ -26,25 +26,38 @@ const NavBlock = styled.div`
   position: fixed;
   top: 0px;
   z-index: 1;
+  @media only screen and (max-width: 768px) {
+    height: 5%;
+  }
 `;
 const NavLogo = styled.div`
   margin-left: 3%;
 
   .NavLogo_Link {
     text-decoration: none;
-    // color: #e9ecef;
-    // color: black;
     padding: 5% 0%;
     color: #343a40;
-    font-weight: bold;
+    font-weight: 900;
     display: flex;
     align-items: center;
     div {
       font-size: 1.8rem;
+
+      @media only screen and (max-width: 768px) {
+        display: none;
+      }
+    }
+
+    .CgTrees {
+      font-size: 2.5rem;
+      @media only screen and (max-width: 768px) {
+        font-size: 2rem;
+      }
     }
 
     &:hover {
-      color: green;
+      transition: color 0.2s ease-in-out;
+      color: #0ba360;
     }
   }
 `;
@@ -63,8 +76,47 @@ const NavIconBlock = styled.div`
     text-shadow: 2px 5px 8px #343a40;
     font-weight: bold;
     padding: 10px 10px;
-    &:hover {
-      color: green;
+  }
+  .NavIconBlock_Link.MyPage {
+    &:hover:before {
+      transition: color 0.2s ease-in-out;
+      color: #0ba360;
+      content: 'MYPAGE';
+    }
+    &:before {
+      content: '마이페이지';
+    }
+
+    @media only screen and (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+  .NavIconBlock_Link.LoginToggle {
+    &:hover:before {
+      transition: color 0.2s ease-in-out;
+      color: #0ba360;
+      content: 'LOGIN';
+    }
+    &:before {
+      content: '로그인';
+    }
+    @media only screen and (max-width: 768px) {
+      font-size: 1rem;
+    }
+  }
+
+  .NavIconBlock_Link.LogoutToggle {
+    &:hover:before {
+      transition: color 0.2s ease-in-out;
+      color: #0ba360;
+      content: 'LOGOUT';
+    }
+    &:before {
+      content: '로그아웃';
+    }
+
+    @media only screen and (max-width: 768px) {
+      font-size: 1rem;
     }
   }
 `;
@@ -98,31 +150,25 @@ function Nav({ handleHabits }: Props) {
     <NavBlock>
       <NavLogo>
         <Link className="NavLogo_Link" to="/home">
-          <CgTrees size="2.5rem" />
+          <CgTrees className="CgTrees" />
           <div>습관나무</div>
         </Link>
       </NavLogo>
       {!toggle.toggle ? (
-        <NavIconBlock>
-          <Link className="NavIconBlock_Link" to="/mypage">
-            MYPAGE
-          </Link>
-          <Link className="NavIconBlock_Link" to="/login">
-            LOGIN
-          </Link>
-        </NavIconBlock>
+        <>
+          <NavIconBlock>
+            <Link className="NavIconBlock_Link MyPage" to="/mypage"></Link>
+            <Link className="NavIconBlock_Link LoginToggle" to="/login"></Link>
+          </NavIconBlock>
+        </>
       ) : (
         <NavIconBlock>
-          <Link className="NavIconBlock_Link" to="/mypage">
-            MYPAGE
-          </Link>
+          <Link className="NavIconBlock_Link MyPage" to="/mypage"></Link>
           <Link
-            className="NavIconBlock_Link"
+            className="NavIconBlock_Link LogoutToggle"
             to="/"
             onClick={() => handleIsLogin()}
-          >
-            LOGOUT
-          </Link>
+          ></Link>
         </NavIconBlock>
       )}
     </NavBlock>
