@@ -70,6 +70,7 @@ const CalendarBlock = ({
         setEvents={handleEvents}
         percent={percent}
         handlePercent={handlePercent}
+        handleHabits={handleHabits}
       />
     </Container>
   );

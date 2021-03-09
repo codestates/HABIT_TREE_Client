@@ -19,9 +19,6 @@ const ViewTree = ({ percent }) => {
   }, [percent]);
 
   function create() {
-    canvas.addEventListener('click', function (e) {
-      console.log({ x: e.layerX, y: e.layerY });
-    });
     var leafColorArray = [
       '#347235',
       '#437C17',
@@ -67,6 +64,7 @@ const ViewTree = ({ percent }) => {
 
       xLocation += 300;
       count++;
+      ctx.beginPath();
     }
   }
 
@@ -76,7 +74,7 @@ const ViewTree = ({ percent }) => {
       xLocation, //getRandomInt(0, 1200),
       900, //getRandomInt(0, 1000),
       -90,
-      percent, //percent
+      percent + 4, //percent
       12,
       leafColor
     );

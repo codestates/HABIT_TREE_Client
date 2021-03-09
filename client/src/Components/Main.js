@@ -18,7 +18,9 @@ function Main(props) {
       dispatch({ type: 'SET_TOGGLE', toggle: true });
       async function getHabits() {
         const result = await getAllHabits();
-        props.handleHabits(result);
+        if (result) {
+          props.handleHabits(result);
+        }
       }
       getHabits();
       history.push('/home');
