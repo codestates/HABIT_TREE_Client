@@ -1,5 +1,4 @@
-import { HdSharp } from '@material-ui/icons';
-import { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import { useState } from 'react';
 import ReactCalendar from './Calendar';
 import UploadHabit from './UploadHabit';
 import styled from 'styled-components';

@@ -1,12 +1,9 @@
-import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../css/msgModal.css';
-import { useSampleState, useSampleDispatch } from './TodoContext';
+import { useSampleState } from './LoginToggleContext';
 
 function MessageModal() {
-  const [showMenu, setShowMenu] = useState(false);
   const toggle = useSampleState();
-  const dispatch = useSampleDispatch();
 
   // const closeMenu = () => {
   //   setShowMenu(false);

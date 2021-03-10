@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { removeHabit } from '../API/habits';
 import { removeUser, updateUser } from '../API/users';
 import styled from 'styled-components';
 
@@ -10,13 +9,13 @@ const Container = styled.div`
   align-items: center;
 `;
 
-const Container_userInfo = styled.div`
+const ContainerUserInfo = styled.div`
   div {
     margin: 10px 0px;
   }
 `;
 
-const Container_habits = styled.div`
+const ContainerHabits = styled.div`
   div {
     font-size: 1.5rem;
     margin: 20px 0px;
@@ -57,7 +56,7 @@ const UserInfo = ({ userInfo, forest }: any) => {
 
   return (
     <Container>
-      <Container_userInfo>
+      <ContainerUserInfo>
         <div>닉네임: {userInfo.nickname}</div>
         <div>이메일: {userInfo.email}</div>
         <div className="in4">비밀번호: ******</div>
@@ -108,8 +107,8 @@ const UserInfo = ({ userInfo, forest }: any) => {
         >
           회원 탈퇴
         </button>
-      </Container_userInfo>
-      <Container_habits>
+      </ContainerUserInfo>
+      <ContainerHabits>
         {!habits ? (
           <div>아직 등록한 습관이 없으시군요!</div>
         ) : (
@@ -120,7 +119,7 @@ const UserInfo = ({ userInfo, forest }: any) => {
           ))
         )}
         <div>{`지금까지 체득한 습관의 개수: ${forest.length}`}</div>
-      </Container_habits>
+      </ContainerHabits>
     </Container>
   );
 };

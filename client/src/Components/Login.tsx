@@ -1,9 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getHabits, login } from '../API/users';
-import { BsFillPersonFill } from 'react-icons/bs';
 import { useHistory } from 'react-router';
-import { useSampleState, useSampleDispatch } from './TodoContext';
+import { useSampleDispatch } from './LoginToggleContext';
 import styled from 'styled-components';
 import { FaUserCheck } from 'react-icons/fa';
 
@@ -55,7 +54,6 @@ type HabitsProps = {
 function Login({ habits, setHabits }: HabitsProps) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const toggle = useSampleState();
   const dispatch = useSampleDispatch();
   const [loginFail, setLoginFail] = useState(true);
   const handleInputUsername = (event: React.ChangeEvent<HTMLInputElement>) => {

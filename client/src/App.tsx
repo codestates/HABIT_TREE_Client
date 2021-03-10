@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
 import './App.css';
 import Home from './Components/Home';
@@ -8,7 +8,10 @@ import Nav from './Components/Nav';
 import Signup from './Components/Signup';
 import Main from './Components/Main';
 import { getAllHabits } from './API/habits';
-import { useSampleState, useSampleDispatch } from './Components/TodoContext';
+import {
+  useSampleState,
+  useSampleDispatch,
+} from './Components/LoginToggleContext';
 
 type Habits = {
   id: number;

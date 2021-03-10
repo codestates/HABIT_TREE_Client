@@ -1,5 +1,5 @@
-import React, { ChangeEvent, useEffect, useState } from 'react';
-import { Link, Redirect, RouteComponentProps } from 'react-router-dom';
+import { ChangeEvent, useEffect, useState } from 'react';
+import { Link, RouteComponentProps } from 'react-router-dom';
 import { signUp } from '../API/users';
 import { FaUserEdit } from 'react-icons/fa';
 type InfoType = {
@@ -46,7 +46,7 @@ const Signup = (props: Props) => {
   };
 
   const handleCheckEmail = () => {
-    let re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
     if (info.email.length === 0) {
       return true;
     }
@@ -93,7 +93,6 @@ const Signup = (props: Props) => {
     <div className="container">
       <form className="formContainer" onSubmit={(e) => e.preventDefault()}>
         <FaUserEdit color="gray" className="in2" />
-
         <div className="linkTo">모든 항목은 필수입니다</div>
         <div className="inputForm2">
           <div className="signMsg">이메일</div>
@@ -169,7 +168,7 @@ const Signup = (props: Props) => {
             이미 아이디가 있으신가요?
           </Link>
         </div>
-        <br />
+
         <button
           className="logBtn2 logBtn-hover2 logColor-52"
           type="submit"
@@ -177,9 +176,6 @@ const Signup = (props: Props) => {
         >
           회 원 가 입
         </button>
-        <br />
-        <br />
-        <br />
       </form>
     </div>
   );

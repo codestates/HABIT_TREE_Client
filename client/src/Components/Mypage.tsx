@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { getHabits } from '../API/users';
 import Forest from './Forest';
 import { CgTree } from 'react-icons/cg';
