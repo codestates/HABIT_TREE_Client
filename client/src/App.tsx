@@ -26,6 +26,23 @@ const App = withRouter(({ location }: any) => {
   const dispatch = useSampleDispatch();
 
   const initialValue = useRef(habits);
+
+  // 로그인 후 새로고침 시 로그인 유지
+  useEffect(() => {
+    const token = localStorage.getItem('access_token');
+    if (token) {
+      dispatch({ type: 'SET_TOGGLE', toggle: true });
+      async function getHabits() {
+        const result = await getAllHabits();
+        handleHabits(result as Habits[]);
+      }
+      getHabits();
+    } else {
+      return;
+    }
+  }, []);
+
+  // 로그인한 경우 습관 가져오기 ,무한 렌더링 방지
   useEffect(() => {
     if (initialValue.current === habits) {
     } else {

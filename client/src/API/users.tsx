@@ -4,7 +4,7 @@ axios.defaults.withCredentials = true;
 
 export const login = async (username: string, password: string) => {
   if (!username || !password) {
-    throw new Error('빈 칸이 있어요');
+    return;
   }
   try {
     const res = await axios.post('https://habittree.gq/users/login', {
@@ -20,7 +20,7 @@ export const login = async (username: string, password: string) => {
 export const getUsers = async () => {
   let token = localStorage.getItem('access_token');
   if (!token) {
-    throw new Error('not Authorized');
+    return;
   } else {
     try {
       const result = await axios.get('https://habittree.gq/users/findAll', {
@@ -38,7 +38,7 @@ export const getUsers = async () => {
 export const getUser = async () => {
   let token = localStorage.getItem('access_token');
   if (!token) {
-    throw new Error('not Authorized');
+    return;
   } else {
     try {
       const result = await axios.post(
@@ -60,7 +60,7 @@ export const getUser = async () => {
 export const removeUser = async () => {
   let token = localStorage.getItem('access_token');
   if (!token) {
-    throw new Error('not Authorized');
+    return;
   } else {
     try {
       const res = await axios.delete('https://habittree.gq/users/remove', {
@@ -77,9 +77,9 @@ export const removeUser = async () => {
 
 export const getHabits = async () => {
   let token = String(localStorage.getItem('access_token'));
-  console.log(token);
+
   if (!token) {
-    throw new Error('not Authorized');
+    return;
   } else {
     return await axios
       .post(
@@ -103,7 +103,7 @@ export const signUp = async (
   nickname: string | null | undefined
 ) => {
   if (!email || !password || !nickname || !username) {
-    throw new Error('빈 칸이 있습니다');
+    return;
   }
   try {
     const result = await axios.post('https://habittree.gq/users/create', {
@@ -120,7 +120,7 @@ export const signUp = async (
 
 export const updateUser = async (password: string) => {
   if (!password) {
-    throw new Error('빈 칸이 있습니다');
+    return;
   }
   try {
     const result = await axios.post('https://habittree.gq/users/update', {

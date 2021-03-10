@@ -5,7 +5,7 @@ axios.defaults.withCredentials = true;
 export const getForest = async () => {
   let token = localStorage.getItem('access_token');
   if (!token) {
-    throw new Error('not Authorized');
+    return;
   } else {
     try {
       const result = await axios.post(
