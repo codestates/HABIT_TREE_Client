@@ -8,18 +8,30 @@ const Container = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 `;
 
 const Container_userInfo = styled.div`
   div {
     margin: 10px 0px;
   }
+
+  display: flex;
+  flex-direction: column;
 `;
 
 const Container_habits = styled.div`
   div {
     font-size: 1.5rem;
     margin: 20px 0px;
+
+    @media only screen and (max-width: 768px) {
+      font-size: 1rem;
+      text-align: left;
+    }
   }
 `;
 const UserInfo = ({ userInfo, forest }: any) => {
@@ -62,14 +74,12 @@ const UserInfo = ({ userInfo, forest }: any) => {
         <div>이메일: {userInfo.email}</div>
         <div className="in4">비밀번호: ******</div>
         {!isUpdate ? (
-          <>
-            <button
-              className="logBtn2 logBtn-hover2 logColor-52"
-              onClick={() => setIsUpdate(true)}
-            >
-              비밀번호 변경
-            </button>
-          </>
+          <button
+            className="logBtn2 logBtn-hover2 logColor-52"
+            onClick={() => setIsUpdate(true)}
+          >
+            비밀번호 변경
+          </button>
         ) : (
           <>
             <div>

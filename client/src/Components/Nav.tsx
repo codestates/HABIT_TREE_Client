@@ -69,8 +69,8 @@ const NavIconBlock = styled.div`
   width: 300px;
   .NavIconBlock_Link {
     font-size: 1.3rem;
-    margin-left: 5%;
-    margin-right: 3%;
+
+    margin-right: 7%;
     text-decoration: none;
     color: #343a40;
     text-shadow: 2px 5px 8px #343a40;
