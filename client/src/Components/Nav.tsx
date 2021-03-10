@@ -1,14 +1,7 @@
-import { IconButton } from '@material-ui/core';
-import React, { useState } from 'react';
-import FingerprintOutlinedIcon from '@material-ui/icons/FingerprintOutlined';
-import AssignmentIndOutlinedIcon from '@material-ui/icons/AssignmentIndOutlined';
-import ExitToAppOutlinedIcon from '@material-ui/icons/ExitToAppOutlined';
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
-import img from '../img/logo.png';
-import MessageModal from './MessageModal';
 import { useHistory } from 'react-router';
-import { useSampleState, useSampleDispatch } from './TodoContext';
+import { useSampleState, useSampleDispatch } from './LoginToggleContext';
 import '../css/Nav.css';
 import styled from 'styled-components';
 import { CgTrees } from 'react-icons/cg';

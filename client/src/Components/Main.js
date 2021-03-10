@@ -1,15 +1,15 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { CgTrees } from 'react-icons/cg';
 import Forest from './video/Forest.mp4';
 import { useHistory } from 'react-router';
 import { getAllHabits } from '../API/habits';
-import { useSampleState, useSampleDispatch } from './TodoContext';
+import { useSampleDispatch } from './LoginToggleContext';
+
 function Main(props) {
   const history = useHistory();
   const url = new URL(window.location.href);
   const token = url.search.substr(14);
-  const toggle = useSampleState();
   const dispatch = useSampleDispatch();
 
   useEffect(() => {
@@ -30,7 +30,7 @@ function Main(props) {
   return (
     <center>
       {token ? (
-        <></>
+        <> </>
       ) : (
         <div>
           <video

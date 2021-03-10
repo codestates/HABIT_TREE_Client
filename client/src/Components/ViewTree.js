@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import { useRef, useEffect } from 'react';
 import '../App.css';
 import MessageModal from './MessageModal';
 const ViewTree = ({ percent }) => {
@@ -19,7 +19,7 @@ const ViewTree = ({ percent }) => {
   }, [percent]);
 
   function create() {
-    var leafColorArray = [
+    let leafColorArray = [
       '#347235',
       '#437C17',
       '#387C44',
@@ -31,7 +31,7 @@ const ViewTree = ({ percent }) => {
       '#4AA02C',
       '#41A317',
     ];
-    var leafColorArray2 = [
+    let leafColorArray2 = [
       '#EDDA74',
       '#EDE275',
       '#FFE87C',
@@ -43,7 +43,7 @@ const ViewTree = ({ percent }) => {
       '#EAC117',
       '#F2BB66',
     ];
-    var leafColorArray3 = [
+    let leafColorArray3 = [
       '#FBBBB9',
       '#FAAFBE',
       '#FAAFBA',
@@ -80,12 +80,12 @@ const ViewTree = ({ percent }) => {
     );
   }
   function drawTree(ctx, x1, y1, angle, depth, thickness, leafColor) {
-    var BRANCH_LENGTH = random(0.5, 1.8);
+    let BRANCH_LENGTH = random(0.5, 1.8);
 
     var randomLeafColor = leafColor[random(0, leafColor.length - 1)];
     if (depth > 5) {
-      var x2 = x1 + cos(angle) * depth * BRANCH_LENGTH;
-      var y2 = y1 + sin(angle) * depth * BRANCH_LENGTH;
+      let x2 = x1 + cos(angle) * depth * BRANCH_LENGTH;
+      let y2 = y1 + sin(angle) * depth * BRANCH_LENGTH;
 
       drawLine(ctx, x1, y1, x2, y2, thickness, randomLeafColor);
 
@@ -108,8 +108,8 @@ const ViewTree = ({ percent }) => {
         leafColor
       );
     } else {
-      var x2 = x1 + Math.cos(angle * (Math.PI / 180.0)) * depth * BRANCH_LENGTH;
-      var y2 = y1 + Math.sin(angle * (Math.PI / 180.0)) * depth * BRANCH_LENGTH;
+      let x2 = x1 + Math.cos(angle * (Math.PI / 180.0)) * depth * BRANCH_LENGTH;
+      let y2 = y1 + Math.sin(angle * (Math.PI / 180.0)) * depth * BRANCH_LENGTH;
       ctx.fillStyle = randomLeafColor;
       //ctx.arc(x2, y2, random(0, 6), 0, 2 * Math.PI, false);
       ctx.ellipse(
