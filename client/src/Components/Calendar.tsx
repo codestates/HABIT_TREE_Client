@@ -2,14 +2,13 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Modal from 'react-modal';
-import { IconButton } from '@material-ui/core';
 import { FaTree } from 'react-icons/fa';
 import { GiBurningTree } from 'react-icons/gi';
 import { useEffect, useState } from 'react';
 import '../css/calendar.css';
 import { updateHabit, removeHabit } from '../API/habits';
 import styled from 'styled-components';
-import { useSampleState, useSampleDispatch } from './TodoContext';
+import { useSampleState } from './LoginToggleContext';
 import 'moment/locale/ko';
 type Habits = {
   id: number;
@@ -145,7 +144,6 @@ const ReactCalendar = ({
       // console.log(percent);
 
       handlePercent({ ...percent });
-      console.log(percent);
     }
   };
 

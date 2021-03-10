@@ -1,6 +1,6 @@
-import { ChangeEvent, Dispatch, SetStateAction, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import { getAllHabits, uploadHabit } from '../API/habits';
-import { useSampleState, useSampleDispatch } from './TodoContext';
+import { useSampleState } from './LoginToggleContext';
 import styled from 'styled-components';
 
 const Div = styled.div`
@@ -78,7 +78,6 @@ const UploadHabit = ({
   const [title, setTitle] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const toggle = useSampleState();
-  const dispatch = useSampleDispatch();
 
   const handleInputBox = (e: ChangeEvent<HTMLInputElement>) => {
     setTitle(e.target.value);
