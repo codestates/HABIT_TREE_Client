@@ -188,7 +188,9 @@ const ReactCalendar = ({
           onRequestClose={() => setModalIsOpen(false)}
         >
           <div>
-            <div className="speech-bubble_title">습관 목록 <FaCheck /></div>
+            <div className="speech-bubble_title">
+              습관 목록 <FaCheck />
+            </div>
           </div>
           <ul style={{ listStyle: 'none' }}>
             {realEvent.map((element: any) => (
@@ -202,7 +204,7 @@ const ReactCalendar = ({
                       handleButtonClick(e, element.id);
                     }}
                   >
-                    <FaRegThumbsUp size='40' color='darkgrey' />
+                    <FaRegThumbsUp size="40" />
                   </button>
                   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <button
@@ -211,7 +213,7 @@ const ReactCalendar = ({
                       deleteEvent(element.id);
                     }}
                   >
-                    <FaRegThumbsDown size='40' color='darkgrey' />
+                    <FaRegThumbsDown size="40" />
                   </button>
                 </div>
               </li>
@@ -219,8 +221,6 @@ const ReactCalendar = ({
           </ul>
         </Modal>
       </ModalBlock>
-
-
     </>
   );
 };

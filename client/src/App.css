@@ -1,437 +1,419 @@
 * {
-  font-family: '닉스곤체 2.0';
-  /*color: darkgray;*/
+    font-family: '닉스곤체 2.0';
+    /*color: darkgray;*/
 }
 
-
 body {
-  margin: 0px;
-  height: 100vh;
+    margin: 0px;
+    height: 100vh;
 }
 
 .canvas_container {
-  width: 100%;
-  height: 100%;
-  margin-top: 8%;
+    width: 100%;
+    height: 100%;
+    margin-top: 8%;
 }
 
 .myCanvas {
-  /* background: linear-gradient(to left, #ee9ca7, #ffdde1); */
-  background: linear-gradient(to bottom, #A0CFEC, #ADDFFF, #E0FFFF, #F0FFFF, #FEFCFF, #FEFCFF, white, #FFF5EE , #F7E7CE);
-  /*background: linear-gradient(to bottom, #2980b9, #6dd5fa, #decba4);
+    /* background: linear-gradient(to left, #ee9ca7, #ffdde1); */
+    background: linear-gradient( to bottom, #a0cfec, #addfff, #e0ffff, #f0ffff, #fefcff, #fefcff, white, #fff5ee, #f7e7ce);
+    /*background: linear-gradient(to bottom, #2980b9, #6dd5fa, #decba4);
   background: url(https://images.unsplash.com/photo-1522518961115-07c922089dd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80); */
-  /* border-bottom-left-radius: 15px;
+    /* border-bottom-left-radius: 15px;
   border-top-left-radius: 15px; */
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 .speech-bubble {
-  margin: 0px 25%;
-  height: 30vh;
-  text-align: center;
-  margin-top: 200px;
-  background: #FEFCFF;
-  outline: none;
-  animation: mymove 1s linear;
-  z-index: 15;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
+    margin: 0px 25%;
+    height: 30vh;
+    text-align: center;
+    margin-top: 200px;
+    background: #fefcff;
+    outline: none;
+    animation: mymove 1s linear;
+    z-index: 15;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-weight: bolder;
 }
 
 .FaRegThumbsUp,
 .FaRegThumbsDown {
-  font-size: 2rem;
+    font-size: 2rem;
 }
 
 @media only screen and (max-width: 768px) {
-  .speech-bubble {
-    display: flex;
-    flex-direction: column;
-  }
-  .speech-bubble .speech-bubble_title {
-    font-size: 1.5rem;
-  }
-  .speech-bubble > ul > li {
-    flex-direction: column;
-  }
-  .FaRegThumbsUp,
-  .FaRegThumbsDown {
-    font-size: 1.5rem;
-  }
+    .speech-bubble {
+        display: flex;
+        flex-direction: column;
+    }
+    .speech-bubble .speech-bubble_title {
+        font-size: 1.5rem;
+    }
+    .speech-bubble>ul>li {
+        flex-direction: column;
+    }
+    .FaRegThumbsUp,
+    .FaRegThumbsDown {
+        font-size: 1.5rem;
+    }
 }
 
-.speech-bubble > ul {
-  width: 60%;
-  padding-left: 0px;
+.speech-bubble>ul {
+    width: 60%;
+    padding-left: 0px;
 }
 
 .speech-bubble div {
-  padding: 10px 0;
-  font-size: 2rem;
-  color: darkgray;
+    padding: 10px 0;
+    font-size: 2rem;
+    color: rgb(38, 38, 38);
 }
 
 .speech-bubble .FaRegThumbsUp:active,
 .speech-bubble .FaRegThumbsDown:active {
-  opacity: 0.5;
+    opacity: 0.5;
 }
 
-.speech-bubble > ul > li {
-  color: darkgray;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+.speech-bubble>ul>li {
+    color: darkgray;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.speech-bubble > ul > li button {
-  outline: none;
-  border: none;
-  background: transparent;
-  padding: 5px 10px;
+.speech-bubble>ul>li button {
+    outline: none;
+    border: none;
+    background: transparent;
+    padding: 5px 10px;
+    color: rgb(38, 38, 38);
 }
 
-.speech-bubble > ul > li > div {
-  font-size: 1.2rem;
-  display: flex;
+.speech-bubble>ul>li>div {
+    font-size: 1.2rem;
+    display: flex;
 }
 
 @keyframes mymove {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
 }
 
 .main {
-  color: white;
-  font-size: 35px;
+    color: white;
+    font-size: 35px;
 }
 
 .btn {
-  border: none;
-  outline: none;
-  background-color: transparent;
+    border: none;
+    outline: none;
+    background-color: transparent;
 }
 
 .inputFormConatiner {
-  width: 40%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .inputForm {
-  border-bottom: solid 2px gray;
-  width: 70%;
-  font-size: 20px;
-  margin-bottom: 30px;
-  padding-bottom: 5px;
+    border-bottom: solid 2px gray;
+    width: 70%;
+    font-size: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
 }
 
 .inputForm div {
-  margin-bottom: 10px;
+    margin-bottom: 10px;
 }
 
 .container {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
 .formContainer {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .inputForm2 {
-  border-bottom: solid 2px gray;
-  width: 30%;
-  font-size: 20px;
-  margin-bottom: 30px;
-  padding-bottom: 5px;
-  text-align: left;
+    border-bottom: solid 2px gray;
+    width: 30%;
+    font-size: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 5px;
+    text-align: left;
 }
 
 .inputForm2 .pw {
-  font-family: sans-serif;
+    font-family: sans-serif;
 }
 
 .inputForm2 ::placeholder {
-  font-family: '닉스곤체 2.0';
+    font-family: '닉스곤체 2.0';
 }
 
 .inputForm2 .signMsg {
-  width: 100%;
-  margin-bottom: 15px;
+    width: 100%;
+    margin-bottom: 15px;
 }
 
 .inputForm2 .input {
-  width: 100%;
-  margin: 0px;
-  padding-top: 10px;
-  padding-left: 0px;
+    width: 100%;
+    margin: 0px;
+    padding-top: 10px;
+    padding-left: 0px;
 }
 
 .inputForm2.errMsg {
-  border: none;
-  margin-top: 0;
-  margin-bottom: 0;
+    border: none;
+    margin-top: 0;
+    margin-bottom: 0;
 }
 
 .inputForm3 {
-  border-bottom: solid 3px black;
-  text-align: left;
-  font-size: 20px;
-  border: none;
-  background: none;
+    border-bottom: solid 3px black;
+    text-align: left;
+    font-size: 20px;
+    border: none;
+    background: none;
 }
 
 .input {
-  color: black;
-  border: none;
-  outline: none;
-  background: none;
-  margin-left: 5%;
-  font-size: 20px;
-  width: 300px;
+    color: black;
+    border: none;
+    outline: none;
+    background: none;
+    margin-left: 5%;
+    font-size: 20px;
+    width: 300px;
 }
 
 .out {
-  width: 100%;
-  text-align: center;
+    width: 100%;
+    text-align: center;
 }
 
 .in {
-  width: 25%;
-  display: inline-block;
-  font-size: 11rem;
-  color: #5b605e;
-  text-align: right;
+    width: 25%;
+    display: inline-block;
+    font-size: 11rem;
+    color: #5b605e;
+    text-align: right;
 }
 
 .in_logo:hover {
-  transition: all 0.4s ease-in-out;
-  color: #6bebb3;
+    transition: all 0.4s ease-in-out;
+    color: #6bebb3;
 }
 
 .in2 {
-  display: inline-block;
-  width: 100%;
-  height: 135px;
-  color: #5b605e;
+    display: inline-block;
+    width: 100%;
+    height: 135px;
+    color: #5b605e;
 }
 
 .in2:hover {
-  transition: all 0.4s ease-in-out;
-  color: #6bebb3;
+    transition: all 0.4s ease-in-out;
+    color: #6bebb3;
 }
 
-
 .in3 {
-  display: inline-block;
-  width: 100%;
-  height: 150px;
+    display: inline-block;
+    width: 100%;
+    height: 150px;
 }
 
 .in4 {
-  display: inline-block;
+    display: inline-block;
 }
 
 .in5 {
-  display: inline-block;
-  font-size: 20px;
-  color: lightgray;
+    display: inline-block;
+    font-size: 20px;
+    color: lightgray;
 }
 
 .btnContainer {
-  width: 100%;
-  font-size: 20px;
-  margin-bottom: 30px;
-  padding-bottom: 15px;
-  text-align: center;
+    width: 100%;
+    font-size: 20px;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    text-align: center;
 }
 
 .logBtn {
-  width: 60%;
-  margin: 2%;
+    width: 60%;
+    margin: 2%;
 }
 
 .logBtn2 {
-  margin-top: 150px;
-  width: 50%;
+    margin-top: 150px;
+    width: 50%;
 }
 
 .logBtn3 {
-  margin-top: 150px;
-  width: 50%;
+    margin-top: 150px;
+    width: 50%;
 }
 
 .logBtn-hover {
-  width: 60%;
-  height: 30px;
-  font-size: 18px;
-  color: #fff;
-  text-align: center;
-  border: none;
-  background-size: 300% 100%;
-  border-radius: 5px;
-  margin: 2%;
-  transition: all 0.4s ease-in-out;
+    width: 60%;
+    height: 30px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 5px;
+    margin: 2%;
+    transition: all 0.4s ease-in-out;
 }
 
 .logBtn-hover2 {
-  width: 100%;
-  height: 30px;
-  font-size: 18px;
-  color: #fff;
-  text-align: center;
-  border: none;
-  background-size: 300% 100%;
-  border-radius: 5px;
-  margin: 10px 0px;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+    width: 100%;
+    height: 30px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 5px;
+    margin: 10px 0px;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .logBtn-hover3 {
-  width: 25%;
-  height: 30px;
-  font-size: 18px;
-  color: #fff;
-  text-align: center;
-  border: none;
-  background-size: 300% 100%;
-  border-radius: 5px;
-  margin: 10px 0px;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+    width: 25%;
+    height: 30px;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 5px;
+    margin: 10px 0px;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .logBtn-hover:hover {
-  background-position: 100% 0;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+    background-position: 100% 0;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .logBtn-hover2:hover {
-  background-position: 100% 0;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+    background-position: 100% 0;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .logBtn-hover3:hover {
-  background-position: 100% 0;
-  -o-transition: all 0.4s ease-in-out;
-  -webkit-transition: all 0.4s ease-in-out;
-  transition: all 0.4s ease-in-out;
+    background-position: 100% 0;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
 }
 
 .logBtn-hover:focus {
-  outline: none;
+    outline: none;
 }
 
 .logBtn-hover2:focus {
-  outline: none;
+    outline: none;
 }
 
 .logBtn-hover3:focus {
-  outline: none;
+    outline: none;
 }
 
 .logBtn-hover.logColor-5 {
-  background-image: linear-gradient(
-    to right,
-    #0ba360,
-    #3cba92,
-    #30dd8a,
-    #2bb673
-  );
-  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+    background-image: linear-gradient( to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
 }
 
 .logBtn-hover2.logColor-52 {
-  background-image: linear-gradient(
-    to right,
-    #0ba360,
-    #3cba92,
-    #30dd8a,
-    #2bb673
-  );
-  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+    background-image: linear-gradient( to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
 }
 
 .logBtn-hover3.logColor-53 {
-  background-image: linear-gradient(
-    to right,
-    #0ba360,
-    #3cba92,
-    #30dd8a,
-    #2bb673
-  );
-  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+    background-image: linear-gradient( to right, #0ba360, #3cba92, #30dd8a, #2bb673);
+    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
 }
 
 .signMsg {
-  color: black;
+    color: black;
 }
 
 .errMsg {
-  width: 30%;
-  height: auto;
-  border-radius: 12px;
-  font-size: 17px;
-  font-weight: 600;
-  line-height: 1.35296;
-  letter-spacing: 0;
-  background-clip: padding-box;
-  padding: 0.5rem 0.8rem;
-  color: red;
-  text-align: center;
-  background-color: #fff2f4;
-  border: 1px solid rgba(227, 0, 0, 0.4);
+    width: 30%;
+    height: auto;
+    border-radius: 12px;
+    font-size: 17px;
+    font-weight: 600;
+    line-height: 1.35296;
+    letter-spacing: 0;
+    background-clip: padding-box;
+    padding: 0.5rem 0.8rem;
+    color: red;
+    text-align: center;
+    background-color: #fff2f4;
+    border: 1px solid rgba(227, 0, 0, 0.4);
 }
 
 input::placeholder {
-  color: lightgray;
+    color: lightgray;
 }
 
 .linkTo {
-  text-decoration-line: none;
-  color: gray;
-  font-size: 20px;
-  display: inline-block;
-  margin-top: 10px;
+    text-decoration-line: none;
+    color: gray;
+    font-size: 20px;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 .linkTo:hover {
-  color: #0ba360;
+    color: #0ba360;
 }
 
 @media only screen and (max-width: 768px) {
-  .in {
-    font-size: 8rem;
-    margin-bottom: 20px;
-  }
-  .inputFormConatiner {
-    width: 50%;
-  }
-  .inputForm {
-    width: 100%;
-  }
-  .btnContainer button {
-    width: 100%;
-  }
+    .in {
+        font-size: 8rem;
+        margin-bottom: 20px;
+    }
+    .inputFormConatiner {
+        width: 50%;
+    }
+    .inputForm {
+        width: 100%;
+    }
+    .btnContainer button {
+        width: 100%;
+    }
 }

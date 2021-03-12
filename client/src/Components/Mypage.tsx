@@ -1,20 +1,18 @@
 import { useEffect, useState } from 'react';
 import { getHabits } from '../API/users';
 import Forest from './Forest';
-import '../css/clouds.css'
+import '../css/clouds.css';
 import UserInfoBlock from './UserInfoBlock';
 import { getForest } from '../API/forest';
 import styled from 'styled-components';
 
 const MyPageBlock = styled.div`
-  margin-top: 4%;
-
+  margin-top: 3%;
   height: 80vh;
 `;
 
 const ForestBlock = styled.div`
   padding: 0;
-  padding: 5%;
   height: 60vh;
   background-repeat: no-repeat;
   background-size: cover;
@@ -23,10 +21,21 @@ const ForestBlock = styled.div`
   margin-bottom: 30px;
 `;
 
+type ForestType = {
+  achieve: number;
+  clicked: number;
+  createdAt: Date;
+  id: number;
+  pass: number;
+  title: string;
+  treeType: string;
+  userId: number;
+};
+
 const Mypage = () => {
   const [userInfo, setUserInfo] = useState<any>([]);
-  const [forest, setForest] = useState<any>([]);
-  console.log('mypage');
+  const [forest, setForest] = useState<ForestType[]>([]);
+
   const getUserInfo = async () => {
     return await getHabits();
   };
@@ -62,9 +71,6 @@ const Mypage = () => {
   return (
     <MyPageBlock>
       <ForestBlock>
-        <div className="bg">
-          <div className="move1"></div>
-        </div>
         <Forest forest={forest}></Forest>
       </ForestBlock>
       <UserInfoBlock userInfo={userInfo} forest={forest}></UserInfoBlock>
