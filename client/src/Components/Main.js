@@ -55,8 +55,15 @@ function Main(props) {
           <br />
           <br />
           <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <div>
-            <h1 className="mainText">
+            <h1 className="main">
               <CgTrees size="150" />
               <br />
               습관나무
@@ -67,12 +74,20 @@ function Main(props) {
           <br />
           <br />
           <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
+          <br />
           <Link
-            style={{ textDecoration: 'none', color: 'black', fontSize: '2rem' }}
+            style={{ textDecoration: 'none', color: 'white', fontSize: '2rem' }}
             to="/home"
           >
             시작하기
           </Link>
+          <br /><br />
+          <Link style={{ textDecoration: 'none', color: 'white', fontSize: '2rem' }} to="/mypage">마이페이지</Link>
         </div>
       )}
     </center>

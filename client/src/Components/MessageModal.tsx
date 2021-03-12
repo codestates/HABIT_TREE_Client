@@ -21,7 +21,7 @@ function MessageModal() {
             로그인을 하지 않을 경우
             <br />
             <br />
-            저장되지 않습니다.
+            저장되지 않습니다
             <Link to="/signup">
               <button className="buttons btn-hover color-5">회원가입</button>
             </Link>

@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import { useHistory } from 'react-router';
 import { useSampleState, useSampleDispatch } from './LoginToggleContext';
-import '../css/Nav.css';
 import styled from 'styled-components';
 import { CgTrees } from 'react-icons/cg';
 
@@ -15,7 +14,7 @@ const NavBlock = styled.div`
   justify-content: space-between;
   align-items: center;
   color: #343a40;
-  box-shadow: 3px 3px 20px 3px #000000;
+  box-shadow: 3px 3px 20px 3px grey;
   position: fixed;
   top: 0px;
   z-index: 1;
@@ -34,7 +33,7 @@ const NavLogo = styled.div`
     display: flex;
     align-items: center;
     div {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
 
       @media only screen and (max-width: 768px) {
         display: none;
@@ -66,7 +65,7 @@ const NavIconBlock = styled.div`
     margin-right: 7%;
     text-decoration: none;
     color: #343a40;
-    text-shadow: 2px 5px 8px #343a40;
+    text-shadow: 2px 5px 8px grey;
     font-weight: bold;
     padding: 10px 10px;
   }

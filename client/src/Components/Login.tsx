@@ -89,10 +89,11 @@ function Login({ habits, setHabits }: HabitsProps) {
 
   return (
     <Container>
-      <div className="in">
-        <FaUserCheck className="in_logo" />
-      </div>
+
       <form className="inputFormConatiner" onSubmit={(e) => e.preventDefault()}>
+        <div className="in">
+          <FaUserCheck className="in_logo" />
+        </div>
         {!loginFail && (
           <ErrorMessage>
             Habit Tree ID 또는 암호를 올바르게 입력하지 않았습니다.

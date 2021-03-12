@@ -2,8 +2,9 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Modal from 'react-modal';
-import { FaTree } from 'react-icons/fa';
-import { GiBurningTree } from 'react-icons/gi';
+import { FaCheck } from 'react-icons/fa';
+import { FaRegThumbsUp } from 'react-icons/fa';
+import { FaRegThumbsDown } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
 import '../css/calendar.css';
 import { updateHabit, removeHabit } from '../API/habits';
@@ -154,7 +155,7 @@ const ReactCalendar = ({
           selectable
           events={event}
           defaultDate={moment().toDate()}
-          eventPropGetter={() => ({ style: { backgroundColor: '#66d9e8' } })}
+          eventPropGetter={() => ({ style: { backgroundColor: '#A0CFEC' } })}
           localizer={localizer}
           style={{
             width: '100%',
@@ -186,7 +187,9 @@ const ReactCalendar = ({
           shouldCloseOnEsc={true}
           onRequestClose={() => setModalIsOpen(false)}
         >
-          <div className="speech-bubble_title">습관 목록</div>
+          <div>
+            <div className="speech-bubble_title">습관 목록 <FaCheck /></div>
+          </div>
           <ul style={{ listStyle: 'none' }}>
             {realEvent.map((element: any) => (
               <li key={element.id}>
@@ -199,16 +202,16 @@ const ReactCalendar = ({
                       handleButtonClick(e, element.id);
                     }}
                   >
-                    <FaTree color="green" className="faTree" />
+                    <FaRegThumbsUp size='40' color='darkgrey' />
                   </button>
-
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <button
                     arai-label="dissatisfied"
                     onClick={() => {
                       deleteEvent(element.id);
                     }}
                   >
-                    <GiBurningTree color="red" className="buringTree" />
+                    <FaRegThumbsDown size='40' color='darkgrey' />
                   </button>
                 </div>
               </li>
@@ -216,6 +219,8 @@ const ReactCalendar = ({
           </ul>
         </Modal>
       </ModalBlock>
+
+
     </>
   );
 };

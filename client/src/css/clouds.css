@@ -1,0 +1,32 @@
+.bg{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	background: linear-gradient(to bottom, 
+	#A0CFEC, 
+	#ADDFFF, 
+	#E0FFFF, 
+	#F0FFFF, 
+	#FEFCFF, 
+	#FEFCFF,  
+	white,
+	white, 
+	white, 
+	#FFF5EE,
+	#F7E7CE);
+	background-size: cover;
+}
+.move1{
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background: url(../img/clouds.png) repeat-x ;
+	background-size: cover;
+	animation: drop1 7000s linear infinite;
+}
+@keyframes drop1{
+	from{background-position: 0 0;}
+	to{background-position: 8000% 0;}
+}
