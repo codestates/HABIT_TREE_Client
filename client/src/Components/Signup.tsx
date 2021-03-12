@@ -9,7 +9,7 @@ type InfoType = {
   nickname: string;
 };
 
-interface Props extends RouteComponentProps {}
+interface Props extends RouteComponentProps { }
 
 const Signup = (props: Props) => {
   const [info, setInfo] = useState<InfoType>({
@@ -92,16 +92,17 @@ const Signup = (props: Props) => {
   return (
     <div className="container">
       <form className="formContainer" onSubmit={(e) => e.preventDefault()}>
-        <FaUserEdit color="gray" className="in2" />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+        <FaUserEdit className="in2" />
         <div className="linkTo">모든 항목은 필수입니다</div>
         <div className="inputForm2">
           <div className="signMsg">이메일</div>
           <input
-            className="input"
-            type="email"
-            placeholder="이메일을 적어주세요"
-            onChange={handleInputValue('email')}
-          ></input>
+              className="input"
+              type="email"
+              placeholder="이메일을 적어주세요"
+              onChange={handleInputValue('email')}
+            ></input>
         </div>
         {handleCheckEmail() ? (
           <></>
@@ -111,20 +112,20 @@ const Signup = (props: Props) => {
         <div className="inputForm2">
           <div className="signMsg">비밀번호</div>
           <input
-            className="input pw"
-            type="password"
-            placeholder="비밀번호를 적어주세요"
-            onChange={handleInputValue('password')}
-          ></input>
+              className="input pw"
+              type="password"
+              placeholder="비밀번호를 적어주세요"
+              onChange={handleInputValue('password')}
+            ></input>
         </div>
         <div className="inputForm2">
           <div className="signMsg">비밀번호 확인</div>
           <input
-            className="input pw"
-            type="password"
-            placeholder="비밀번호를 다시한번 적어주세요"
-            onChange={(e) => handleInputValueRePassword(e)}
-          ></input>
+              className="input pw"
+              type="password"
+              placeholder="비밀번호를 다시한번 적어주세요"
+              onChange={(e) => handleInputValueRePassword(e)}
+            ></input>
         </div>
         {handleCheckPassword() ? (
           <div></div>
@@ -132,13 +133,13 @@ const Signup = (props: Props) => {
           <div className="errMsg inputForm2">비밀번호가 맞지 않습니다.</div>
         )}
         <div className="inputForm2">
-          <div className="signMsg">ID</div>
+          <div className="signMsg">아이디</div>
           <input
-            className="input"
-            type="text"
-            placeholder="ID를 적어주세요"
-            onChange={handleInputValue('username')}
-          ></input>
+              className="input"
+              type="text"
+              placeholder="ID를 적어주세요"
+              onChange={handleInputValue('username')}
+            ></input>
         </div>
         {handleCheckId() ? (
           <div></div>
@@ -150,11 +151,11 @@ const Signup = (props: Props) => {
         <div className="inputForm2">
           <div className="signMsg">닉네임</div>
           <input
-            className="input"
-            type="text"
-            placeholder="닉네임을 적어주세요"
-            onChange={handleInputValue('nickname')}
-          ></input>
+              className="input"
+              type="text"
+              placeholder="닉네임을 적어주세요"
+              onChange={handleInputValue('nickname')}
+            ></input>
         </div>
         {handleCheckNickName() ? (
           <div></div>
@@ -168,14 +169,15 @@ const Signup = (props: Props) => {
             이미 아이디가 있으신가요?
           </Link>
         </div>
-
+        <br />
         <button
-          className="logBtn2 logBtn-hover2 logColor-52"
+          className="logBtn3 logBtn-hover3 logColor-53"
           type="submit"
           onClick={handleSignup}
         >
           회 원 가 입
         </button>
+        <br /><br /><br />
       </form>
     </div>
   );

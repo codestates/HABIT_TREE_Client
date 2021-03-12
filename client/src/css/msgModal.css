@@ -14,6 +14,7 @@
   flex-direction: column;
   justify-content: center;
   font-size: 18px;
+  text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333;
 }
 
 * {
@@ -86,5 +87,6 @@
     border-radius: 20px;
     padding: 7px;
     padding-top: 15px;
+    text-shadow: none;
   }
 }

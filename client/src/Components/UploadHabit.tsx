@@ -12,7 +12,7 @@ const Div = styled.div`
     outline: none;
     border: none;
     width: 25em;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
   }
   button {
     background-color: transparent;
@@ -21,7 +21,7 @@ const Div = styled.div`
     color: #343a40;
     text-shadow: 2px 3px 3px #ced4da;
     font-weight: bold;
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     width: 60px;
     padding: 10px 5px;
   }
@@ -121,6 +121,7 @@ const UploadHabit = ({
 
   return (
     <>
+      <br />
       <Div>
         <input
           type="text"

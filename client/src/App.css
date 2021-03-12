@@ -3,6 +3,7 @@
   /*color: darkgray;*/
 }
 
+
 body {
   margin: 0px;
   height: 100vh;
@@ -11,15 +12,16 @@ body {
 .canvas_container {
   width: 100%;
   height: 100%;
-  margin-top: 77px;
+  margin-top: 8%;
 }
 
 .myCanvas {
   /* background: linear-gradient(to left, #ee9ca7, #ffdde1); */
-  background: linear-gradient(to bottom, #2980b9, #6dd5fa, #decba4);
-  /* background: url(https://images.unsplash.com/photo-1522518961115-07c922089dd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80); */
-  border-bottom-left-radius: 15px;
-  border-top-left-radius: 15px;
+  background: linear-gradient(to bottom, #A0CFEC, #ADDFFF, #E0FFFF, #F0FFFF, #FEFCFF, #FEFCFF, white, #FFF5EE , #F7E7CE);
+  /*background: linear-gradient(to bottom, #2980b9, #6dd5fa, #decba4);
+  background: url(https://images.unsplash.com/photo-1522518961115-07c922089dd4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80); */
+  /* border-bottom-left-radius: 15px;
+  border-top-left-radius: 15px; */
   width: 100%;
   height: 100%;
   object-fit: contain;
@@ -30,18 +32,17 @@ body {
   height: 30vh;
   text-align: center;
   margin-top: 200px;
-  background: #bac8ff;
+  background: #FEFCFF;
   outline: none;
   animation: mymove 1s linear;
-  border-radius: 10px;
   z-index: 15;
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
 
-.faTree,
-.buringTree {
+.FaRegThumbsUp,
+.FaRegThumbsDown {
   font-size: 2rem;
 }
 
@@ -56,8 +57,8 @@ body {
   .speech-bubble > ul > li {
     flex-direction: column;
   }
-  .faTree,
-  .buringTree {
+  .FaRegThumbsUp,
+  .FaRegThumbsDown {
     font-size: 1.5rem;
   }
 }
@@ -70,16 +71,16 @@ body {
 .speech-bubble div {
   padding: 10px 0;
   font-size: 2rem;
-  color: white;
+  color: darkgray;
 }
 
-.speech-bubble .faTree:active,
-.speech-bubble .buringTree:active {
+.speech-bubble .FaRegThumbsUp:active,
+.speech-bubble .FaRegThumbsDown:active {
   opacity: 0.5;
 }
 
 .speech-bubble > ul > li {
-  color: white;
+  color: darkgray;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -115,10 +116,6 @@ body {
   border: none;
   outline: none;
   background-color: transparent;
-}
-
-.main:hover {
-  color: green;
 }
 
 .inputFormConatiner {
@@ -157,11 +154,11 @@ body {
 
 .inputForm2 {
   border-bottom: solid 2px gray;
-  width: 35%;
-  margin: 10px 30px;
-  padding: 10px 10px;
-  text-align: left;
+  width: 30%;
   font-size: 20px;
+  margin-bottom: 30px;
+  padding-bottom: 5px;
+  text-align: left;
 }
 
 .inputForm2 .pw {
@@ -228,9 +225,16 @@ body {
 
 .in2 {
   display: inline-block;
-  width: 85%;
-  height: 115px;
+  width: 100%;
+  height: 135px;
+  color: #5b605e;
 }
+
+.in2:hover {
+  transition: all 0.4s ease-in-out;
+  color: #6bebb3;
+}
+
 
 .in3 {
   display: inline-block;
@@ -262,7 +266,13 @@ body {
 }
 
 .logBtn2 {
-  margin-top: 15px;
+  margin-top: 150px;
+  width: 50%;
+}
+
+.logBtn3 {
+  margin-top: 150px;
+  width: 50%;
 }
 
 .logBtn-hover {
@@ -293,6 +303,21 @@ body {
   transition: all 0.4s ease-in-out;
 }
 
+.logBtn-hover3 {
+  width: 25%;
+  height: 30px;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 5px;
+  margin: 10px 0px;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
 .logBtn-hover:hover {
   background-position: 100% 0;
   -o-transition: all 0.4s ease-in-out;
@@ -307,11 +332,22 @@ body {
   transition: all 0.4s ease-in-out;
 }
 
+.logBtn-hover3:hover {
+  background-position: 100% 0;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+}
+
 .logBtn-hover:focus {
   outline: none;
 }
 
 .logBtn-hover2:focus {
+  outline: none;
+}
+
+.logBtn-hover3:focus {
   outline: none;
 }
 
@@ -327,6 +363,17 @@ body {
 }
 
 .logBtn-hover2.logColor-52 {
+  background-image: linear-gradient(
+    to right,
+    #0ba360,
+    #3cba92,
+    #30dd8a,
+    #2bb673
+  );
+  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+}
+
+.logBtn-hover3.logColor-53 {
   background-image: linear-gradient(
     to right,
     #0ba360,
@@ -370,7 +417,7 @@ input::placeholder {
 }
 
 .linkTo:hover {
-  color: green;
+  color: #0ba360;
 }
 
 @media only screen and (max-width: 768px) {

@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { getHabits } from '../API/users';
 import Forest from './Forest';
-import { CgTree } from 'react-icons/cg';
+import '../css/clouds.css'
 import UserInfoBlock from './UserInfoBlock';
 import { getForest } from '../API/forest';
 import styled from 'styled-components';
-import nature from '../img/nature.jpg';
+
 const MyPageBlock = styled.div`
   margin-top: 4%;
 
@@ -16,7 +16,6 @@ const ForestBlock = styled.div`
   padding: 0;
   padding: 5%;
   height: 60vh;
-  background-image: url(${nature});
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.9;
@@ -63,7 +62,9 @@ const Mypage = () => {
   return (
     <MyPageBlock>
       <ForestBlock>
-        <CgTree className="cgTree" size="150" />
+        <div className="bg">
+          <div className="move1"></div>
+        </div>
         <Forest forest={forest}></Forest>
       </ForestBlock>
       <UserInfoBlock userInfo={userInfo} forest={forest}></UserInfoBlock>
