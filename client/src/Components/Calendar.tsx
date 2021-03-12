@@ -195,8 +195,8 @@ const ReactCalendar = ({
           <ul style={{ listStyle: 'none' }}>
             {realEvent.map((element: any) => (
               <li key={element.id}>
-                <div>{element.title}</div>
-                <div>
+                <div className="title">{element.title}</div>
+                <div className="modalButtons">
                   <button
                     arai-label="satisfied"
                     value={Number(3.5714285714285716)}
@@ -204,16 +204,16 @@ const ReactCalendar = ({
                       handleButtonClick(e, element.id);
                     }}
                   >
-                    <FaRegThumbsUp size="40" />
+                    <FaRegThumbsUp />
                   </button>
-                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                   <button
                     arai-label="dissatisfied"
                     onClick={() => {
                       deleteEvent(element.id);
                     }}
                   >
-                    <FaRegThumbsDown size="40" />
+                    <FaRegThumbsDown />
                   </button>
                 </div>
               </li>

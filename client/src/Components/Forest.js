@@ -72,7 +72,7 @@ const Forest = ({ forest }) => {
     drawTree(
       ctx,
       xLocation, //getRandomInt(0, 1200),
-      1950, //getRandomInt(0, 1000),
+      1250, //getRandomInt(0, 1000),
       -90,
       90, //percent
       12,
