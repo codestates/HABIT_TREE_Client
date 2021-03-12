@@ -5,14 +5,6 @@ import { useSampleState } from './LoginToggleContext';
 function MessageModal() {
   const toggle = useSampleState();
 
-  // const closeMenu = () => {
-  //   setShowMenu(false);
-  // };
-  // useEffect(() => {
-  //   setShowMenu(true);
-  //   document.addEventListener('click', closeMenu);
-  // }, []);
-
   return (
     <>
       {!toggle.toggle ? (

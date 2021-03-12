@@ -86,8 +86,8 @@ function Main(props) {
           >
             시작하기
           </Link>
-          <br /><br />
-          <Link style={{ textDecoration: 'none', color: 'white', fontSize: '2rem' }} to="/mypage">마이페이지</Link>
+          <br />
+          <br />
         </div>
       )}
     </center>
