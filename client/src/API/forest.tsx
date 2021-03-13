@@ -9,7 +9,7 @@ export const getForest = async () => {
   } else {
     try {
       const result = await axios.post(
-        'https://habittree.gq/forest/findAll',
+        'http://localhost:5000/forest/findAll',
         {},
         {
           headers: {
