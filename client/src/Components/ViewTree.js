@@ -169,7 +169,7 @@ const ViewTree = ({ percent }) => {
   }
 
   return (
-    <div className="canvas_container">
+    <div data-aos="fade-left" className="canvas_container">
       <canvas
         ref={canvasRef}
         className="myCanvas"

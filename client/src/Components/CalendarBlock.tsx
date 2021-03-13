@@ -56,7 +56,7 @@ const CalendarBlock = ({
   };
 
   return (
-    <Container>
+    <Container data-aos="fade-right">
       <UploadHabit
         habits={habits}
         event={event}

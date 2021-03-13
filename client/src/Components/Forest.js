@@ -1,18 +1,42 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { CgStyle } from 'react-icons/cg';
 
 const Forest = ({ forest }) => {
   const canvasRef = useRef(null);
   let canvas;
   let ctx;
+  const [width, setWidth] = useState(window.innerWidth);
 
   useEffect(() => {
     canvas = document.querySelector('.move1');
     ctx = canvas.getContext('2d');
-
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.beginPath();
     create();
   }, [forest]);
+  useEffect(() => {
+    var doit;
+    window.onresize = function () {
+      clearTimeout(doit);
+      doit = setTimeout(initialize, 500);
+    };
+  });
+
+  function initialize() {
+    // Register an event listener to call the resizeCanvas() function
+    // each time the window is resized.
+    setWidth(window.innerWidth);
+    console.log(window.innerWidth);
+    canvas = document.querySelector('.move1');
+    ctx = canvas.getContext('2d');
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    ctx.beginPath();
+    create();
+  }
 
   function create() {
     let leafColorArray = [
@@ -54,8 +78,6 @@ const Forest = ({ forest }) => {
     let leafColor = [leafColorArray, leafColorArray2, leafColorArray3];
     let xLocation = 150;
 
-    ctx.canvas.width = window.innerWidth;
-    ctx.canvas.height = window.innerHeight;
     ctx.fillRect(0, 0, ctx.canvas.width, ctx, canvas.height);
 
     function getRandom(min, max) {
@@ -69,10 +91,12 @@ const Forest = ({ forest }) => {
     }
   }
   function drawFractalTree(ctx, xLocation, leafColor) {
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
     drawTree(
       ctx,
       xLocation, //getRandomInt(0, 1200),
-      1250, //getRandomInt(0, 1000),
+      window.innerHeight - 50, //getRandomInt(0, 1000),
       -90,
       90, //percent
       12,
@@ -81,7 +105,7 @@ const Forest = ({ forest }) => {
   }
 
   function drawTree(ctx, x1, y1, angle, depth, thickness, leafColor) {
-    let BRANCH_LENGTH = random(0.4, 3);
+    let BRANCH_LENGTH = random(0.4, 1.9);
 
     var randomLeafColor = leafColor[random(0, leafColor.length - 1)];
     if (depth > 4) {
@@ -174,8 +198,8 @@ const Forest = ({ forest }) => {
   }
 
   return (
-    <div className="bg">
-      <canvas className="move1" width="1000" height="1000"></canvas>
+    <div className="bg" data-aos="fade-right">
+      <canvas className="move1"></canvas>
     </div>
   );
 };

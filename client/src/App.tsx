@@ -12,6 +12,8 @@ import {
   useSampleState,
   useSampleDispatch,
 } from './Components/LoginToggleContext';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 type Habits = {
   id: number;
@@ -32,6 +34,7 @@ const App = withRouter(({ location }: any) => {
 
   // 로그인 후 새로고침 시 로그인 유지
   useEffect(() => {
+    AOS.init({ duration: 1000 });
     const token = localStorage.getItem('access_token');
     if (token) {
       dispatch({ type: 'SET_TOGGLE', toggle: true });
