@@ -42,15 +42,17 @@ const ContainerHabits = styled.div`
 
 const InputForm = styled.input.attrs({
   type: 'password',
-  placeholder: '변경할 비밀번호',
 })`
+  font-family: Cascadia Mono;
   border-bottom: solid 3px black;
   text-align: left;
   font-size: 20px;
   border: none;
   background: none;
   ::placeholder {
-    font-family: Source Sans Pro;
+    font-size: 1rem;
+    font-family: 닉스곤체 2;
+    font-weight: 400;
   }
 `;
 
@@ -145,10 +147,16 @@ const UserInfo = ({ userInfo, forest }: any) => {
         ) : (
           <>
             <Div>
-              <InputForm onChange={(e) => handleInputPassword(e)}></InputForm>
+              <InputForm
+                placeholder="변경할 비밀번호"
+                onChange={(e) => handleInputPassword(e)}
+              ></InputForm>
             </Div>
             <Div>
-              <InputForm onChange={(e) => handleInputRePassword(e)}></InputForm>
+              <InputForm
+                placeholder="변경할 비밀번호 확인"
+                onChange={(e) => handleInputRePassword(e)}
+              ></InputForm>
             </Div>
             {handleCheckPassword() ? (
               <Button onClick={() => handleClickUpdate(password)}>
