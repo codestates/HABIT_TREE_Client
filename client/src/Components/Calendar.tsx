@@ -2,7 +2,7 @@ import { Calendar, momentLocalizer } from 'react-big-calendar';
 import moment from 'moment';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 import Modal from 'react-modal';
-import { FaCheck } from 'react-icons/fa';
+//import { FaCheck } from 'react-icons/fa';
 import { FaRegThumbsUp } from 'react-icons/fa';
 import { FaRegThumbsDown } from 'react-icons/fa';
 import { useEffect, useState } from 'react';
@@ -182,43 +182,47 @@ const ReactCalendar = ({
       </CalendarBlock>
       <ModalBlock>
         <Modal
-          className="speech-bubble"
+          className="modal"
           isOpen={modalIsOpen}
           shouldCloseOnEsc={true}
           onRequestClose={() => setModalIsOpen(false)}
         >
-          <div>
-            <div className="speech-bubble_title">
-              습관 목록 <FaCheck />
+          <div className="modal__dialog">
+            <div className="modal__content">
+              <div className="modal__header">
+                습 관 목 록
+                <a href="#" className="modal__close" onClick={(e) => { setModalIsOpen(false) }}>&times;</a>
+              </div>
+              <ul className="modal__text" style={{ listStyle: 'none' }}>
+                {realEvent.map((element: any) => (
+                  <li key={element.id}>
+                    <div >{element.title}
+                    &nbsp;&nbsp;&nbsp;
+                      <button className="modalButtons"
+                        arai-label="satisfied"
+                        value={Number(3.5714285714285716)}
+                        onClick={(e) => {
+                          handleButtonClick(e, element.id);
+                        }}
+                      >
+                        <FaRegThumbsUp />
+                        &nbsp;&nbsp;
+                        <button className="modalButtons2"
+                          arai-label="dissatisfied"
+                          onClick={() => {
+                            deleteEvent(element.id);
+                          }}
+                        >
+                          <FaRegThumbsDown />
+                        </button>
+                      </button>
+                    </div>
+                  </li>
+
+                ))}
+              </ul>
             </div>
           </div>
-          <ul style={{ listStyle: 'none' }}>
-            {realEvent.map((element: any) => (
-              <li key={element.id}>
-                <div className="title">{element.title}</div>
-                <div className="modalButtons">
-                  <button
-                    arai-label="satisfied"
-                    value={Number(3.5714285714285716)}
-                    onClick={(e) => {
-                      handleButtonClick(e, element.id);
-                    }}
-                  >
-                    <FaRegThumbsUp />
-                  </button>
-
-                  <button
-                    arai-label="dissatisfied"
-                    onClick={() => {
-                      deleteEvent(element.id);
-                    }}
-                  >
-                    <FaRegThumbsDown />
-                  </button>
-                </div>
-              </li>
-            ))}
-          </ul>
         </Modal>
       </ModalBlock>
     </>
