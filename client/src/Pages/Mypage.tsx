@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { getHabits } from '../API/users';
-import Forest from './Forest';
+import Forest from '../Components/HabitForest';
 import '../css/clouds.css';
-import UserInfoBlock from './UserInfoBlock';
+import UserInfoBlock from '../Components/UserInfoBlock';
 import { getForest } from '../API/forest';
 import styled from 'styled-components';
 

@@ -1,6 +1,6 @@
 import { ChangeEvent, useState } from 'react';
 import { getAllHabits, uploadHabit } from '../API/habits';
-import { useSampleState } from './LoginToggleContext';
+import { useSampleState } from '../Store/LoginToggleContext';
 import styled from 'styled-components';
 
 const Div = styled.div`

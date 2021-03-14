@@ -1,6 +1,6 @@
 import { useRef, useEffect } from 'react';
-import '../App.css';
-import MessageModal from './MessageModal';
+import '../css/App.css';
+import MessageModal from './HabitMessageModal';
 const ViewTree = ({ percent }) => {
   const canvasRef = useRef(null);
   let canvas;
