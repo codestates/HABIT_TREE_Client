@@ -116,4 +116,4 @@
 
 # 🌲 Demonstration video
 
-https://www.figma.com/file/3ZtQinbPbSvvcR0uA330xf/Untitled
+[시연영상](https://github.com/codestates/HABIT_TREE_Client/wiki/Demonstration-Video)
