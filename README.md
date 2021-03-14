@@ -4,7 +4,7 @@
 # 🌲 습관나무
 소개 맨트
 <br />
-https://habittree.tk
+[습관나무 바로가기](https://habittree.tk>)
 
 # 🌲 Members 
 
@@ -109,4 +109,4 @@ https://habittree.tk
 
 # 🌲 Demonstration video
 
-[시연영상](https://github.com/codestates/HABIT_TREE_Client/wiki/Demonstration-Video)
+https://www.figma.com/file/3ZtQinbPbSvvcR0uA330xf/Untitled
