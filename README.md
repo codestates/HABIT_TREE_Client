@@ -2,8 +2,10 @@
 <img width="90%" alt="members" src="https://user-images.githubusercontent.com/70796873/111060518-d1a93480-84e0-11eb-8753-1e3724e2b1a6.png" />
 
 # 🌲 습관나무
-소개 맨트
-<br />
+😄 습관나무에 오신 걸 환영합니다. <br />
+📆 28일 간 꾸준히 평소 기르고 싶었던 습관들을 길러보세요! <br />
+🌲 습관도 기르고 나무도 기른다! <br />
+🎉 예쁜 숲을 가꿔보세요! <br />
 [습관나무 바로가기](https://habittree.tk)
 
 # 🌲 Members 
