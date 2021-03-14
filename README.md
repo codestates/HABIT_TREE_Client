@@ -8,6 +8,8 @@
 
 # 🌲 Members 
 
+<img width="90%" alt="members" src="https://user-images.githubusercontent.com/70796873/111064592-45a30700-84f8-11eb-8e41-8565f7ca5f37.png" />
+
 <details>
 <summary>윤경민</summary>
 <a href="https://github.com/yoonkm24">
@@ -75,6 +77,7 @@
 <summary>김현수</summary>
   <a href="https://github.com/Hyunsoo-dev">
 <img src="https://img.shields.io/badge/github-Hyunsoo--dev-blueviolet" size=50 /></a>
+  <br />
 1️⃣  Role: Team Member<br >
 2️⃣ Position : Full-stack<br >
 3️⃣  Stack : <br>
