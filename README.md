@@ -117,6 +117,6 @@
  ## Server
 <img width="700" height="600" alt="server" src="https://user-images.githubusercontent.com/71421672/109510429-56f61780-7ae5-11eb-82b2-4c43169cf6df.png" />
 
-# 🌲 Demonstration video
+# 🌲 Demonstration Video
 
 [시연영상](https://github.com/codestates/HABIT_TREE_Client/wiki/Demonstration-Video)
