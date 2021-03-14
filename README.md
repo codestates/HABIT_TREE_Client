@@ -10,6 +10,10 @@
 
 <details>
 <summary>윤경민</summary>
+  <br />
+<a href="https://github.com/yoonkm24">
+<img src="https://img.shields.io/badge/github-yoonkm24-orange" size=50 />
+</a> <br />
 1️⃣ Role: Team Member <br >
 2️⃣ Position : Front-End <br >
 3️⃣  Stack : 
@@ -40,6 +44,9 @@
 
 <details>
 <summary>선종권</summary>
+  <br />
+  <a href="https://github.com/sosick0418">
+<img src="https://img.shields.io/badge/github-sosick0418-blue" size=50 /></a> <br />
 1️⃣  Role: Team Leader<br >
 2️⃣  Position : Full-stack<br >
 3️⃣  Stack : 
@@ -66,6 +73,8 @@
 
 <details>
 <summary>김현수</summary>
+  <br /> <a href="https://github.com/Hyunsoo-dev">
+<img src="https://img.shields.io/badge/github-Hyunsoo--dev-blueviolet" size=50 /> <br />
 1️⃣  Role: Team Member<br >
 2️⃣ Position : Full-stack<br >
 3️⃣  Stack : <br>
