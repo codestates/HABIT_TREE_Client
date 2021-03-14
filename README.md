@@ -1,5 +1,5 @@
 # 
-![스크린샷 2021-03-14 오후 4 17 02](https://user-images.githubusercontent.com/70796873/111060518-d1a93480-84e0-11eb-8753-1e3724e2b1a6.png)
+<img width="90%" alt="members" src="https://user-images.githubusercontent.com/70796873/111060518-d1a93480-84e0-11eb-8753-1e3724e2b1a6.png" />
 
 # 🌲 습관나무
 소개 맨트
