@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import '../css/msgModal.css';
-import { useSampleState } from './LoginToggleContext';
+import { useSampleState } from '../Store/LoginToggleContext';
 
 function MessageModal() {
   const toggle = useSampleState();

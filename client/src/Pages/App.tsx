@@ -1,17 +1,16 @@
 import { useEffect, useRef, useState } from 'react';
 import { Route, Switch, withRouter } from 'react-router-dom';
-import './App.css';
-import Home from './Components/Home';
-import Login from './Components/Login';
-import Mypage from './Components/Mypage';
-import Nav from './Components/Nav';
-import Signup from './Components/Signup';
-import Main from './Components/Main';
-import { getAllHabits } from './API/habits';
-import {
-  useSampleState,
-  useSampleDispatch,
-} from './Components/LoginToggleContext';
+import '../css/App.css';
+import Home from './Home';
+import Login from '../Components/UserSignin';
+import Mypage from './Mypage';
+import Nav from '../Components/Navbar';
+import Signup from '../Components/UserSignup';
+import Main from './Main';
+import { getAllHabits } from '../API/habits';
+import { useSampleState, useSampleDispatch } from '../Store/LoginToggleContext';
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 
 type Habits = {
   id: number;
@@ -32,6 +31,7 @@ const App = withRouter(({ location }: any) => {
 
   // 로그인 후 새로고침 시 로그인 유지
   useEffect(() => {
+    AOS.init({ duration: 1000 });
     const token = localStorage.getItem('access_token');
     if (token) {
       dispatch({ type: 'SET_TOGGLE', toggle: true });

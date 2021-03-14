@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getHabits, login } from '../API/users';
 import { useHistory } from 'react-router';
-import { useSampleDispatch } from './LoginToggleContext';
+import { useSampleDispatch } from '../Store/LoginToggleContext';
 import styled from 'styled-components';
 import { FaUserCheck } from 'react-icons/fa';
 
@@ -89,7 +89,6 @@ function Login({ habits, setHabits }: HabitsProps) {
 
   return (
     <Container>
-
       <form className="inputFormConatiner" onSubmit={(e) => e.preventDefault()}>
         <div className="in">
           <FaUserCheck className="in_logo" />

@@ -5,8 +5,10 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  div {
-    margin: 8px 0;
+  justify-content: center;
+
+  height: 100vh;
+  
   }
 `;
 const UserInfoBlock = ({ userInfo, forest }: any) => {

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import CalendarBlock from './CalendarBlock';
-import TreeBlock from './TreeBlock';
+import CalendarBlock from '../Components/HabitCalendarBlock';
+import TreeBlock from '../Components/HabitTreeBlock';
 import styled from 'styled-components';
 
 const Container = styled.div`

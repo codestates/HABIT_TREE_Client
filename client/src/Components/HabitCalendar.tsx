@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 import '../css/calendar.css';
 import { updateHabit, removeHabit } from '../API/habits';
 import styled from 'styled-components';
-import { useSampleState } from './LoginToggleContext';
+import { useSampleState } from '../Store/LoginToggleContext';
 import 'moment/locale/ko';
 type Habits = {
   id: number;

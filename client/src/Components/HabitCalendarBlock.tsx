@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import ReactCalendar from './Calendar';
-import UploadHabit from './UploadHabit';
+import ReactCalendar from './HabitCalendar';
+import UploadHabit from './HabitUploadHabit';
 import styled from 'styled-components';
 
 const Container = styled.div`
@@ -56,7 +56,7 @@ const CalendarBlock = ({
   };
 
   return (
-    <Container>
+    <Container data-aos="fade-right">
       <UploadHabit
         habits={habits}
         event={event}
