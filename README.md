@@ -6,7 +6,7 @@
 <br />
 https://habittree.tk
 
-# 🌲 팀원 소개 
+# 🌲 Members 
 
 <details>
 <summary>윤경민</summary>
@@ -95,7 +95,7 @@ https://habittree.tk
 
 <br />
  
-# 🌲 스택
+# 🌲 Tech Stack
 
 ![스크린샷 2021-03-14 오후 4 38 26](https://user-images.githubusercontent.com/70796873/111060921-bb50a800-84e3-11eb-90da-e56938d14489.png)
 
@@ -107,6 +107,6 @@ https://habittree.tk
  Server
 <img width="1000" alt="server" src="https://user-images.githubusercontent.com/71421672/109510429-56f61780-7ae5-11eb-82b2-4c43169cf6df.png" />
 
-# 🌲 시연 영상
+# 🌲 Demonstration video
 
 https://www.figma.com/file/3ZtQinbPbSvvcR0uA330xf/Untitled
