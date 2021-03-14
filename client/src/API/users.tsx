@@ -7,7 +7,7 @@ export const login = async (username: string, password: string) => {
     return;
   }
   try {
-    const res = await axios.post('http://localhost:5000/users/login', {
+    const res = await axios.post('https://habittree.gq/users/login', {
       username,
       password,
     });
@@ -23,7 +23,7 @@ export const getUsers = async () => {
     return;
   } else {
     try {
-      const result = await axios.get('http://localhost:5000/users/findAll', {
+      const result = await axios.get('https://habittree.gq/users/findAll', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -42,7 +42,7 @@ export const getUser = async () => {
   } else {
     try {
       const result = await axios.post(
-        'http://localhost:5000/users/findOne',
+        'https://habittree.gq/users/findOne',
         {},
         {
           headers: {
@@ -63,7 +63,7 @@ export const removeUser = async () => {
     return;
   } else {
     try {
-      const res = await axios.delete('http://localhost:5000/users/remove', {
+      const res = await axios.delete('https://habittree.gq/users/remove', {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -83,7 +83,7 @@ export const getHabits = async () => {
   } else {
     return await axios
       .post(
-        'http://localhost:5000/users/getHabits',
+        'https://habittree.gq/users/getHabits',
         {},
         {
           headers: {
@@ -106,7 +106,7 @@ export const signUp = async (
     return;
   }
   try {
-    const result = await axios.post('http://localhost:5000/users/create', {
+    const result = await axios.post('https://habittree.gq/users/create', {
       username,
       password,
       email,
@@ -123,7 +123,7 @@ export const updateUser = async (password: string) => {
     return;
   }
   try {
-    const result = await axios.post('http://localhost:5000/users/update', {
+    const result = await axios.post('https://habittree.gq/users/update', {
       password,
     });
     return result;

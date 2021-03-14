@@ -15,7 +15,7 @@ export const uploadHabit = async (title: string) => {
   const token = localStorage.getItem('access_token');
   try {
     const result = await axios.post(
-      'http://localhost:5000/habits/upload',
+      'https://habittree.gq/habits/upload',
       {
         title,
       },
@@ -36,7 +36,7 @@ export const getAllHabits = async () => {
 
   try {
     const result = await axios.post<Habits[]>(
-      'http://localhost:5000/habits/findAll',
+      'https://habittree.gq/habits/findAll',
       {},
       {
         headers: {
@@ -55,7 +55,7 @@ export const getHabit = async () => {
 
   try {
     const result = await axios.post(
-      'http://localhost:5000/habits/findOne',
+      'https://habittree.gq/habits/findOne',
       {},
       {
         headers: {
@@ -75,7 +75,7 @@ export const removeHabit = async (id: number) => {
   } else {
     try {
       const result = await axios.post(
-        'http://localhost:5000/habits/remove',
+        'https://habittree.gq/habits/remove',
         {
           id: id,
         },
@@ -97,7 +97,7 @@ export const updateHabit = async (id: number) => {
 
   try {
     const result = await axios.post(
-      'http://localhost:5000/habits/update',
+      'https://habittree.gq/habits/update',
       { id },
       {
         headers: {
