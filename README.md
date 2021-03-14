@@ -103,12 +103,10 @@
 * CSS 
   * 모든 컴포넌트 CSS 구현 및 관여
 
-  
-  
 </details>
- 
+
 # 🌲 Tech Stack
-<img width="90%" alt="client" src="https://user-images.githubusercontent.com/70796873/111060921-bb50a800-84e3-11eb-90da-e56938d14489.png" />
+<img width="90%" alt="client" src="https://user-images.githubusercontent.com/70796873/111078351-4d829b80-8538-11eb-866a-5c81cac79343.png" />
 
 # 🌲 Flow Chart
  ## Client 
