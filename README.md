@@ -11,40 +11,6 @@
 <img width="90%" alt="members" src="https://user-images.githubusercontent.com/70796873/111064592-45a30700-84f8-11eb-8e41-8565f7ca5f37.png" />
 
 <details>
-<summary>윤경민</summary>
-<a href="https://github.com/yoonkm24">
-<img src="https://img.shields.io/badge/github-yoonkm24-orange" size=50 />
-</a> 
-  <br />
-1️⃣ Role: Team Member <br >
-2️⃣ Position : Front-End <br >
-3️⃣  Stack : 
-<br>
-  🧑‍💻 React, React-hook, Typescript, CloudFront, S3, Amazon Certificate Manager, Route 53, CSS, Javascript <br >
-4️⃣ Works : 
-<br>
-
-* 기초 작업
-  * WireFrame 작성
-  * 기본 플로우 구축
-* 클라이언트 기본 구축
-  * React, React-hook 이용 기본 라우팅 구현
-  * 기본 기능 구현 (메인, 홈, 로그인, 회원가입 등)
-  * 세부 기능 구현 및 관여
-* 클라이언트 배포
-  * Freenom 이용 도메인 구입 후 ACM, Route53 적용 
-  * S3 이용해 배포
-  * Cloudfront 배포
-* MainPage
-  * MainPage 동영상 제작 및 CSS 
-* CSS 
-  * 모든 컴포넌트 CSS 구현 및 관여
-
-  
-  
-</details>
-
-<details>
 <summary>선종권</summary>
   <a href="https://github.com/sosick0418">
 <img src="https://img.shields.io/badge/github-sosick0418-blue" size=50 /></a> 
@@ -106,6 +72,40 @@
 </details>
 
 <br />
+
+<details>
+<summary>윤경민</summary>
+<a href="https://github.com/yoonkm24">
+<img src="https://img.shields.io/badge/github-yoonkm24-orange" size=50 />
+</a> 
+  <br />
+1️⃣ Role: Team Member <br >
+2️⃣ Position : Front-End <br >
+3️⃣  Stack : 
+<br>
+  🧑‍💻 React, React-hook, Typescript, CloudFront, S3, Amazon Certificate Manager, Route 53, CSS, Javascript <br >
+4️⃣ Works : 
+<br>
+
+* 기초 작업
+  * WireFrame 작성
+  * 기본 플로우 구축
+* 클라이언트 기본 구축
+  * React, React-hook 이용 기본 라우팅 구현
+  * 기본 기능 구현 (메인, 홈, 로그인, 회원가입 등)
+  * 세부 기능 구현 및 관여
+* 클라이언트 배포
+  * Freenom 이용 도메인 구입 후 ACM, Route53 적용 
+  * S3 이용해 배포
+  * Cloudfront 배포
+* MainPage
+  * MainPage 동영상 제작 및 CSS 
+* CSS 
+  * 모든 컴포넌트 CSS 구현 및 관여
+
+  
+  
+</details>
  
 # 🌲 Tech Stack
 <img width="90%" alt="client" src="https://user-images.githubusercontent.com/70796873/111060921-bb50a800-84e3-11eb-90da-e56938d14489.png" />
