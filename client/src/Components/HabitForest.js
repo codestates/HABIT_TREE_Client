@@ -6,7 +6,7 @@ const Forest = ({ forest }) => {
   let canvas;
   let ctx;
   const [width, setWidth] = useState(window.innerWidth);
-
+  console.log(forest);
   useEffect(() => {
     canvas = document.querySelector('.move1');
     ctx = canvas.getContext('2d');
@@ -25,8 +25,6 @@ const Forest = ({ forest }) => {
   });
 
   function initialize() {
-    // Register an event listener to call the resizeCanvas() function
-    // each time the window is resized.
     setWidth(window.innerWidth);
     console.log(window.innerWidth);
     canvas = document.querySelector('.move1');
@@ -83,20 +81,28 @@ const Forest = ({ forest }) => {
     function getRandom(min, max) {
       return Math.floor(Math.random() * (max - min + 1) + min);
     }
-
+    ctx.canvas.width = window.innerWidth;
+    ctx.canvas.height = window.innerHeight;
     for (let ele of forest) {
-      drawFractalTree(ctx, xLocation, leafColor[getRandom(0, 2)]);
+      console.log(1);
+
+      drawFractalTree(
+        ctx,
+        xLocation,
+        leafColor[getRandom(0, 2)],
+        ctx.canvas.width,
+        ctx.canvas.height
+      );
       xLocation += 300;
       ctx.beginPath();
     }
   }
-  function drawFractalTree(ctx, xLocation, leafColor) {
-    ctx.canvas.width = window.innerWidth;
-    ctx.canvas.height = window.innerHeight;
+
+  function drawFractalTree(ctx, xLocation, leafColor, width, height) {
     drawTree(
       ctx,
       xLocation, //getRandomInt(0, 1200),
-      window.innerHeight - 50, //getRandomInt(0, 1000),
+      height - 50, //getRandomInt(0, 1000),
       -90,
       90, //percent
       12,

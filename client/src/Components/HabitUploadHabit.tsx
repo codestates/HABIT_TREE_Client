@@ -22,7 +22,8 @@ const Div = styled.div`
     text-shadow: 2px 3px 3px #ced4da;
     font-weight: bold;
     font-size: 1.1rem;
-    width: 60px;
+    width: 30%;
+    min-width: 50px;
     padding: 10px 5px;
   }
 `;
