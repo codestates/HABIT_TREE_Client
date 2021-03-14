@@ -71,8 +71,6 @@
   * 그 외 다수의 CSS에 관여
 </details>
 
-<br />
-
 <details>
 <summary>윤경민</summary>
 <a href="https://github.com/yoonkm24">
