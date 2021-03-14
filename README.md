@@ -101,11 +101,10 @@
 
 # 🌲 Flow Chart
  Client 
-
-![스크린샷 2021-02-18 오후 1 55 37](https://user-images.githubusercontent.com/71421672/108307354-029f8d80-71f1-11eb-9fee-97a724b33f49.png)
+<img width="500" height="500" alt="client" src="https://user-images.githubusercontent.com/71421672/108307354-029f8d80-71f1-11eb-9fee-97a724b33f49.png" />
 
  Server
-<img width="1000" alt="server" src="https://user-images.githubusercontent.com/71421672/109510429-56f61780-7ae5-11eb-82b2-4c43169cf6df.png" />
+<img width="500" height="500" alt="server" src="https://user-images.githubusercontent.com/71421672/109510429-56f61780-7ae5-11eb-82b2-4c43169cf6df.png" />
 
 # 🌲 Demonstration video
 
