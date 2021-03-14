@@ -1,24 +1,23 @@
 import { useEffect, useState } from 'react';
 import { getHabits } from '../API/users';
-import Forest from './Forest';
+import Forest from '../Components/HabitForest';
 import '../css/clouds.css';
-import UserInfoBlock from './UserInfoBlock';
+import UserInfoBlock from '../Components/UserInfoBlock';
 import { getForest } from '../API/forest';
 import styled from 'styled-components';
 
 const MyPageBlock = styled.div`
   margin-top: 3%;
-  height: 80vh;
+  height: 100vh;
 `;
 
 const ForestBlock = styled.div`
   padding: 0;
-  height: 60vh;
+  height: 100vh;
   background-repeat: no-repeat;
   background-size: cover;
   opacity: 0.9;
   z-index: 0;
-  margin-bottom: 30px;
 `;
 
 type ForestType = {

@@ -1,4 +1,4 @@
-import ViewTree from './ViewTree';
+import ViewTree from './HabitTree';
 
 type Obj = {
   [k: number]: number;

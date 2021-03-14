@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Modal from 'react-modal';
 import { useHistory } from 'react-router';
-import { useSampleState, useSampleDispatch } from './LoginToggleContext';
+import { useSampleState, useSampleDispatch } from '../Store/LoginToggleContext';
 import styled from 'styled-components';
 import { CgTrees } from 'react-icons/cg';
 

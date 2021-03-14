@@ -3,13 +3,19 @@ import { removeUser, updateUser } from '../API/users';
 import styled from 'styled-components';
 
 const Container = styled.div`
-  width: 80%;
+  width: 100%;
+  height: 50%;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  color: #2b8a3e;
+  font-weight: bold;
+  background-color: #eff5e0;
   @media only screen and (max-width: 768px) {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
   }
 `;
 
@@ -33,6 +39,70 @@ const ContainerHabits = styled.div`
     }
   }
 `;
+
+const InputForm = styled.input.attrs({
+  type: 'password',
+})`
+  font-family: Cascadia Mono;
+  border-bottom: solid 3px black;
+  text-align: left;
+  font-size: 20px;
+  border: none;
+  background: none;
+  ::placeholder {
+    font-size: 1rem;
+    font-family: 닉스곤체 2;
+    font-weight: 400;
+  }
+`;
+
+const In4Div = styled.div`
+  display: inline-block;
+`;
+
+const In5Div = styled.div`
+  display: inline-block;
+  font-size: 20px;
+  color: lightgray;
+`;
+
+const Button = styled.button`
+  margin-top: 150px;
+  width: 50%;
+  width: 100%;
+  height: 30px;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 5px;
+  margin: 10px 0px;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
+  background-image: linear-gradient(
+    to right,
+    #0ba360,
+    #3cba92,
+    #30dd8a,
+    #2bb673
+  );
+  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+
+  &:hover {
+    background-position: 100% 0;
+    -o-transition: all 0.4s ease-in-out;
+    -webkit-transition: all 0.4s ease-in-out;
+    transition: all 0.4s ease-in-out;
+  }
+
+  &:focus {
+    outline: none;
+  }
+`;
+
+const Div = styled.div``;
 const UserInfo = ({ userInfo, forest }: any) => {
   const [isUpdate, setIsUpdate] = useState(false);
   const [password, setPassword] = useState('');
@@ -67,68 +137,49 @@ const UserInfo = ({ userInfo, forest }: any) => {
   };
 
   return (
-    <Container>
+    <Container data-aos="fade-left" data-aos-offset="400">
       <ContainerUserInfo>
-        <div>닉네임: {userInfo.nickname}</div>
-        <div>이메일: {userInfo.email}</div>
-        <div className="in4">비밀번호: ******</div>
+        <Div>닉네임: {userInfo.nickname}</Div>
+        <Div>이메일: {userInfo.email}</Div>
+        <In4Div>비밀번호: ******</In4Div>
         {!isUpdate ? (
-          <button
-            className="logBtn2 logBtn-hover2 logColor-52"
-            onClick={() => setIsUpdate(true)}
-          >
-            비밀번호 변경
-          </button>
+          <Button onClick={() => setIsUpdate(true)}>비밀번호 변경</Button>
         ) : (
           <>
-            <div>
-              <input
-                className="inputForm3"
-                type="password"
+            <Div>
+              <InputForm
                 placeholder="변경할 비밀번호"
                 onChange={(e) => handleInputPassword(e)}
-              ></input>
-            </div>
-            <div>
-              <input
-                className="inputForm3"
-                type="password"
+              ></InputForm>
+            </Div>
+            <Div>
+              <InputForm
                 placeholder="변경할 비밀번호 확인"
                 onChange={(e) => handleInputRePassword(e)}
-              ></input>
-            </div>
+              ></InputForm>
+            </Div>
             {handleCheckPassword() ? (
-              <button
-                className="logBtn2 logBtn-hover2 logColor-52"
-                onClick={() => handleClickUpdate(password)}
-              >
+              <Button onClick={() => handleClickUpdate(password)}>
                 비밀번호 수정
-              </button>
+              </Button>
             ) : (
-              <div className="in5">
-                길이가 5자 미만이거나 비밀번호가 맞지 않습니다.
-              </div>
+              <In5Div>길이가 5자 미만이거나 비밀번호가 맞지 않습니다.</In5Div>
             )}
           </>
         )}
-        <button
-          className="logBtn2 logBtn-hover2 logColor-52"
-          onClick={() => handleWithdrawal()}
-        >
-          회원 탈퇴
-        </button>
+        <Button onClick={() => handleWithdrawal()}>회원 탈퇴</Button>
       </ContainerUserInfo>
       <ContainerHabits>
         {!habits ? (
-          <div>아직 등록한 습관이 없으시군요!</div>
+          <Div>아직 등록한 습관이 없으시군요!</Div>
         ) : (
           habits.map((habit: any) => (
-            <div>
+            <Div>
               {`${habit.title} 습관의 달성률은 ${habit.achieve} % 입니다`}
-            </div>
+            </Div>
           ))
         )}
-        <div>{`지금까지 체득한 습관의 개수: ${forest.length}`}</div>
+        <Div>{`지금까지 체득한 습관의 개수: ${forest.length}`}</Div>
       </ContainerHabits>
     </Container>
   );
