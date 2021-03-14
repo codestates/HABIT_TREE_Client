@@ -11,6 +11,20 @@ import { updateHabit, removeHabit } from '../API/habits';
 import styled from 'styled-components';
 import { useSampleState } from '../Store/LoginToggleContext';
 import 'moment/locale/ko';
+
+const CalendarBlock = styled.div`
+  margin-top: 20px;
+  width: 80%;
+`;
+
+const ModalBlock = styled.div`
+  Modal {
+    margin-top: 30px;
+  }
+`;
+
+const Div = styled.div``;
+
 type Habits = {
   id: number;
   title: string;
@@ -41,16 +55,7 @@ type Events = {
 type Obj = {
   [k: number]: number;
 };
-const CalendarBlock = styled.div`
-  margin-top: 20px;
-  width: 80%;
-`;
 
-const ModalBlock = styled.div`
-  Modal {
-    margin-top: 30px;
-  }
-`;
 const localizer = momentLocalizer(moment);
 
 const ReactCalendar = ({
@@ -191,14 +196,24 @@ const ReactCalendar = ({
             <div className="modal__content">
               <div className="modal__header">
                 습 관 목 록
-                <a href="#" className="modal__close" onClick={(e) => { setModalIsOpen(false) }}>&times;</a>
+                <a
+                  href="#"
+                  className="modal__close"
+                  onClick={(e) => {
+                    setModalIsOpen(false);
+                  }}
+                >
+                  &times;
+                </a>
               </div>
               <ul className="modal__text" style={{ listStyle: 'none' }}>
                 {realEvent.map((element: any) => (
                   <li key={element.id}>
-                    <div >{element.title}
-                    &nbsp;&nbsp;&nbsp;
-                      <button className="modalButtons"
+                    <div>
+                      {element.title}
+                      &nbsp;&nbsp;&nbsp;
+                      <button
+                        className="modalButtons"
                         arai-label="satisfied"
                         value={Number(3.5714285714285716)}
                         onClick={(e) => {
@@ -207,7 +222,8 @@ const ReactCalendar = ({
                       >
                         <FaRegThumbsUp />
                         &nbsp;&nbsp;
-                        <button className="modalButtons2"
+                        <button
+                          className="modalButtons2"
                           arai-label="dissatisfied"
                           onClick={() => {
                             deleteEvent(element.id);
@@ -218,7 +234,6 @@ const ReactCalendar = ({
                       </button>
                     </div>
                   </li>
-
                 ))}
               </ul>
             </div>
