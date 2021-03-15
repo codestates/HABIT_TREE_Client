@@ -1,79 +1,97 @@
 .messageModal {
-    position: absolute;
-    right: 1%;
-    top: 7%;
-    border: none;
-    padding: 25px;
+  position: absolute;
+  right: 1%;
+  top: 70px;
+  border: none;
+  padding: 25px;
+  z-index: 1;
 }
 
 .messageModal_content {
-    color: white;
-    font-family: '닉스곤체 2.0';
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    font-size: 18px;
-    text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333;
+  color: white;
+  font-family: '닉스곤체 2.0';
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 18px;
+  text-shadow: -1px 0 #333, 0 1px #333, 1px 0 #333, 0 -1px #333;
 }
 
 * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .buttons {
-    margin: 10%;
-    text-align: center;
+  margin: 10%;
+  text-align: center;
 }
 
 .btn-hover {
-    width: 110px;
-    height: 30px;
-    font-size: 18px;
-    color: #fff;
-    text-align: center;
-    border: none;
-    background-size: 300% 100%;
-    border-radius: 5px;
-    -o-transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
+  width: 110px;
+  height: 30px;
+  font-size: 18px;
+  color: #fff;
+  text-align: center;
+  border: none;
+  background-size: 300% 100%;
+  border-radius: 5px;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn-hover:hover {
-    background-position: 100% 0;
-    -o-transition: all 0.4s ease-in-out;
-    -webkit-transition: all 0.4s ease-in-out;
-    transition: all 0.4s ease-in-out;
+  background-position: 100% 0;
+  -o-transition: all 0.4s ease-in-out;
+  -webkit-transition: all 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn-hover:focus {
-    outline: none;
+  outline: none;
 }
 
 .btn-hover.color-5 {
-    background-image: linear-gradient( to right, #0ba360, #3cba92, #30dd8a, #2bb673);
-    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+  background-image: linear-gradient(
+    to right,
+    #0ba360,
+    #3cba92,
+    #30dd8a,
+    #2bb673
+  );
+  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
 }
 
 .btn-hover.color-5 {
-    background-image: linear-gradient( to right, #0ba360, #3cba92, #30dd8a, #2bb673);
-    box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
+  background-image: linear-gradient(
+    to right,
+    #0ba360,
+    #3cba92,
+    #30dd8a,
+    #2bb673
+  );
+  box-shadow: 0 4px 15px 0 rgba(23, 168, 108, 0.75);
 }
 
+@media only screen and (max-width: 1100px) {
+  .messageModal {
+    top: 7%;
+  }
+}
 @media only screen and (max-width: 768px) {
-    .messageModal {
-        top: 5%;
-    }
-    .messageModal_content {
-        color: black;
-        background: rgb(242, 241, 241);
-        font-size: 1rem;
-        border-radius: 20px;
-        padding: 7px;
-        padding-top: 15px;
-        text-shadow: none;
-    }
+  .messageModal {
+    top: 5%;
+  }
+  .messageModal_content {
+    color: black;
+    background: rgb(242, 241, 241);
+    font-size: 1rem;
+    border-radius: 20px;
+    padding: 7px;
+
+    text-shadow: none;
+  }
 }
