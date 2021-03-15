@@ -176,7 +176,6 @@ const ViewTree = ({ percent }) => {
         width="1000px"
         height="1000px"
       />
-      <MessageModal />
     </div>
   );
 };

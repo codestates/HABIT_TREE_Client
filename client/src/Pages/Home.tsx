@@ -2,7 +2,7 @@ import { useState } from 'react';
 import CalendarBlock from '../Components/HabitCalendarBlock';
 import TreeBlock from '../Components/HabitTreeBlock';
 import styled from 'styled-components';
-
+import MessageModal from '../Components/HabitMessageModal';
 const Container = styled.div`
   display: flex;
 
@@ -50,6 +50,7 @@ function Home({ habits, handleHabits }: HabitsProps) {
   };
   return (
     <Container>
+      <MessageModal />
       <Components>
         <CalendarBlock
           habits={habits}
