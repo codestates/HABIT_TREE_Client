@@ -94,6 +94,7 @@ const TreeBlock = styled.div`
   font-size: 35px;
   display: flex;
   flex-direction: column;
+  align-items: center;
   .treeIcon {
     font-size: 8rem;
   }

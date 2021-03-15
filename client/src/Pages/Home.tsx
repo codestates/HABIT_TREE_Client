@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import MessageModal from '../Components/HabitMessageModal';
 const Container = styled.div`
   display: flex;
-
+  overflow: hidden;
   @media only screen and (max-width: 768px) {
     display: initial;
   }
